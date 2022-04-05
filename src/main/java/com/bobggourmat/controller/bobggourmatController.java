@@ -175,9 +175,10 @@ public class bobggourmatController {
 	   model.addAttribute("resinfo", resinfo);
 	   model.addAttribute("menuinfo",menuinfo);
 	   model.addAttribute("commentlist",commentlist);
-	   log.info("controller resinfo 리턴" + model );
 	   return "resinfo";
    }
    
-   
+   public String edf() {
+	   return "";
+   }
 }
