@@ -26,6 +26,9 @@ public interface UserDAO {
 	int selectCountByUserId(String userid);
 	// 7. select_이름과 전화번호로 가져오기(아이디찾기)
 	UserVO selectByUsername(HashMap<String, String> map);
-	// 8. select_ID와과 전화번호로 가져오기(비번찾기 사용)
+	// 8. select_ID와 전화번호로 가져오기(비번찾기 사용)
 	UserVO selectByUserId(HashMap<String, String> map);
+	// 9. select_login하기
+	UserVO login(UserVO userVO);
+	
 }
