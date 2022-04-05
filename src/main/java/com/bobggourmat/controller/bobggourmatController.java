@@ -188,7 +188,7 @@ public class bobggourmatController {
         return userService.idCheck(user_id);
 	}
    
-   public String def() {
+   public String HI() {
 	   return "";
    }
 }
