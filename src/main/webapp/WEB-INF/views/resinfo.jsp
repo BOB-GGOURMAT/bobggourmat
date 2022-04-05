@@ -27,6 +27,30 @@
 <link href="/resources/css/resinfo.css" rel="stylesheet" />
 <script type="text/javascript">
 
+var i = 0;
+$('i').on('click',function(){
+    if(i==0){
+        $(this).attr('class','bi bi-bookmark-heart-fill');
+        i++;
+    }else if(i==1){
+        $(this).attr('class','bi bi-bookmark-heart');
+        i--;
+    }
+
+});
+
+function clip(){
+
+	var url = '';
+	var textarea = document.createElement("textarea");
+	document.body.appendChild(textarea);
+	url = window.document.location.href;
+	textarea.value = url;
+	textarea.select();
+	document.execCommand("copy");
+	document.body.removeChild(textarea);
+	alert("URL이 복사되었습니다.")
+}
 </script>
 </head>
 <jsp:include page="navbar.jsp"></jsp:include>
@@ -73,19 +97,26 @@
          
          <div class="container4">
          <div class="comment">
+            <h4>COMMENTS <button type="button" class="btn btn-outline-dark btn-sm" style="float: right;">더보기</button></h4><hr/>
             <div class="mb-3">
-			  <label for="exampleFormControlTextarea1" class="form-label">댓글 입력창</label>
+			  <label for="exampleFormControlTextarea1" class="form-label"></label>
 			  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 			</div>
 			<button type="button" class="btn btn-outline-secondary">저장</button>
 			<button type="button" class="btn btn-outline-secondary">수정</button>
+			</div>
+			<div class="commentList">
+			<ul class="list">
+			<c:forEach items="${menuinfo}" var="menuinfo">
+				<li>
+					<span class="menu_name" >${menuinfo.menu_name}</span>
+					<span class="menu_price">${menuinfo.menu_price}원</span><br/>
+				</li>
+			</c:forEach>	
+			</ul>
          </div>
-         
-         <div class="commentList">
-             
 			<i class="bi bi-hand-thumbs-up"></i>
 			<i class="bi bi-hand-thumbs-up-fill"></i>
-		</div>	
 		</div>
 		
 		<div class="container5">
@@ -96,11 +127,13 @@
 		
 		<div class="container6">
          <div class="save">
+          <span class="saveBtn">저장하기 <i class="bi bi-bookmark-heart" style="color: #ffce49; cursor: pointer;"></i></span>
          </div>
          <div class="share">
-         </div>
+         <span  class=shareBtn><a href="#" onclick="clip(); return false;">공유하기<i class="bi bi-share-fill"></i></a></span>
 		</div>
 		
+     </div>
      </div>
 </body>
 </html>

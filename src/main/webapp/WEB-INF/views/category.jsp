@@ -26,7 +26,6 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/category.css" rel="stylesheet" />
 <script type="text/javascript">
-
 	function categoryClick(category_idx){
 		location.href='category?category_idx='+category_idx;
 	}

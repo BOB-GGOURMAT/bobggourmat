@@ -43,30 +43,35 @@
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
 
-	<div class="loginwrapper">
-		<div class="transparentwrapper">
-		<h3>Join Us!</h3>
-	<div class="loginwrapperbaby">
+		<div class="container1">
+		<h1><span class="joinUs" style="text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">Login!</span></h1>
+	    <div class="container2">
+	    <div class="login">
 			<form action="loginOk" method="POST">
-				<div class="loginpasswordbutton">
+				<div class="join">
 				<div class="mb-3">
-					<h4><label for="exampleInputEmail1" class="form-label">ID</label></h4>
-						<input type="text" class="form-control" name="user_id" placeholder="아이디를 입력하세요." autofocus required>
+					<h5><label for="exampleInputEmail1" class="form-label">ID</label></h5>
+						<input type="text" class="form-control" name="user_id" placeholder="아이디를 입력하세요" autofocus required>
 				</div>
 				<div class="mb-3">
-					<h4><label for="exampleInputPassword1" class="form-label">PASSWORD </label></h4>
-						<input type="password" class="form-control" name="user_password" placeholder="비밀번호를 입력하세요." autofocus required>
+					<h5><label for="exampleInputPassword1" class="form-label">PASSWORD </label></h5>
+						<input type="password" class="form-control" name="user_password" placeholder="비밀번호를 입력하세요" autofocus required>
 				</div>
 				 <div class="buttonwrapper" align=right>
 				 	<button type="submit" class="btn btn-warning" >로그인</button>
 				 </div>
 				 </div>
 		    </form>
-				 <div class="joinrequest">
-			   		<span class="fs-15 fw-b">아직 밥꾸르맛 회원이 아니신가요?</span>
-			   		<a href="/joinForm">회원가입</a>
+				 <div class="request">
+			   		<p>아직 밥꾸르맛 회원이 아니신가요?   <a class="requestHref" href="/joinForm">회원가입</a></p>
+			   		<p>아이디와 비밀번호를 잊으셨나요?  <a class="requestHref" href="/findIDPW">아이디/비밀번호 찾기</a></p>
+				    <hr/>
 				</div>
-		</div>
+				<div class="loginBtn">
+				    <a class="loginImg" href="#"><img alt="네이버 로그인" src="/resources/image/naverBtn.png" width="185px;" height="50px;"></a>
+				    <a class="loginImg" href="#"><img alt="카카오 로그인" src="/resources/image/kakaoBtn.png" width="185px;" height="50px;"></a>
+				</div>
+	    </div>
 		</div>
 		</div>
 	
