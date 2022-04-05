@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bobggourmat.dao.ResinfoDAO">
+
+<!-- 1. select_ 식당 한개 정보 가져오기 -->
+    <select id="selectByIdx" resultType="ResinfoVO" parameterType="int">
+		select 
+		 r.*,l.*,c.*
+		from 
+		  resinfo r, category c, location l
+		where 
+		r.location_idx = l.location_idx 
+	    and 
+	    r.category_idx = c.category_idx
+	    and   
+		r.resinfo_idx =  #{resinfo_idx}
+	</select>
+
+<!-- 2. select_ 지역 이름 가져오기-->
+    <select id="location_name" resultType="String" parameterType="int">
+    select location_name from location where location_idx = #{location_idx} 
+    </select>
+
+<!-- 3. select_ 카테고리 이름 가져오기-->
+    <select id="category_name" resultType="String" parameterType="int">
+    select category_name from category where category_idx = #{category_idx} 
+    </select>
+
+<!-- 4. select_ 지역별 식당 리스트 가져오기 -->
+    <select id="location_resinfo" resultType="ResinfoVO" parameterType="int">
+    select 
+        r.resinfo_name , c.category_name , r.resinfo_mainphoto, r.resinfo_idx
+	from 
+	    resinfo r ,category c ,location l 
+	where 
+	    r.location_idx = l.location_idx 
+	    and 
+	    r.category_idx = c.category_idx 
+	    and 
+	    l.location_idx  = #{location_idx}
+    </select>
+    
+<!-- 5. select_ 카테고리별 식당 리스트 가져오기 -->
+    <select id="category_resinfo" resultType="ResinfoVO" parameterType="int">
+    select 
+        r.resinfo_name , l.location_name , r.resinfo_mainphoto, r.resinfo_idx 
+	from 
+	    resinfo r ,category c ,location l 
+	where 
+	    r.location_idx = l.location_idx 
+	    and 
+	    r.category_idx = c.category_idx 
+	    and 
+	    c.category_idx  = #{category_idx}
+    </select>
+
+<!-- 6. select_ 저장한 식당 리스트 가져오기 -->
+    <select id="save_resinfo" resultType="ResinfoVO" parameterType="int">
+    select 
+	   r.resinfo_name , c.category_name , l.location_name ,r.resinfo_mainphoto, r.resinfo_idx
+	from 
+	   resinfo r ,category c ,location l ,user u ,save s 
+	where 
+	   s.user_idx = u.user_idx 
+	   and 
+	   s.resinfo_idx = r.resinfo_idx 
+	   and 
+	   r.category_idx = c.category_idx 
+	   and  
+	   r.location_idx = l.location_idx 
+	   and 
+	   u.user_idx = #{user_idx}
+    </select>
+
+</mapper>

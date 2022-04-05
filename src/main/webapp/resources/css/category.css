@@ -1,0 +1,38 @@
+.clearfix{
+	 width: 100%;
+	 height: 100%;
+	 padding: 5%;
+	 background-color: #FFFFFF;
+ }
+
+a{
+	list-style: none;
+	color: black;
+	text-decoration: none;
+}
+
+a:hover{
+	color: #FFD700;
+}
+
+
+.res{
+   width: 50%;
+   height: 100%;
+   float: right;
+   position: stickey;
+   
+}
+.SelectCategory{ 
+  position: fixed;
+  top: 50%;
+  left: 75%; 
+  transform: translate(-50%, -50%);
+}
+
+.NoData{ 
+  position: fixed;
+  top: 50%;
+  left: 75%; 
+  transform: translate(-50%, -50%);
+}

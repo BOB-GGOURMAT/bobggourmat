@@ -1,0 +1,103 @@
+
+ul{
+	list-style: none;
+}
+
+.container1{
+	height: 400px;
+	width:700px;
+	margin-top: 100px;
+	margin-left: 300px;
+	background-color: yellow;
+}
+
+.container2 {
+	height: 250px;
+	width:700px;
+	margin-top: 30px;
+	margin-left: 300px;
+	background-color: yellow;
+}
+
+.container3{
+	height: 270px;
+	width:700px;
+	margin-top: 30px;
+	margin-left: 300px;
+	background-color: yellow;
+}
+
+.container4{
+	height: 270px;
+	width:700px;
+	margin-top: 30px;
+	margin-left: 300px;
+	background-color: yellow;
+}
+
+.container5{
+	position: absolute;
+	height: 290px;
+	width:220px;
+	top: 100px;
+	right: 280px;
+	background-color: yellow;
+}
+
+.container6{
+	position: absolute;
+	height: 90px;
+	width:220px;
+	top: 410px;
+	right: 280px;
+	background-color: yellow;
+}
+
+.mainphoto{
+	position:absolute;
+	margin-top: 20px;
+	margin-left: 26px;
+	height: 230px;
+	width:  650px;
+	
+}
+.mainphoto img{
+	height: 175px;
+	width: 212px;
+}
+.info{
+	position: absolute;
+	margin-top: 210px;
+	margin-left: 20px;
+	margin-right: 20px;
+	width:  650px;
+}
+
+.review{
+	width:  650px;
+	position: absolute;
+	overflow: hidden;
+	margin: 20px;
+}
+.menu{
+	width:  650px;
+	position: absolute;
+	overflow: hidden;
+	margin: 20px;
+}
+
+.list li{
+	background: url(https://s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/Content/dash-line.jpg) repeat-x center;
+}
+
+.menu_name {
+	background-color: white;
+	float: left;
+	padding-right: 10px;
+}
+
+.menu_price {
+	background-color: white;
+	float: right;
+	padding-left: 10px;
+}

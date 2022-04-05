@@ -1,0 +1,36 @@
+.clearfix{
+	 width: 100%;
+	 height: 100%;
+	 padding: 5%;
+	 background-color: #FFFFFF;
+ }
+
+#mainImg{
+  position: fixed;
+  top: 50%;
+  left: 25%; 
+  transform: translate(-50%, -50%);
+}
+
+.res{
+   
+   width: 50%;
+   height: 100%;
+   float: right;
+   position: stickey;
+   
+}
+
+.NoData{ 
+  position: fixed;
+  top: 50%;
+  left: 75%; 
+  transform: translate(-50%, -50%);
+}
+
+.SelectLocation{
+  position: fixed;
+  top: 50%;
+  left: 75%; 
+  transform: translate(-50%, -50%);
+}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bobggourmat.dao.UserDAO">
+    <!-- 1. insert_계정 저장하기(회원가입) -->
+    <insert id="insertUser" parameterType="UserVO">
+    insert into user(
+    user_name,
+    user_nickname,
+    user_id,
+    user_password,
+    user_email,
+    user_phone 
+    ) 
+     values(
+    #{user_name},
+    #{user_nickname},
+    #{user_id},
+    #{user_password},
+    #{user_email},
+    #{user_phone}
+    )
+    </insert>
+    <!-- 2. select_개정 1개 불러오기 -->
+    <select id="selectByIdx" resultType="UserVO" parameterType="int">
+        select * from user where user_idx =#{user_idx}
+    </select>
+    <!-- 3. update_계정 수정하기 -->
+    <update id="updateUser"  parameterType="UserVO">
+        update user set
+            user_nickname = #{user_nickname},
+			user_phone = #{user_phone},
+			user_email = #{user_email}
+		where
+			user_idx = #{user_idx}
+    </update>
+    <!-- 4. update_비밀번호 변경하기 (아이디랑 바꿀 비밀번호를 입력) -->
+   <update id="updatePassword" parameterType="hashmap">
+		update user set user_password=#{user_password} where user_id=#{user_id}
+	</update>
+    <!-- 5. delete_계정 삭제하기 -->
+    <delete id="deleteUser" parameterType="int">
+		delete from user
+		where
+		user_idx=#{user_idx}
+	</delete>
+    <!-- ================================================== -->
+    <!-- 6. select_해당아이디의 개수 (아이디 중복확인에 사용: 0이면 사용가능, 1이상이면 사용불가) -->
+    <select id="selectCountByUserId" resultType="int" parameterType="String">
+       select count(*) from user where user_idx=#{user_idx}
+    </select>    
+    <!-- 7. select_이름과 전화번호로 가져오기(아이디찾기) -->
+    <select id="selectByUsername" resultType="UserVO" parameterType="hashmap">
+       select * from user where user_name=#{user_name} and user_phone=#{user_phone}
+    </select>
+    <!-- 8. select_ID와과 전화번호로 가져오기(비번찾기 사용) -->
+    <select id="selectByUserId" resultType="UserVO" parameterType="hashmap">
+       select * from user where user_id=#{user_id} and user_phone=#{user_phone}
+    </select>
+</mapper>
