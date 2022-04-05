@@ -35,6 +35,8 @@ build/
 ### dbeaver ###
 .dbeaver/credentials-config.json
 .dbeaver/data-sources.json
+.dbeaver/data-sources.bak
+.dbeaver/credentials-config.bak
 
 application.properties
 bin/
