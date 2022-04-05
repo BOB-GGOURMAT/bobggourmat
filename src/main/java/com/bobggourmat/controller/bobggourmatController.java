@@ -179,5 +179,16 @@ public class bobggourmatController {
 	   return "resinfo";
    }
    
+   //중복확인
+   @RequestMapping(value = "/idCheck")
+   @ResponseBody
+	public int checkId(@RequestParam(required = false) String user_id) {
+        log.info("controller idcheck 호출 :" + user_id);
+        System.out.println("controller idcheck 호출 :" + user_id);
+        return userService.idCheck(user_id);
+	}
    
+   public String def() {
+	   return "";
+   }
 }

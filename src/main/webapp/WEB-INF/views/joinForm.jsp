@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>밥 꾸르맛</title>
+<title>회원가입 화면</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
@@ -25,8 +25,30 @@
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"	rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/joinForm.css" rel="stylesheet" />
-
-<title>회원가입 화면</title>
+<script type="text/javascript">      
+function checkId() {
+   var value = $("#user_id").val();
+   alert("value :" + value);
+   $.ajax({
+       url: 'idCheck',
+       method: 'GET',
+       data: {"user_id":value},
+       success: function(data){
+            if(data == 0){
+               console.log("아이디 없음");
+               alert("사용하실 수 있는 아이디입니다.");
+            }else{
+               console.log("아이디 있음");
+               alert("중복된 아이디가 존재합니다.");
+            }
+       },
+       error: function (){        
+            alert('에러입니다.')             
+       }
+     });
+}
+ 
+</script>
 
 <jsp:include page="navbar.jsp"></jsp:include>
  <body>
@@ -66,7 +88,7 @@
                         <input type="text" name="user_id" placeholder="아이디를 입력하세요." required>
                     </li>
                     <li class="item">
-                        <button class="idcheck">중복확인</button>
+                        <button type="button" id=db_checkId class="idcheck" onclick="checkId();">중복확인</button>
                     </li>
                 </ul>
                 <ul class="container">
