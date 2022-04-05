@@ -17,9 +17,17 @@ public class UserServiceImpl implements UserService {
 
 	private final UserDAO userDAO;
 
-	@Override // 컨트롤러만들때 만듬
+	@Override 
 	public UserVO loginOk(UserVO userVO) {
-		// TODO Auto-generated method stub
+		log.info("UserService loginOK호출 : " + userVO);
+		if(userVO != null) {
+			//아이디 입력폼이 공란이 아니라면
+			log.info("UserService loginOK if 호출: " + userVO);
+			UserVO dbvo = userDAO.login(userVO);
+			log.info("UserService loginOK if 리턴: " + dbvo);
+			return dbvo;
+		}
+		log.info("UserService loginOK리턴 : " + userVO);
 		return null;
 	}
 
