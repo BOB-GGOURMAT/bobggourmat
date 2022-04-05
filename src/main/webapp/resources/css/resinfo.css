@@ -1,3 +1,6 @@
+body{
+	background-color: #ffce49;
+}
 
 ul{
 	list-style: none;
@@ -8,7 +11,7 @@ ul{
 	width:700px;
 	margin-top: 100px;
 	margin-left: 300px;
-	background-color: yellow;
+	background-color: white;
 }
 
 .container2 {
@@ -16,7 +19,7 @@ ul{
 	width:700px;
 	margin-top: 30px;
 	margin-left: 300px;
-	background-color: yellow;
+	background-color: white;
 }
 
 .container3{
@@ -24,7 +27,7 @@ ul{
 	width:700px;
 	margin-top: 30px;
 	margin-left: 300px;
-	background-color: yellow;
+	background-color: white;
 }
 
 .container4{
@@ -32,7 +35,7 @@ ul{
 	width:700px;
 	margin-top: 30px;
 	margin-left: 300px;
-	background-color: yellow;
+	background-color: white;
 }
 
 .container5{
@@ -41,7 +44,7 @@ ul{
 	width:220px;
 	top: 100px;
 	right: 280px;
-	background-color: yellow;
+	background-color: white;
 }
 
 .container6{
@@ -50,7 +53,7 @@ ul{
 	width:220px;
 	top: 410px;
 	right: 280px;
-	background-color: yellow;
+	background-color: white;
 }
 
 .mainphoto{

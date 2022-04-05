@@ -1,60 +1,53 @@
-.loginwrapper {
-	width:  100%;
-	height: 100%;
-	margin: auto;
+body {
+	background-color: #ffce49;
 }
 
-.loginwrapperbaby {
-	width: 100%;
-	height: 100%;
-	border: 2px solid gray;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-}
-.transparentwrapper{
-	width: 50%;
-	height: 50%;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin: auto;
+.container1 {
+	color: white;
+	height: 530px;
+	width: 500px;
+	margin-top: 110px;
+	margin-left: 515px;
 }
 
-.buttonwrapper {
-	margin-left: 75%;
-	margin-right: auto;
+.container2 {
+	height: 500px;
+	width: 500px;
+	background-color: white;
+	border: 1px solid gray;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
-.loginpasswordbutton {
-	margin-top: 30px;
-    margin-left: 25%;
-    margin-right: 25%;
-	
+.join {
+	text-align: left; color : black;
+	margin: 30px;
+	color: black;
 }
 
-
-.joinrequest {
-	font-size: 10pt;
-	color: gray;
-	margin-right: 10%;
-	margin-left: auto;
+.request {
+	color: gray; margin : 30px;
+	font-size: 14px;
+	margin: 30px;
 }
 
-.a{
+.requestHref {
+	color: blue;
+}
+
+a {
 	list-style: none;
 	color: gray;
 	text-decoration: none;
 }
 
-.a:hover{
-	color: pink;
+.submit {
+	float: right;
 }
 
-.submit{
-	 float: right;
+.loginBtn {
+	text-align: center;
+}
+
+input::-webkit-input-placeholder {
+	text-align: center;
 }

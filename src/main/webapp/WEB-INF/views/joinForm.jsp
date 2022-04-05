@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,6 +27,7 @@
 <script type="text/javascript">      
 function checkId() {
    var value = $("#user_id").val();
+	if(value!=null && value.length>=4){
    alert("value :" + value);
    $.ajax({
        url: 'idCheck',
@@ -45,6 +45,8 @@ function checkId() {
        error: function (){        
             alert('에러입니다.')             
        }
+       else{
+           alert("아이다가 너무 짧습니다.");
      });
 }
  
@@ -52,103 +54,71 @@ function checkId() {
 
 <jsp:include page="navbar.jsp"></jsp:include>
  <body>
- <div class="register">
-        <h3>회원가입</h3>
-        <form name="join" action="insertOk" method="POST">
-            <div class="flex">
-                <ul class="container">
-                    <li class="item center">
-                        이름
-                    </li>
-                    <li class="item">
-                        <input type="text" name="user_name" autofocus required>
-                    </li>
-                    <li class="item">
-                        
-                    </li>
-                </ul>
-                
-                <ul class="container">
-                    <li class="item center">
-                        닉네임
-                    </li>
-                    <li class="item">
-                        <input type="text" name="user_nickname" autofocus required>
-                    </li>
-                    <li class="item">
-                        
-                    </li>
-                </ul>          
-                
-                <ul class="container">
-                    <li class="item center">
-                        아이디
-                    </li>
-                    <li class="item">
-                        <input type="text" name="user_id" placeholder="아이디를 입력하세요." required>
-                    </li>
-                    <li class="item">
-                        <button type="button" id=db_checkId class="idcheck" onclick="checkId();">중복확인</button>
-                    </li>
-                </ul>
-                <ul class="container">
-                    <li class="item center">
-                        비밀번호
-                    </li>
-                    <li class="item">
-                        <input type="password" name="user_password" placeholder="비밀번호를 입력하세요." required>
-                    </li>
-                    <li class="item">
-                        
-                    </li>
-                </ul>
-                <ul class="container">
-                    <li class="item center">
-                        비밀번호 확인
-                    </li>
-                    <li class="item">
-                        <input type="password" placeholder="비밀번호를 입력하세요." required>
-                    </li>
-                    <li class="item">
-                        
-                    </li>
-                </ul>
-                <ul class="container">
-                    <li class="item center">
-                        이메일
-                    </li>
-                    <li class="item">
-                        <input type="email" name="user_email" placeholder="이메일을 입력하세요." required>
-                    </li>
-                    <li class="item">
-                        
-                    </li>
-                </ul>
-                
-                <ul class="container">
-                    <li class="item center">
-                        전화번호
-                    </li>
-                    <li class="item">
-                        <input type="text" name="user_phone" placeholder="휴대전화번호">
-                    </li>
-                    <li class="item">
-                        
-                    </li>
-                </ul>
-                <ul class="container">
-                    <li class="item center">
-                        
-                    </li>
-                    <li class="item">
-                        <button class="submit">가입하기</button>
-                    </li>
-                    <li class="item">
-                        
-                    </li>
-                </ul>
-            </div>
-        </form>
+ <div class="container1">
+        <h1><span class="join" style="text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">Join Us!</span>
+        </h1>
+        <div class="container2">
+			<div class="joinForm">
+				<form action="insertOk" method="POST">
+					<div class="flex">
+						<ul class="container">
+							<li class="item center">이름</li>
+							<li class="item">
+							  <input type="text" name="user_name" class="form-control" autofocus required></li>
+							<li class="item"></li>
+						</ul>
+
+						<ul class="container">
+							<li class="item center">닉네임</li>
+							<li class="item"> 
+							  <input type="text" name="user_nickname" class="form-control" autofocus required></li>
+							<li class="item"></li>
+						</ul>
+
+						<ul class="container">
+							<li class="item center">아이디</li>
+							<li class="item">
+							  <input type="text" name="user_id" class="form-control" placeholder="아이디를 입력하세요." required></li>
+							<li class="item">
+								<button type="button" class="btn btn-warning btn-sm" id=db_checkId onclick="checkId();">중복확인</button>
+							</li>
+						</ul>
+						<ul class="container">
+							<li class="item center">비밀번호</li>
+							<li class="item">
+							  <input type="password" name="user_password" class="form-control" placeholder="비밀번호를 입력하세요" required></li>
+							<li class="item"></li>
+						</ul>
+						<ul class="container">
+							<li class="item center">비밀번호 확인</li>
+							<li class="item">
+							 <input type="password" class="form-control" placeholder="비밀번호를 입력하세요" required></li>
+							<li class="item"></li>
+						</ul>
+						<ul class="container">
+							<li class="item center">이메일</li>
+							<li class="item">
+							  <input type="email" name="user_email" class="form-control" placeholder="이메일을 입력하세요" required></li>
+							<li class="item"></li>
+						</ul>
+
+						<ul class="container">
+							<li class="item center">전화번호</li>
+							<li class="item">
+							  <input type="text" name="user_phone" class="form-control" placeholder="- 없이 입력하세요"></li>
+							<li class="item"></li>
+						</ul>
+						<ul class="container">
+							<li class="item center"></li>
+							<li class="item">
+								<button type="submit" class="btn btn-warning" style="float: right;">가입하기</button>
+							</li>
+							<li class="item"></li>
+						</ul>
+					</div>
+				</form>
+			</div>
+		</div>
     </div>
     </body>
 </html> 

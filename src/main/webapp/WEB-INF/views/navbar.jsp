@@ -12,7 +12,8 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="btn btn-light btn-sm" href="/map" role="button">지역</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="btn btn-light btn-sm" href="/category" role="button">카테고리</a></li>
                         <c:if test="${ userinfo ==null }">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="btn btn-light btn-sm" href="/login" role="button">로그인/회원가입</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="btn btn-light btn-sm" href="/joinForm" role="button">회원가입</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="btn btn-light btn-sm" href="/login" role="button">로그인</a></li>
                          </c:if>
                         <c:if test="${ userinfo !=null }">
                         <li class="nav-item mx-0 mx-lg-1"><a class="btn btn-light btn-sm" href="/mypage" role="button">마이페이지</a></li>
