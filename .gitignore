@@ -33,10 +33,10 @@ build/
 .vscode/
 
 ### dbeaver ###
-.dbeaver/.credentials-config.json
-.dbeaver/.data-sources.json
+.dbeaver/credentials-config.json
+.dbeaver/data-sources.json
 
-.application.properties
+application.properties
 bin/
 /bin/
 target/
