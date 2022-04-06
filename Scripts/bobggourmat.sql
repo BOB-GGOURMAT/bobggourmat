@@ -78,6 +78,7 @@ select * from likes;
 create table likes(
     user_idx int,
     comment_idx int,
+    likes_onOff boolean default 0,
     foreign key (user_idx) references user(user_idx),
     foreign key (comment_idx) references comment(comment_idx)
 );
@@ -87,9 +88,11 @@ select * from save;
 create table save(
     user_idx int,
     resinfo_idx int,
+    save_onOff boolean default 0,
     foreign key (user_idx) references user(user_idx),
     foreign key (resinfo_idx) references resinfo (resinfo_idx)
 );
+
 
 INSERT INTO category (
 			category_name 

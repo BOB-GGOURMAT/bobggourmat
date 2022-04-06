@@ -7,14 +7,16 @@
 <!-- 1. select_ 식당 한개 정보 가져오기 -->
     <select id="selectByIdx" resultType="ResinfoVO" parameterType="int">
 		select 
-		 r.*,l.*,c.*
+		 r.*,l.*,c1.*,avg(comment_star)
 		from 
-		  resinfo r, category c, location l
+		  resinfo r, category c1, location l,comment c2
 		where 
 		r.location_idx = l.location_idx 
 	    and 
-	    r.category_idx = c.category_idx
+	    r.category_idx = c1.category_idx
 	    and   
+	    r.resinfo_idx = c2.resinfo_idx
+	    and
 		r.resinfo_idx =  #{resinfo_idx}
 	</select>
 

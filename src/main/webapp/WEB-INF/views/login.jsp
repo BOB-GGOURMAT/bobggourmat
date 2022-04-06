@@ -44,7 +44,7 @@
 	<jsp:include page="navbar.jsp"></jsp:include>
 
 		<div class="container1">
-		<h1><span class="joinUs" style="text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">Login!</span></h1>
+		<h1><span class="joinUs" style="text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">Login</span></h1>
 	    <div class="container2">
 	    <div class="login">
 			<form action="loginOk" method="POST">

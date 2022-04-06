@@ -21,15 +21,17 @@ a:hover {
 	margin-top: 100px;
 	margin-left: 300px;
 	background-color: white;
+	border: 1px solid gray;
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
 .container2 {
-	height: 250px;
+	height: 320px;
 	width: 700px;
 	margin-top: 30px;
 	margin-left: 300px;
 	background-color: white;
+	border: 1px solid gray;
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -39,6 +41,7 @@ a:hover {
 	margin-top: 30px;
 	margin-left: 300px;
 	background-color: white;
+	border: 1px solid gray;
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -48,6 +51,7 @@ a:hover {
 	margin-top: 30px;
 	margin-left: 300px;
 	background-color: white;
+	border: 1px solid gray;
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -58,6 +62,7 @@ a:hover {
 	top: 100px;
 	right: 280px;
 	background-color: white;
+	border: 1px solid gray;
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -68,6 +73,7 @@ a:hover {
 	top: 440px;
 	right: 280px;
 	background-color: white;
+	border: 1px solid gray;
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -80,6 +86,7 @@ a:hover {
 }
 
 .mainphoto img {
+	border: 1px solid gray;
 	height: 175px;
 	width: 212px;
 }
@@ -138,6 +145,7 @@ a:hover {
 }
 
 #map{
+	border: 1px solid gray;
    margin:14px;	
 }
 

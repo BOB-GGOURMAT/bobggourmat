@@ -45,9 +45,10 @@ function checkId() {
        error: function (){        
             alert('에러입니다.')             
        }
-       else{
-           alert("아이다가 너무 짧습니다.");
      });
+	} else{
+           alert("아이다가 너무 짧습니다.");
+        }
 }
  
 </script>
@@ -55,7 +56,7 @@ function checkId() {
 <jsp:include page="navbar.jsp"></jsp:include>
  <body>
  <div class="container1">
-        <h1><span class="join" style="text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">Join Us!</span>
+        <h1><span class="join" style="text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">Join Us</span>
         </h1>
         <div class="container2">
 			<div class="joinForm">
@@ -78,7 +79,7 @@ function checkId() {
 						<ul class="container">
 							<li class="item center">아이디</li>
 							<li class="item">
-							  <input type="text" name="user_id" class="form-control" placeholder="아이디를 입력하세요." required></li>
+							  <input type="text" name="user_id" class="form-control" placeholder="4글자 이상 입력하세요" required></li>
 							<li class="item">
 								<button type="button" class="btn btn-warning btn-sm" id=db_checkId onclick="checkId();">중복확인</button>
 							</li>
