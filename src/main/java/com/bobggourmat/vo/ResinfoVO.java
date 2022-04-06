@@ -16,5 +16,6 @@ public class ResinfoVO {
    private String resinfo_mainphoto;
    private String resinfo_subphoto1;
    private String resinfo_subphoto2;
-   
+   private String resinfo_map;
+   private double resinfo_star;
 }

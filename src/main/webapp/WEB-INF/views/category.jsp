@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +39,7 @@
     <div class="clearfix">
 	<!-- 좌측 category 부분 -->
 	<div class="container float-left position-fixed w-50">
-	<h3>CATEGORY</h3>
+	<h1><span style="color:white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">CATEGORY</span></h1>
      <div class="row row-cols-4">
     <div class="col">
      	    <a href="javascript:categoryClick('1');">게장</a><br/>
@@ -89,8 +90,8 @@
 	</c:when>
 	<c:otherwise>
 		<div class="res">
-		<h3><img alt="로고" src="/resources/image/밥 꾸르맛.png" width="40px" height="40px">
-		${category_name} 맛집 </h3>
+		<h1><span style="color:white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
+		${category_name} 맛집 </span></h1>
 		<div class="container overflow-hidden">
 		<div class="row gy-5">
 		<c:forEach items="${category_reslist}" var="category_reslist">
@@ -100,7 +101,14 @@
 		  		<div class="card-body">
 		    		<h5 class="card-title">${category_reslist.resinfo_name}</h5>
 		    		<p class="card-text">지역 : ${category_reslist.location_name}</p>
-		    		<h5 class="star" style="color: orange">별점 표시될 곳</h5><br/>
+		    		<h5 class="star" style="color: #fb3a2f">
+		    		 <c:if test="${category_reslist.resinfo_star == 0}">
+                     <i class="bi bi-star-fill" style="color: #fb3a2f"></i>0.0(평가 전)
+                    </c:if>
+                    <c:if test="${category_reslist.resinfo_star != 0}">
+                    <fmt:formatNumber pattern="##.#" ><i class="bi bi-star-fill" style="color: #fb3a2f"></i>${category_reslist.resinfo_star}</fmt:formatNumber>
+                    </c:if> 
+                    </h5><br/>
 		    		<a href="/resinfo?resinfo_idx=${category_reslist.resinfo_idx }"><button type="button" class="btn btn-outline-dark btn-sm">식당 구경하기</button></a>
 		   		</div>
 	   		</div>
