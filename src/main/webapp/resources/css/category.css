@@ -1,40 +1,68 @@
-body{
-	 background-color: #ffce49;
- }
+body {
+	background-color: #ffce49;
+}
 
-a{
-	list-style: none;
-	color: white;
+.category1 a, .category2 a {
+	font-weight: bold;
+	color: black;
 	text-decoration: none;
 }
 
-a:hover{
-	color: #FFFFFF;
+.category1 a:hover, .category2 a:hover {
+	color: #fb3a2f;
 }
 
-
-.res{
-   width: 50%;
-   height: 100%;
-   float: right;
-   position: stickey;
-   
-}
-.SelectCategory{ 
-  position: fixed;
-  top: 50%;
-  left: 75%; 
-  transform: translate(-50%, -50%);
+.container1 {
+	position:absolute;
+	width: 100%;
+    margin-top: 110px;
 }
 
-.NoData{ 
-  position: fixed;
-  top: 50%;
-  left: 75%; 
-  transform: translate(-50%, -50%);
+.container2 {
+	width: 500px;
+	position: fixed;
+	margin-left: 250px;
+	letter-spacing: 5px;
+	font-size: 17px;
 }
 
-.card{
-	border: 1px solid gray;
-	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+.category1 {
+	line-height: 30px;
+	margin-top: 10px;
+	position: absolute;
+	width: 230px;
+	font-size: 17px;
+}
+
+.category2 {
+	line-height: 30px;
+	margin-top: 10px;
+	position: absolute;
+	margin-left: 200px;
+	width: 230px;
+}
+
+.container3 {
+	position:absolute;
+	width: 650px;
+	margin-left: 800px;
+}
+
+.container4 {
+	position:absolute;
+	margin-top: 60px;
+	overflow:scroll; 
+	height: 536px;
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+.container4::-webkit-scrollbar {
+    display: none; 
+}
+
+.NoData, .SelectCategory {
+	position: fixed;
+	top: 50%;
+	left: 65%;
+	transform: translate(-50%, -50%);
 }
