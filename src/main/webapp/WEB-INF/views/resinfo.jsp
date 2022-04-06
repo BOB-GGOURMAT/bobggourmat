@@ -151,7 +151,7 @@ function clip(){
 		var mapContainer = document.getElementById('map'), 
 	    mapOption = { 
 	        center: new kakao.maps.LatLng(${resinfo.resinfo_map }), 
-	        level: 3 
+	        level: 4 
 	    };
 		var map = new kakao.maps.Map(mapContainer, mapOption); 
 		var imageSrc = '/resources/image/mapmarker.png', 

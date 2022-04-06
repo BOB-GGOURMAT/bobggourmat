@@ -31,17 +31,16 @@
 		location.href='category?category_idx='+category_idx;
 	}
 </script>
-</head>
 <jsp:include page="navbar.jsp"></jsp:include>
+</head>
 <body>
 
-	<!-- 큰 박스 -->
-    <div class="clearfix">
+    <!-- 전체 -->
+    <div class="container1">
 	<!-- 좌측 category 부분 -->
-	<div class="container float-left position-fixed w-50">
+	<div class="container2">
 	<h1><span style="color:white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">CATEGORY</span></h1>
-     <div class="row row-cols-4">
-    <div class="col">
+    <div class="category1">
      	    <a href="javascript:categoryClick('1');">게장</a><br/>
 			<a href="javascript:categoryClick('2');">곰탕</a><br/>
 			<a href="javascript:categoryClick('3');">냉면</a><br/>
@@ -58,13 +57,13 @@
 			<a href="javascript:categoryClick('14');">베지테리언</a><br/>
 			<a href="javascript:categoryClick('15');">불고기</a><br/>
 			<a href="javascript:categoryClick('16');">설렁탕</a><br/>
+    </div>
+    <div class="category2">
 			<a href="javascript:categoryClick('17');">소바</a><br/>
 			<a href="javascript:categoryClick('18');">수제비</a><br/>
 			<a href="javascript:categoryClick('19');">아시안</a><br/>
 			<a href="javascript:categoryClick('20');">야키토리</a><br/>
-    </div>
-    <div class="col">
-      <a href="javascript:categoryClick('21');">우동</a><br/>
+            <a href="javascript:categoryClick('21');">우동</a><br/>
 			<a href="javascript:categoryClick('22');">육회</a><br/>
 			<a href="javascript:categoryClick('23');">이탤리언</a><br/>
 			<a href="javascript:categoryClick('24');">이탤리언 컨템퍼러리</a><br/>
@@ -77,7 +76,6 @@
     </div>
     
   </div>
-  </div>
 		
 
    <!-- 우측 식당 표시 부분 -->	
@@ -89,10 +87,10 @@
 	   <img class="NoData"alt="NoData" src="/resources/image/NoData.png">
 	</c:when>
 	<c:otherwise>
-		<div class="res">
-		<h1><span style="color:white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
+		<div class="container3">
+		<h1><span style=" position:fixed; color:white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
 		${category_name} 맛집 </span></h1>
-		<div class="container overflow-hidden">
+		<div class="container4">
 		<div class="row gy-5">
 		<c:forEach items="${category_reslist}" var="category_reslist">
         <div class="col-6">
