@@ -1,1 +1,1 @@
-{"resources":{"Scripts/Script.sql":{"sql-editor-data-source-id":"mariaDB-17fc5633171-7c6591147175d4d4","default-datasource":"mariaDB-17fc5633171-7c6591147175d4d4"}}}
+{"resources":{"Scripts/bobggourmat.sql":{"sql-editor-data-source-id":"mariaDB-17ff0757da7-7ecf0bf230106bb1","default-datasource":"mariaDB-17fc5633171-7c6591147175d4d4","default-catalog":"mydb"}}}

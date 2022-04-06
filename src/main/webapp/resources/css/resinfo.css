@@ -1,96 +1,128 @@
-body{
+body {
 	background-color: #ffce49;
 }
 
-ul{
+ul {
 	list-style: none;
 }
 
-.container1{
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	color: black;
+}
+
+.container1 {
 	height: 400px;
-	width:700px;
+	width: 700px;
 	margin-top: 100px;
 	margin-left: 300px;
 	background-color: white;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
 .container2 {
 	height: 250px;
-	width:700px;
+	width: 700px;
 	margin-top: 30px;
 	margin-left: 300px;
 	background-color: white;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
-.container3{
+.container3 {
 	height: 270px;
-	width:700px;
+	width: 700px;
 	margin-top: 30px;
 	margin-left: 300px;
 	background-color: white;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
-.container4{
+.container4 {
 	height: 270px;
-	width:700px;
+	width: 700px;
 	margin-top: 30px;
 	margin-left: 300px;
 	background-color: white;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
-.container5{
+.container5 {
 	position: absolute;
-	height: 290px;
-	width:220px;
+	height: 320px;
+	width: 220px;
 	top: 100px;
 	right: 280px;
 	background-color: white;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
-.container6{
+.container6 {
 	position: absolute;
-	height: 90px;
-	width:220px;
-	top: 410px;
+	height: 60px;
+	width: 220px;
+	top: 440px;
 	right: 280px;
 	background-color: white;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
-.mainphoto{
-	position:absolute;
+.mainphoto {
+	position: absolute;
 	margin-top: 20px;
 	margin-left: 26px;
 	height: 230px;
-	width:  650px;
-	
+	width: 650px;
 }
-.mainphoto img{
+
+.mainphoto img {
 	height: 175px;
 	width: 212px;
 }
-.info{
+
+.info {
 	position: absolute;
 	margin-top: 210px;
 	margin-left: 20px;
 	margin-right: 20px;
-	width:  650px;
+	width: 650px;
 }
 
-.review{
-	width:  650px;
+.review {
+	color: #bd2333;
+	width: 650px;
+	position: absolute;
+	overflow: hidden;
+	margin: 20px;
+	width: 650px;
+}
+
+.menu {
+	width: 650px;
 	position: absolute;
 	overflow: hidden;
 	margin: 20px;
 }
-.menu{
-	width:  650px;
+
+.comment {
+	width: 650px;
 	position: absolute;
 	overflow: hidden;
 	margin: 20px;
 }
 
-.list li{
-	background: url(https://s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/Content/dash-line.jpg) repeat-x center;
+.myComment {
+	border: 1px solid gray;
+}
+
+.list li {
+	background:
+		url(https://s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/Content/dash-line.jpg)
+		repeat-x center;
 }
 
 .menu_name {
@@ -103,4 +135,16 @@ ul{
 	background-color: white;
 	float: right;
 	padding-left: 10px;
+}
+
+#map{
+   margin:14px;	
+}
+
+
+.saveShare {
+	position: absolute;
+    margin-left:20px;
+	top: 50%;
+	transform: translateY(-50%);
 }
