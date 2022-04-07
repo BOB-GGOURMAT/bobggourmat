@@ -67,6 +67,10 @@ public class UserController {
 		   return "updateForm";
 	   }
 
-	  
+	    //아이디 비번 찾기 화면
+		@RequestMapping(value = "/findIDPW")
+		public String findIDPW()  {
+			return "findIDPW";
+		}
 	   
 }
