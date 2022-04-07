@@ -2,12 +2,6 @@ body {
 	background-color: #ffce49;
 }
 
-.clearfix{
-	 width: 100%;
-	 height: 100%;
-	 padding: 5%;
-	 background-color: #FFFFFF;
- }
 
 #mainImg{
   position: fixed;
@@ -16,30 +10,35 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.res{
-   
-   width: 50%;
-   height: 100%;
-   float: right;
-   position: stickey;
-   
+
+.container1{
+	margin-top:110px;
+	margin-left: 217px;
+	position: absolute;
 }
 
-.NoData{ 
-  position: fixed;
-  top: 50%;
-  left: 75%; 
-  transform: translate(-50%, -50%);
+.container2{
+	margin-top:110px;
+	position: absolute;
+	width: 650px;
+	margin-left: 800px;
 }
 
-.SelectLocation{
-  position: fixed;
-  top: 50%;
-  left: 75%; 
-  transform: translate(-50%, -50%);
+.container3{
+	position: absolute;
+	margin-top: 60px;
+	overflow: scroll;
+	height: 536px;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }
 
-.card{
-	border: 1px solid gray;
-	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+.container3::-webkit-scrollbar {
+	display: none;
+}
+.NoData, .SelectLocation {
+	position: fixed;
+	top: 50%;
+	left: 65%;
+	transform: translate(-50%, -50%);
 }

@@ -13,9 +13,9 @@ body {
 }
 
 .container1 {
-	position:absolute;
+	position: absolute; 
+	margin-top: 110px;
 	width: 100%;
-    margin-top: 110px;
 }
 
 .container2 {
@@ -43,21 +43,22 @@ body {
 }
 
 .container3 {
-	position:absolute;
+	position: absolute;
 	width: 650px;
 	margin-left: 800px;
 }
 
 .container4 {
-	position:absolute;
+	position: absolute;
 	margin-top: 60px;
-	overflow:scroll; 
+	overflow: scroll;
 	height: 536px;
-    -ms-overflow-style: none; 
-    scrollbar-width: none; 
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }
+
 .container4::-webkit-scrollbar {
-    display: none; 
+	display: none;
 }
 
 .NoData, .SelectCategory {

@@ -37,9 +37,9 @@
 <jsp:include page="navbar.jsp"></jsp:include>
 <body>
 
-    <!-- 전체 부분 -->
-    <div class="clearfix">
 	<!-- 좌측 map 부분 -->
+    <div class="container1">
+	<h1><span  style="position:fixed; color:white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">MAP</span></h1>
     	<img src="/resources/image/map/${img }" alt="서울특별시" usemap="#Map_Detail" border="0" style="display: inline;" id="mainImg"/>
            <map name="Map_Detail" id="Map_Detail">
               <area shape="poly" code="15" coords="57,161,33,203,68,213,73,207,83,220,92,219,96,206,100,201" href="javascript:mapClick('m001o_12.png','15');" onfocus="blur();" area="서울특별시||강서구" alt="강서구" selimg="/resources/image/map/m001o_12.png" title="강서구">
@@ -68,6 +68,7 @@
               <area shape="poly" code="12" coords="161,204,152,217,156,230,170,238,190,219,183,212" href="javascript:mapClick('m001o_14.png','12');" onfocus="blur();" area="서울특별시||용산구" alt="용산구" selimg="/resources/image/map/m001o_14.png" title="용산구">
               <area shape="poly" code="17" coords="113,212,110,229,111,238,121,253,146,231,140,218" href="javascript:mapClick('m001o_10.png','17');" onfocus="blur();" area="서울특별시||영등포구" alt="영등포구" selimg="/resources/image/map/m001o_10.png" title="영등포구">
            </map>
+     </div>
 	
 	<!-- 우측 식당 표시 부분 -->	
 	<c:choose>
@@ -78,10 +79,10 @@
 	   <img class="NoData"alt="NoData" src="/resources/image/NoData.png">
 	</c:when>
 	<c:otherwise>
-		<div class="res">
-		<h1><span style="color:white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
+		<div class="container2">
+		<h1><span style=" position:fixed; color:white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
 		${location_name} 맛집</span> </h1>
-		<div class="container overflow-hidden">
+		<div class="container3">
 		<div class="row gy-5">
 		<c:forEach items="${location_reslist}" var="location_reslist">
         <div class="col-6">
@@ -108,6 +109,5 @@
         </div>
 	</c:otherwise>
     </c:choose>
-        </div>
 </body>
 </html>
