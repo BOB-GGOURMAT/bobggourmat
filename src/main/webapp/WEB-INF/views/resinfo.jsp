@@ -26,33 +26,8 @@
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/resinfo.css" rel="stylesheet" />
-<script type="text/javascript">
-//
-var i = 0;
-$('i').on('click',function(){
-    if(i==0){
-        $(this).attr('class','bi bi-bookmark-heart-fill');
-        i++;
-    }else if(i==1){
-        $(this).attr('class','bi bi-bookmark-heart');
-        i--;
-    }
-
-});
-
-function clip(){
-
-	var url = '';
-	var textarea = document.createElement("textarea");
-	document.body.appendChild(textarea);
-	url = window.document.location.href;
-	textarea.value = url;
-	textarea.select();
-	document.execCommand("copy");
-	document.body.removeChild(textarea);
-	alert("URL이 복사되었습니다.")
-}
-</script>
+<!-- js 파일 include -->
+<script type="text/javascript" src="/resources/js/resinfo.js" ></script> 
 </head>
 <jsp:include page="navbar.jsp"></jsp:include>
 <body>
@@ -93,47 +68,71 @@ function clip(){
         </div> 
         </div>      
         
-         <div class="container3">
+        <div class="container3">
         <div class="menu">
 		<h4>메뉴정보 
-		<c:if test="">
-		<button type="button" class="btn btn-outline-dark btn-sm" style="float: right;">더보기</button>
+		<c:if test="${fn:length(menuinfo)>4 }">
+		<span id="more" class="btn btn-outline-dark btn-sm" style="float: right;" onclick="more()">더보기</span>
+		</c:if>
+		<c:if test="${fn:length(menuinfo)<4 }">
 		</c:if>
 		</h4><hr/>
-		<ul class="list">
+		</div>
+		<ul id="list" class="list">
 		<c:forEach items="${menuinfo}" var="menuinfo">
-			<li>
-				<span class="menu_name" >${menuinfo.menu_name}</span>
-				<span class="menu_price">${menuinfo.menu_price}원</span><br/>
-			</li>
+			    <li>
+			    <p class="menu_name">
+				<span>${menuinfo.menu_name}</span>
+				</p>
+				<p class="menu_price">${menuinfo.menu_price}</p>
+			    </li>                                                                                                                                                                           
 		</c:forEach>	
 		</ul>
-		</div>
          </div>
          
          <div class="container4">
          <div class="comment">
             <h4>COMMENTS (${comment_count})<button type="button" class="btn btn-outline-dark btn-sm" style="float: right;">더보기</button></h4><hr/>
-            <div class=myComment>
+           <c:if test="${userinfo ==null }">
+            <div class="serviceInfo">로그인 후 이용 가능한 서비스 입니다.
+            </div> 
+           </c:if>
+           <c:if test="">
+           </c:if>
+            <form class=myComment action="commentOk" method="POST">
+            <div class="user">
+               <span class="commentIcon" style="background-color: ${userinfo.user_icon}">
+               <img alt="profile image" src="/resources/image/밥 꾸르맛 노배경.png" >
+               </span>
+               <span class="commentNickname">${userinfo.user_nickname}</span>
+            </div>
+            <div class="star">
+            <fieldset>
+		        <input type="radio" name="rating" value="1" id="rate1"><label for="rate1">⭐</label>
+		        <input type="radio" name="rating" value="2" id="rate2"><label for="rate2">⭐</label>
+		        <input type="radio" name="rating" value="3" id="rate3"><label for="rate3">⭐</label>
+		        <input type="radio" name="rating" value="4" id="rate4"><label for="rate4">⭐</label>
+		        <input type="radio" name="rating" value="5" id="rate5"><label for="rate5">⭐</label>
+		    </fieldset>
+            </div>
             <div class="mb-3">
 			  <label for="exampleFormControlTextarea1" class="form-label"></label>
 			  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-			</div>
-			<c:if test="${ userinfo ==null }">
-			<button type="button" class="btn btn-outline-secondary">저장</button>
-			</c:if>
-			<c:if test="${ userinfo !=null }">
-			<button type="button" class="btn btn-outline-secondary">삭제</button>
-			</c:if>
-			</div>
-            </div>
+			</div>  
+			<button type="submit" class="btn btn-outline-secondary" style="float: right;">저장</button>
+			</form>
 			<div class="commentList">
+			<c:if test="${fn.length(comment_list) == 0}">
+			  <h5>댓글이 존재하지 않습니다.</h5>
+			</c:if>
+			<c:if test="${fn.legth(comment_list)>0 }">
 			<ul class="list">
 			<c:forEach items="${comment_list}" var="menuinfo">
 				<div class="commentView" >
 				  <div class="commentBody">
 		    	     <p class="commentDate"> 시간${comment_time}</p>
 		    		<span class="commentIcon">아이콘 자리${user_icon}</span>
+		    		<span class="commentNickname">아이콘 닉네임${user_nickname}</span>
 		    		<span class="commentStar" style="color: orange">별점 표시될 곳</span>
 		    		<div class="commentContent">별점 표시될 곳</div>
 		    		    <i class="bi-heart" style="font-size:3rem; color: #ffce49 ; cursor: pointer;"></i>
@@ -141,6 +140,7 @@ function clip(){
 				</div>
 			</c:forEach>	
 			</ul>
+			</c:if>
          </div>
 		</div>
 		
