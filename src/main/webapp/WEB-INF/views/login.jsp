@@ -58,7 +58,7 @@
 						<input type="password" class="form-control" name="user_password" placeholder="비밀번호를 입력하세요" autofocus required>
 				</div>
 				 <div class="buttonwrapper" align=right>
-				 	<button type="submit" class="btn btn-warning" >로그인</button>
+				 	<button type="submit" class="btn btn-warning"  >로그인</button>
 				 </div>
 				 </div>
 		    </form>
