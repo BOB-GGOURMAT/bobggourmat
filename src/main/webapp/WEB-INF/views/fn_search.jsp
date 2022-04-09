@@ -54,8 +54,7 @@
 	    </div>
 	  </form>
 				<h3 class="p-3">
-					<img alt="로고" src="/resources/image/밥 꾸르맛.png" width="40px"
-						height="40px"> 맛집
+					 ${keyword}맛집
 				</h3>
 				<c:if test="${!empty fn_search }">
 				<div class="container overflow-hidden">
@@ -67,7 +66,7 @@
 										class="card-img-top" alt="식당사진" height="260px"/>
 									<div class="card-body">
 										<h5 class="card-title">${vo.resinfo_name}</h5>
-										<p class="card-text">지역 :
+										<p class="card-text">${vo.category_name}/ 
 											${vo.location_name}</p>
 										<h5 class="star" style="color: orange">별점 표시될 곳</h5>
 										<br /> 
@@ -82,7 +81,7 @@
 				</div>
 					</c:if>
 					<c:if test="${empty fn_search }">
-					값없음
+					 <img class="NoData"alt="NoData" src="/resources/image/NoData.png">
 					</c:if>
 			</div>
 		</div>

@@ -30,4 +30,5 @@ public interface ResinfoDAO {
 
 	// 7. 검색 기능 -구수현
 	List<ResinfoVO> search(String keyword);
+
 }
