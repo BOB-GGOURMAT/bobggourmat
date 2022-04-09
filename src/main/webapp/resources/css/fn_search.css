@@ -1,0 +1,22 @@
+
+ .clearfix{
+	 width: 100%;
+	 height: 100%;
+	 padding: 5%;
+	 background-color: #FFFFFF;
+ }
+ 
+ .searchList{
+  	width: 100%;
+	 height: 100%;
+	 background-color: #FFFFFF;
+	
+ }
+ .res{
+   
+   width: 100%;
+   height: 100%;
+   float: center;
+   position: stickey;
+   
+}
