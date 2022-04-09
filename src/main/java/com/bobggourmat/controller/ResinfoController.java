@@ -32,9 +32,11 @@ public class ResinfoController {
 	   ResinfoVO resinfo = resinfoService.selectByIdx(resinfo_idx);
 	   List<MenuVO> menuinfo = menuService.menuList(resinfo_idx);
 	   List<CommentVO> commentlist = commentService.comment_list(resinfo_idx);
+	   int commentCount = commentService.commentCount(resinfo_idx);
 	   model.addAttribute("resinfo", resinfo);
 	   model.addAttribute("menuinfo",menuinfo);
 	   model.addAttribute("commentlist",commentlist);
+	   model.addAttribute("commentCount",commentCount);
 	   log.info("controller resinfo 리턴" + model );
 	   return "resinfo";
    }

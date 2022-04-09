@@ -21,7 +21,7 @@ public interface CommentDAO {
 	//4. 댓글 리스트
 	List<CommentVO> comment_list(int resinfo_idx);
 	//5. 개수얻기 
-    int selectCount();
+    int selectCount(int resinfo_idx);
 	//<!-- 6. 평가한 맛집 가져오기 -->
 	List<CommentVO> comment_save(int resinfo_idx);
 }

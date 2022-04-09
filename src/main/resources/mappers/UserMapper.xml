@@ -60,6 +60,6 @@
     </select>
     <!-- 9.select_login하기 -->
     <select id="login" resultType="UserVO" parameterType="userVO">
-    	select user_id, user_password from user where user_id=#{user_id} and user_password=#{user_password} 
+    	select * from user where user_id=#{user_id} and user_password=#{user_password} 
     </select>
 </mapper>

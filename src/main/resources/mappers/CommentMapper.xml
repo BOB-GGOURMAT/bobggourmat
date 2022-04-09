@@ -58,7 +58,7 @@
 
     <!--  5. 개수얻기 -->
     <select id="selectCount" resultType="int">
-		select count(*) from comment
+		select count(*) from comment where resinfo_idx=#{resinfo_idx}
 	</select>
 	
 	<!-- 6. 댓글목록조회(평가한 식당) -->

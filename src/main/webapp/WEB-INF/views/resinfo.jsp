@@ -92,13 +92,12 @@
          
          <div class="container4">
          <div class="comment">
-            <h4>COMMENTS (${comment_count})<button type="button" class="btn btn-outline-dark btn-sm" style="float: right;">더보기</button></h4><hr/>
+            <h4>COMMENTS (${commentCount})<button type="button" class="btn btn-outline-dark btn-sm" style="float: right;">더보기</button></h4><hr/>
            <c:if test="${userinfo ==null }">
             <div class="serviceInfo">로그인 후 이용 가능한 서비스 입니다.
             </div> 
            </c:if>
-           <c:if test="">
-           </c:if>
+           <c:if test="${ userinfo !=null }">
             <form class=myComment action="commentOk" method="POST">
             <div class="user">
                <span class="commentIcon" style="background-color: ${userinfo.user_icon}">
@@ -121,6 +120,7 @@
 			</div>  
 			<button type="submit" class="btn btn-outline-secondary" style="float: right;">저장</button>
 			</form>
+           </c:if>
 			<div class="commentList">
 			<c:if test="${fn.length(comment_list) == 0}">
 			  <h5>댓글이 존재하지 않습니다.</h5>
@@ -176,6 +176,7 @@
           <span class="saveShareBtn" ><a href="#" onclick="">저장하기 <i class="bi bi-bookmark-heart" style="color: #fb3a2f; cursor: pointer;"></i></a></span>
           <span class="saveShareBtn" ><a href="#" onclick="clip(); return false;">공유하기<i class="bi bi-share-fill" style="color: #fb3a2f; cursor: pointer;"></i></a></span>
 		</div>
+     </div>
      </div>
      </div>
 </body>
