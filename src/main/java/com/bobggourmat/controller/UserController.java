@@ -70,25 +70,28 @@ public class UserController {
 			@RequestMapping(value = "/findID")
 			public String findID() {
 				log.info("controller findID호출 : " );
-				return "login";
+				return "findID";
 			}
 			
 			// findID폼 get방식으로 접근 시
-			@RequestMapping(value = "/findIDOK", method = RequestMethod.GET)
+			@RequestMapping(value = "/findIDOk", method = RequestMethod.GET)
 			public String findIDOk() {
-				return "redirect:/";
+				return "findIDOk";
 			}
 			
 			// findID폼 post방식으로 접근 시
-			@RequestMapping(value = "/findIDOK", method = RequestMethod.POST)
+			@RequestMapping(value = "/findIDOk", method = RequestMethod.POST)
 			public String findIDOK(@ModelAttribute UserVO userVO, Model model ) {
+				log.info("user controller의 findIDOK 호출 :  " + userVO);
 				UserVO vo = userService.idSearch(userVO);
 				if(vo!=null) {
 					// 일치하는 id가 존재하는 경우
 					model.addAttribute("userID", vo);
-					return "redirect:/findIDOk";
+					log.info("user controller의 findIDOK if 리턴 :  " + model);
+					return "findIDOk";
 				} 
 				model.addAttribute("userID", null);
+				log.info("user controller의 findIDOK else 리턴:  " + model);
 					return "findIDOk";
 			}
 			
@@ -96,11 +99,11 @@ public class UserController {
 			@RequestMapping(value = "/findPW")
 			public String findPW() {
 				log.info("controller findPW호출 : ");
-				return "/login";
+				return "findPW";
 			}
 			
 			// findPW폼 get방식으로 접근 시
-			@RequestMapping(value = "/findPWOK", method = RequestMethod.GET) 
+			@RequestMapping(value = "/findPWOk", method = RequestMethod.GET) 
 			public String findPWOk() {
 				return "redirect:/";
 			}
@@ -115,7 +118,16 @@ public class UserController {
 					return "redirect:/findPWOk";
 				}
 				model.addAttribute("userPW", null);
-				return "findPWOK";
+				return "findPWOk";
 			}
+			
+			// findIDPW폼으로 가기
+			@RequestMapping(value = "/findIDPW")
+			public String findIDPW() {
+				return "findIDPW";
+			}
+			
+			
+			
 	}
 	   

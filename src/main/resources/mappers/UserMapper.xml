@@ -52,11 +52,11 @@
     </select>    
     <!-- 7. select_이름과 전화번호로 가져오기(아이디찾기) -->
     <select id="selectByUsername" resultType="UserVO" parameterType="hashmap">
-       select * from user where user_name=#{user_name} and user_phone=#{user_phone}
+       select * from user where user_name=#{user_name} and user_phone=#{user_phone} 
     </select>
     <!-- 8. select_ID와과 전화번호로 가져오기(비번찾기 사용) -->
     <select id="selectByUserId" resultType="UserVO" parameterType="hashmap">
-       select * from user where user_id=#{user_id} and user_phone=#{user_phone}
+       select * from user where user_id=#{user_id} and user_phone=#{user_phone} 
     </select>
     <!-- 9.select_login하기 -->
     <select id="login" resultType="UserVO" parameterType="userVO">
