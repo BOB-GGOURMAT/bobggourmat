@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
 
 	private final UserDAO userDAO;
 
-	@Override // 컨트롤러만들때 만듬
+	@Override 
 	public UserVO loginOk(UserVO userVO) {
 		log.info("UserService loginOK호출 : " + userVO);
 		if(userVO != null) {

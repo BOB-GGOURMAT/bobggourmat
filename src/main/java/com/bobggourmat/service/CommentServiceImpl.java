@@ -42,6 +42,12 @@ public class CommentServiceImpl implements CommentService {
 			commentDAO.comment_delete(commentVO.getComment_idx());
 	}
 	}
+
+	@Override
+	public int commentCount(int resinfo_idx) {
+		log.info("CommentService commentCount 호출:" + resinfo_idx);
+		return commentDAO.selectCount(resinfo_idx);
+	}
   
 
 
