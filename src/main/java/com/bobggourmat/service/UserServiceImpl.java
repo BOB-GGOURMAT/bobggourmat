@@ -100,10 +100,8 @@ public class UserServiceImpl implements UserService {
 		log.info("UserService idSearch 호출 : " + userVO);
 		UserVO vo = null ;
 		if (userVO != null) {
-			HashMap<String, String> map = new HashMap<String, String>();
-			map.put("user_name", userVO.getUser_name());
-			map.put("user_phone", userVO.getUser_phone());
-			vo = userDAO.selectByUsername(map);
+	
+			vo = userDAO.selectByUserID(userVO);
 			log.info("UserService idSearch 리턴 : " + vo);
 			return vo;
 		}
@@ -115,10 +113,7 @@ public class UserServiceImpl implements UserService {
 		log.info("UserService passwordSearch 호출 : " + userVO);
 		UserVO vo = null;
 		if (userVO != null) {
-			HashMap<String, String> map = new HashMap<String, String>();
-			map.put("user_id", userVO.getUser_id());
-			map.put("user_phone", userVO.getUser_phone());
-			vo = userDAO.selectByUserId(map);
+			vo = userDAO.selectByUserPW(userVO);
 		log.info("UserService passwordSearch 리턴 : " + vo);
 		return vo;
 	}

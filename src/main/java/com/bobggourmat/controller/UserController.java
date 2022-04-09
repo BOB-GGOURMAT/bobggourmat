@@ -109,13 +109,13 @@ public class UserController {
 			}
 			
 			// findPW폼 post방식으로 접근 시
-			@RequestMapping(value = "/findPWOK", method = RequestMethod.POST) 
-			public String findPWOK(@ModelAttribute UserVO userVO, Model model) {
+			@RequestMapping(value = "/findPWOk", method = RequestMethod.POST) 
+			public String findPWOk(@ModelAttribute UserVO userVO, Model model) {
 				UserVO vo = userService.passwordSearch(userVO);
 				if(vo!=null) {
 					// 일치하는 password가 존재하는 경우
 					model.addAttribute("userPW", vo);
-					return "redirect:/findPWOk";
+					return "findPWOk";
 				}
 				model.addAttribute("userPW", null);
 				return "findPWOk";

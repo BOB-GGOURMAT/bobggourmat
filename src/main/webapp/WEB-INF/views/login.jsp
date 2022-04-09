@@ -37,11 +37,9 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/login.css" rel="stylesheet" />
 
-
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
-
 		<div class="container1">
 		<h1><span class="joinUs" style="text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">Login</span></h1>
 	    <div class="container2">
@@ -65,25 +63,6 @@
 			   		<p>아직 밥꾸르맛 회원이 아니신가요?   <a class="requestHref" href="/joinForm">회원가입</a></p>
 			   		<p>아이디와 비밀번호를 잊으셨나요?  <a class="requestHref" href="/findIDPW">아이디/비밀번호 찾기</a></p>
 				    <hr/>
-				</div>
-				<div id="naver_id_login"></div>
-				<!-- 네이버 로그인 API 실행시키기 위한 스크립트 -->
-				<script type="text/javascript"
-					src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
-					charset="utf-8"></script>
-				<script type="text/javascript">
-					// 네이버 로그인 API 실행코드
-					var naver_id_login = new naver_id_login(
-							"MuPOdZTJ7OOkaztpSZ5a", "http://localhost8080");
-					var state = naver_id_login.getUniqState();
-					naver_id_login.setButton("white", 2, 40);
-					naver_id_login.setDomain(".service.com");
-					naver_id_login.setState(state);
-					naver_id_login.setPopup();
-					naver_id_login.init_naver_id_login();
-				</script>
-				<div class = "login_Btn">
-				    <a class="loginImg" href="#"><img alt="카카오 로그인" src="/resources/image/kakaoBtn.png" width="185px;" height="50px;"></a>
 				</div>
 	    </div>
 		</div>
