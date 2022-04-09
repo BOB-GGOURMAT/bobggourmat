@@ -26,6 +26,7 @@ public class SearchService{
 		System.out.println("리스트 시작 ~!~!~");
 		searchList.forEach(System.out::println);
 		System.out.println("리스트 끝 ~!~!~");
-		model.addAttribute("fn_search", searchList);	
+		model.addAttribute("fn_search", searchList);
+		model.addAttribute("keyword",keyword);
 	}
 }

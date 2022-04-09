@@ -56,6 +56,7 @@
 				<h3 class="p-3">
 					<img alt="로고" src="/resources/image/밥 꾸르맛.png" width="40px"
 						height="40px"> ${keyword}맛집
+						
 				</h3>
 				<c:if test="${!empty fn_search }">
 				<div class="container overflow-hidden">
