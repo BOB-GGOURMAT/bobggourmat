@@ -40,8 +40,8 @@
          </div>
          <div class="info">
                 <ul>
-                    <li class="resinfo_name" >
-                    <h3 style="font-weight:500;"> ${resinfo.resinfo_name }
+                    <li class="resinfo_name"  >
+                    <h3 style="font-weight:bold;"> ${resinfo.resinfo_name }
                     <span class="resinfoStar" style="color: #fb3a2f; float: right;">
                      <c:if test="${resinfo.resinfo_star == 0}">
                      <i class="bi bi-star-fill" style="color: #fb3a2f"></i>0.0(평가 전)
@@ -94,17 +94,17 @@
          <div class="comment">
             <h4>COMMENTS (${commentCount})<button type="button" class="btn btn-outline-dark btn-sm" style="float: right;">더보기</button></h4><hr/>
            <c:if test="${userinfo ==null }">
-            <div class="serviceInfo">로그인 후 이용 가능한 서비스 입니다.
-            </div> 
+            <div class="serviceInfo1">로그인 후 이용 가능한 서비스 입니다.</div> 
            </c:if>
-           <c:if test="${ userinfo !=null }">
+           <c:if test="${userinfo !=null }">
             <form class=myComment action="commentOk" method="POST">
-            <div class="user">
-               <span class="commentIcon" style="background-color: ${userinfo.user_icon}">
-               <img alt="profile image" src="/resources/image/밥 꾸르맛 노배경.png" >
-               </span>
-               <span class="commentNickname">${userinfo.user_nickname}</span>
-            </div>
+               <div class="commentIcon" >
+               <img alt="profile image" src="/resources/image/밥 꾸르맛 노배경.png" style="background-color: ${userinfo.user_icon };">
+               </div>
+               <div class="commentNickname">
+               ${userinfo.user_nickname}
+               </div>
+            <button id="commentBtn"type="submit" class="btn btn-outline-secondary" style="float: right;">저장</button>
             <div class="star">
             <fieldset>
 		        <input type="radio" name="rating" value="1" id="rate1"><label for="rate1">⭐</label>
@@ -118,16 +118,20 @@
 			  <label for="exampleFormControlTextarea1" class="form-label"></label>
 			  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 			</div>  
-			<button type="submit" class="btn btn-outline-secondary" style="float: right;">저장</button>
 			</form>
+			<hr/>
            </c:if>
+            <hr/>
+            </div>
 			<div class="commentList">
-			<c:if test="${fn.length(comment_list) == 0}">
+			 <div class="serviceInfo2">
+			<c:if test="${empty(commentlist)}">
 			  <h5>댓글이 존재하지 않습니다.</h5>
 			</c:if>
-			<c:if test="${fn.legth(comment_list)>0 }">
+			</div>
+			<c:if test="${fn.legth(commentlist)>0 }">
 			<ul class="list">
-			<c:forEach items="${comment_list}" var="menuinfo">
+			<c:forEach items="${!empty(commentlist)}" var="menuinfo">
 				<div class="commentView" >
 				  <div class="commentBody">
 		    	     <p class="commentDate"> 시간${comment_time}</p>
@@ -138,11 +142,12 @@
 		    		    <i class="bi-heart" style="font-size:3rem; color: #ffce49 ; cursor: pointer;"></i>
 		   		</div>
 				</div>
+				<hr/>
 			</c:forEach>	
 			</ul>
 			</c:if>
          </div>
-		</div>
+		
 		
 		<div class="container5">
 		 <div id="map" style="width:190px;height:250px;"></div>

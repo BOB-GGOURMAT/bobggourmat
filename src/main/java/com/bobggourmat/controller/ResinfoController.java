@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -28,7 +30,7 @@ public class ResinfoController {
    //식당 상세페이지
    @RequestMapping(value = "/resinfo")
    public String resinfo(@RequestParam(required = false) int resinfo_idx, Model model) {
-	   log.info("controller resinfo 호출 :" + resinfo_idx);
+	   log.info("Resinfo controller resinfo 호출 :" + resinfo_idx);
 	   ResinfoVO resinfo = resinfoService.selectByIdx(resinfo_idx);
 	   List<MenuVO> menuinfo = menuService.menuList(resinfo_idx);
 	   List<CommentVO> commentlist = commentService.comment_list(resinfo_idx);
@@ -41,4 +43,11 @@ public class ResinfoController {
 	   return "resinfo";
    }
    
+   //댓글 
+   @PostMapping(value= "/commentOk")
+   public String comment(@ModelAttribute CommentVO commentVO, Model model) {
+	   log.info("Resinfo controller comment 호출 :" + commentVO);
+	   
+	   return"resinfo";
+   }
 }
