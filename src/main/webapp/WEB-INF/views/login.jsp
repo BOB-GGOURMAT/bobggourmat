@@ -37,11 +37,9 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/login.css" rel="stylesheet" />
 
-
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
-
 		<div class="container1">
 		<h1><span class="joinUs" style="text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">Login</span></h1>
 	    <div class="container2">
@@ -66,7 +64,6 @@
 			   		<p>아이디와 비밀번호를 잊으셨나요?  <a class="requestHref" href="/findIDPW">아이디/비밀번호 찾기</a></p>
 				    <hr/>
 				</div>
-				
 	    </div>
 		</div>
 		</div>
