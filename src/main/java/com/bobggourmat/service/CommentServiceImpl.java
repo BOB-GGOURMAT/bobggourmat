@@ -37,12 +37,11 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public void delete(CommentVO commentVO) {
-		log.info("CommentService delete호출 :" +commentVO);
-		if (commentVO != null) {
-			commentDAO.selectByIdx(commentVO.getComment_idx());
-			commentDAO.comment_delete(commentVO.getComment_idx());
-	}
+	public void delete(int Comment_idx) {
+		log.info("CommentService delete호출 :" +Comment_idx);
+		if (Comment_idx != 0) {
+			commentDAO.comment_delete(Comment_idx);
+		}
 	}
 
 	@Override
@@ -55,6 +54,12 @@ public class CommentServiceImpl implements CommentService {
 	public List<ResCommentVO> estimate_resinfo(int user_idx) {
 		log.info("CommentService estimate_resinfo 호출:" + user_idx);
 		return commentDAO.estimate_resinfo(user_idx);
+	}
+
+	@Override
+	public CommentVO selectByIdx(int comment_idx) {
+		log.info("CommentService selectByIdx 호출:" + comment_idx);
+		return commentDAO.selectByIdx(comment_idx);
 	}
   
 

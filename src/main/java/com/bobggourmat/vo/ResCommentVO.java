@@ -7,6 +7,8 @@ import lombok.Data;
 @Data
 public class ResCommentVO {
   private int resinfo_idx;
+  private int user_idx;
+  private int comment_idx;
   private String resinfo_name;
   private String location_name;
   private String category_naeme;

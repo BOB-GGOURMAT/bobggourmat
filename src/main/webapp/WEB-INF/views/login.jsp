@@ -36,7 +36,15 @@
 	rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/login.css" rel="stylesheet" />
-
+<script type="text/javascript">
+$(document).ready(function() {
+    let message = "${msg}";
+    if (message != "") {
+        alert(message);
+    }else {
+    }
+})
+</script>
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>

@@ -17,9 +17,11 @@ public interface CommentService {
 	// 3. 수정하기
 	void update(CommentVO commentVO);
 	// 4. 삭제하기
-	void delete(CommentVO commentVO);	
+	void delete(int Comment_idx);	
 	// 5. 해당 식당 댓글 개수 가져오기
 	int commentCount (int resinfo_idx);
 	// 6.평가한 식당 리스트 가져오기
 	List<ResCommentVO> estimate_resinfo(int user_idx);
+	// 7.댓글 한개 가져오기
+	CommentVO selectByIdx (int comment_idx);
 }

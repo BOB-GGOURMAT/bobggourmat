@@ -92,19 +92,23 @@
          
          <div class="container4">
          <div class="comment">
-            <h4>COMMENTS (${commentCount})<button type="button" class="btn btn-outline-dark btn-sm" style="float: right;">더보기</button></h4><hr/>
+            <h4>COMMENTS (${commentCount})<span class="btn btn-outline-dark btn-sm" style="float: right;" onclick="commentMore()">더보기</span></h4><hr/>
            <c:if test="${userinfo ==null }">
             <div class="serviceInfo1">로그인 후 이용 가능한 서비스 입니다.</div> 
            </c:if>
+           
            <c:if test="${userinfo !=null }">
-            <form class=myComment action="commentOk" method="POST">
+           <c:choose>
+            <c:when test="${commentselect.comment_content == null }">
+            <form class=myComment action="updateOk" method="POST">
                <div class="commentIcon1" >
                <img alt="profile image" src="/resources/image/밥 꾸르맛 노배경.png" style="background-color: ${userinfo.user_icon };">
                </div>
                <div class="commentNickname1">
                ${userinfo.user_nickname}
                </div>
-            <button id="commentBtn"type="submit" class="btn btn-outline-secondary" style="float: right;">저장</button>
+            <button id="commentBtn"type="submit" class="btn btn-outline-secondary" style="float: right;">수정완료</button>
+            <button id="commentBtn"type="button" class="btn btn-outline-secondary" onclick="history.go(0);" style="float: right;">취소</button>
             <div class="star">
             <fieldset>
 		        <input type="radio" name="comment_star" value="5" id="rate1"><label for="rate1">⭐</label>
@@ -114,35 +118,71 @@
 		        <input type="radio" name="comment_star" value="1" id="rate5"><label for="rate5">⭐</label>
 		    </fieldset>
             </div>
-            <div class="mb-3">
-			  <label for="exampleFormControlTextarea1" class="form-label"></label>
-			  <textarea name="comment_content" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-			</div>  
+            <input type="text" name="comment_content" class="form-control" placeholder="${commentselect.comment_content } "autofocus required>
 			<input type="hidden" name="resinfo_idx" value="${resinfo.resinfo_idx }" />
 			<input type="hidden" name="user_idx" value="${userinfo.user_idx }" />
 			</form>
+			</c:when>
+           
+             <c:otherwise>
+            <form class=myComment action="commentOk" method="POST">
+               <div class="commentIcon1" >
+               <img alt="profile image" src="/resources/image/밥 꾸르맛 노배경.png" style="background-color: ${userinfo.user_icon };">
+               </div>
+               <div class="commentNickname1">
+               ${userinfo.user_nickname}
+               </div>
+            <button id="commentBtn"type="submit" class="btn btn-outline-secondary " style="float: right;">저장</button>
+            <div class="star">
+            <fieldset>
+		        <input type="radio" name="comment_star" value="5" id="rate1"><label for="rate1">⭐</label>
+		        <input type="radio" name="comment_star" value="4" id="rate2"><label for="rate2">⭐</label>
+		        <input type="radio" name="comment_star" value="3" id="rate3"><label for="rate3">⭐</label>
+		        <input type="radio" name="comment_star" value="2" id="rate4"><label for="rate4">⭐</label>
+		        <input type="radio" name="comment_star" value="1" id="rate5"><label for="rate5">⭐</label>
+		    </fieldset>
+            </div>
+			  <input type="text" name="comment_content" class="form-control" autofocus required>
+			<input type="hidden" name="resinfo_idx" value="${resinfo.resinfo_idx }" />
+			<input type="hidden" name="user_idx" value="${userinfo.user_idx }" />
+			</form>
+			</c:otherwise>
+			</c:choose>
            </c:if>
 			<hr/>
             </div>
-			<div class="commentList">
+			<div class="commentList" id="commentList">
 			<c:if test="${empty(commentlist)}">
 			 <div class="serviceInfo2"> 댓글이 존재하지 않습니다.</div>
 			</c:if>
 			<c:if test="${!empty(commentlist)}">
 			<c:forEach items="${commentlist}" var="commentlist">
-			<div class="commentView">
+			<div class="commentView" id="commentView">
 		      <span class="commentDate"> <fmt:formatDate value="${commentlist.comment_time}" pattern="yyyy년 MM월 dd일" /></span>
+		        <c:if test="${commentlist.user_idx != userinfo.user_idx }">
 		        <div class="commentLike">
-		        <i class="bi-heart"></i>
+		        꿀맛( )<i class="bi-heart"></i>
 		        </div>  
-		    	<span class="commentStar"><i class="bi bi-star-fill" style="color: #fb3a2f"></i>${commentlist.comment_star}</span>
+		        </c:if>
+		    	<span class="commentStar"><i class="bi bi-star-fill" style="color: #fb3a2f"></i>${commentlist.comment_star}점</span>
+		        <c:if test="${commentlist.user_idx == userinfo.user_idx }">
+                 <form action="/deleteOk" method="POST">
+                 <input type="hidden" name="comment_idx" value="${commentlist.comment_idx }" />
+                 <input type="hidden" name="resinfo_idx" value="${resinfo.resinfo_idx }" />
+                 <button id="commentlistBtn2"type="submit" class="btn btn-outline-secondary btn-sm" >삭제</button>
+                 </form>
+		          <form action="/commentUpdate" method="POST">
+		         <input type="hidden" name="comment_idx" value="${commentlist.comment_idx }" />
+		          <input type="hidden" name="resinfo_idx" value="${resinfo.resinfo_idx }" />
+		         <button id="commentlistBtn1"type="submit" class="btn btn-outline-secondary btn-sm" >수정</button>
+		         </form>
+		         </c:if>
 		       <div class="commentNickname2">${commentlist.user_nickname}</div>
 		    	<div class="commentContent">${commentlist.comment_content}</div>
 		       <div class="commentIcon2" >
                <img alt="profile image" src="/resources/image/밥 꾸르맛 노배경.png" style="background-color: ${commentlist.user_icon };">
                </div>
          	</div>
-			<hr/>
 			</c:forEach>	
 			</c:if>
 			</div>

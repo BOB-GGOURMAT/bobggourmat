@@ -37,11 +37,12 @@ public class LoginController {
 				log.info("controller loginOk if호출 :" + dbvo);
 				session.setAttribute("userinfo", dbvo);
 				return "redirect:/";
-			} else {
+			} 
 				// 로그인 실패
-				log.info("controller loginOk else호출 :" + dbvo);
+				model.addAttribute("msg","아이디 혹은 비밀번호가 틀렸습니다.");
+				log.info("controller loginOk else 리턴 :" + model);
 				return "login";
-			}
+			
 		}
 		// logout
 		@GetMapping(value = "/logout")

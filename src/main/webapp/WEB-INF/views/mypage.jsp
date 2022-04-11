@@ -54,9 +54,9 @@
          <li>이메일 : ${userinfo.user_email}</li>
          <li>전화번호 : ${userinfo.user_phone}</li>
        </ul>
-        <button id="myPageBtn1"type="button" class="btn btn-outline-secondary" >회원정보 수정</button>
-        <button id="myPageBtn2"type="button" class="btn btn-outline-secondary" >비밀번호 수정</button>
-        <button id="myPageBtn3"type="button" class="btn btn-outline-secondary" >탈퇴하기</button>
+        <a href="/updateForm"><button id="myPageBtn1"type="button" class="btn btn-outline-secondary" >회원정보 수정</button></a>
+        <a href="/"><button id="myPageBtn2"type="button" class="btn btn-outline-secondary" >비밀번호 수정</button></a>
+        <a href="/"><button id="myPageBtn3"type="button" class="btn btn-outline-secondary" >탈퇴하기</button></a>
 	</div>
 	
 	<div class="container3" onclick="location.href ='/saveRes'" style="cursor:pointer;">

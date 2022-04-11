@@ -96,7 +96,7 @@
                      <i class="bi bi-star-fill" style="color: #fb3a2f"></i>0.0(평가 전)
                     </c:if>
                     <c:if test="${location_reslist.resinfo_star != 0}">
-                    <fmt:formatNumber pattern="##.#" ><i class="bi bi-star-fill" style="color: #fb3a2f"></i>${location_reslist.resinfo_star}</fmt:formatNumber>
+                    <i class="bi bi-star-fill" style="color: #fb3a2f"></i><fmt:formatNumber pattern=".0" >${location_reslist.resinfo_star}</fmt:formatNumber>
                     </c:if> 
                     </h5><br/>
 		    		<a href="/resinfo?resinfo_idx=${location_reslist.resinfo_idx }"><button type="button" class="btn btn-outline-dark btn-sm">식당 구경하기</button></a>

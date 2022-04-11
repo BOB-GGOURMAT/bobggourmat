@@ -36,6 +36,7 @@
 			comment_star 	= #{comment_star}
 		WHERE
 			comment_idx 	= #{comment_idx}
+			
 	</update>
 	
 	<!-- 3. 댓글 삭제 -->
@@ -49,7 +50,7 @@
 	<!-- 4. 댓글 리스트 보기 -->
 	<select id="comment_list" resultType="ResCommentVO" parameterType="int">
         SELECT
-            c.comment_idx, c.comment_content, c.comment_star, u.user_nickname, u.user_icon, c.comment_time
+            c.comment_idx, c.comment_content, c.comment_star, u.user_nickname, u.user_icon,c.user_idx, c.comment_time
         FROM 
             comment c , resinfo r, user u
         WHERE
@@ -58,6 +59,8 @@
             u.user_idx = c.user_idx
             and
             r.resinfo_idx=#{resinfo_idx}
+       ORDER BY
+            c.comment_idx desc     
     </select>
 
     <!--  5. 개수얻기 -->

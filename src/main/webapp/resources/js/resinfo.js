@@ -1,7 +1,7 @@
-//더보기 기능
+//메뉴 더보기 기능
 $(function(){
-	$("#list>li").hide();
-	$("#list>li").slice(0,4).show();
+	$('#list>li').hide();
+	$('#list>li').slice(0,4).show();
 });
 
 function more(){
@@ -9,8 +9,25 @@ function more(){
        $('#list>li').show();
        $('#more').text('접기');
      }else{
-       $("#list>li").hide();
+       $('#list>li').hide();
        $('#list>li').slice(0,4).show();
+       $('#more').text('더보기');
+    }
+}
+
+//댓글 더보기
+$(function(){
+	$('#commentList>#commentView').hide();
+	$('#commentList>#commentView').slice(0,2).show();
+});
+
+function commentMore(){
+    if($('h4').find('span').html() == "더보기" ){
+       $('#commentList>#commentView').show();
+       $('#more').text('접기');
+     }else{
+       $('#commentList>#commentView').hide();
+       $('#commentList>#commentView').slice(0,2).show();
        $('#more').text('더보기');
     }
 }
@@ -28,3 +45,5 @@ function clip(){
 	document.body.removeChild(textarea);
 	alert("URL이 복사되었습니다.")
 }
+
+
