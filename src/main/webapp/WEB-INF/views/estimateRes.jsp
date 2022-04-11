@@ -43,24 +43,28 @@
 	<h1><span style="color:white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">평가한 맛집</span></h1>
 	</div>
 	<div class="container2">
-		<div class="row">
-		<c:forEach items="${estimate_resinfo}" var="estimate_resinfo">
-        <div class="col-sm-6">
-	   		 <div class="card" style="width: 500px;">
-		  		<div class="card-body">
-		  			<img src="${estimate_resinfo.resinfo_mainphoto}" class="card-img-top" alt="식당사진"  height="500px">
-		    		<h5 class="card-title">${estimate_resinfo.resinfo_name}
-		    		<i class="bi bi-star-fill" style="color: #fb3a2f"></i>
-		    		<fmt:formatNumber  pattern=".0" value="${estimate_resinfo.comment_star}"/>점</h5>
-		    		<p class="card-text">지역 : ${estimate_resinfo.location_name}</p>
-		    		<p class="card-text">${estimate_resinfo.comment_time}</p>
-		    		<div class="comment_content"> ${estimate_resinfo.comment_content}</div>
-		    		<br/>
-		    		<a style="float: right;" href="/resinfo?resinfo_idx=${estimate_resinfo.resinfo_idx }"><button type="button" class="btn btn-outline-dark btn-sm">식당 구경하기</button></a>
-		   		</div>
-	   		</div>
-        </div>
-        </c:forEach>
+	<div class="row justify-content-evenly">
+	<c:forEach items="${estimate_resinfo }" var="estimate_resinfo">
+		 <div class="col-5">
+		<div class="card">
+		  <div class="image">
+		  <img alt="식당 메인 사진 " src="${estimate_resinfo.resinfo_mainphoto}" width="160px" height="160px">
+		  </div>
+		  <div class="comment_content">
+		  <h3> ${estimate_resinfo.resinfo_name } </h3>  
+		  <h5>${estimate_resinfo.location_name} |
+		  <i class="bi bi-star-fill" style="color: #fb3a2f"></i><fmt:formatNumber  pattern=".0" value="${estimate_resinfo.comment_star}"/>점
+		  </h5>
+		  <span class="time">평가한 날짜: ${estimate_resinfo.comment_time } </span>
+		  <div class="content">
+		   ${estimate_resinfo.comment_content }
+		  </div>
+		  </div>
+		  <a href="/resinfo?resinfo_idx=${estimate_resinfo.resinfo_idx }"><button type="button" id="button" class="btn btn-outline-dark btn-sm">식당 구경하기</button></a>
+		</div>
+		<br/>
+		</div>
+	</c:forEach>
         
         </div>
         </div>

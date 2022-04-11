@@ -25,16 +25,25 @@
 <!-- Google fonts-->
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<link href="/resources/css/findIDOk.css" rel="stylesheet" />
+<link href="/resources/css/findID.css" rel="stylesheet" />
 </head>
 <body>
+<jsp:include page="navbar.jsp"></jsp:include>
+<div class="container1">
+<h1><span style="color:white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">아이디 찾기 결과</span></h1>
 <!--  데이터를 받아오는 경우 -->
 	<c:if test="${userID != null }">
-		회원님의 아이디는 ${userID.user_id}입니다
+    <div class="container2">
+		<div class="container3">회원님의 아이디는 ${userID.user_id}입니다</div>
+    </div>
 	</c:if>
+</div>
 <!-- 데이터를 받아오지 못한 경우 -->
 	<c:if test="${userID == null }">
-		존재하지 않는 회원입니다.
+		<img class="NoData" alt="NoData" src="/resources/image/NoData.png" width="500px" height="500px">
+		<p >
+			<button type="button" id="againBtn" class="btn btn-danger btn-lg" onclick="history.go(-1);" style="float: right;">다시 찾기</button>
+		</p>
 	</c:if>	
 </body>
 </html>

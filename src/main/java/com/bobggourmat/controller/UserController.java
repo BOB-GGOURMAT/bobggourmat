@@ -83,7 +83,7 @@ public class UserController {
 			// findID폼 get방식으로 접근 시
 			@RequestMapping(value = "/findIDOk", method = RequestMethod.GET)
 			public String findIDOk() {
-				return "findIDOk";
+				return "redirect:/findIDOk";
 			}
 			
 			// findID폼 post방식으로 접근 시
@@ -112,7 +112,7 @@ public class UserController {
 			// findPW폼 get방식으로 접근 시
 			@RequestMapping(value = "/findPWOk", method = RequestMethod.GET) 
 			public String findPWOk() {
-				return "redirect:/";
+				return "redirect:/findPWOk";
 			}
 			
 			// findPW폼 post방식으로 접근 시

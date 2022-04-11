@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>					
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,25 +25,46 @@
 <!-- Google fonts-->
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<link href="/resources/css/findPW.css" rel="stylesheet" />
+<link href="/resources/css/saveRes.css" rel="stylesheet" />
+<script type="text/javascript">
+	function categoryClick(category_idx){
+		location.href='category?category_idx='+category_idx;
+	}
+</script>
 </head>
-<body>
 <jsp:include page="navbar.jsp"></jsp:include>
-<div class="container1">
-<h1><span style="color:white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">비밀번호 찾기 결과</span></h1>
-<!--  데이터를 받아오는 경우 -->
-	<c:if test="${userID != null }">
-    <div class="container2">
-		<div class="container3">회원님의 비밀번호는 ${userID.user_password}입니다</div>
-    </div>
+<body>
+     <div class="estimateRes">
+	<c:if test="${empty(estimate_resinfo)}">
+	 <img class="NoEstimate" alt="NoEstimate" src="/resources/image/NoSave.png" width="500px" height="500px">
 	</c:if>
-</div>
-<!-- 데이터를 받아오지 못한 경우 -->
-	<c:if test="${userID == null }">
-		<img class="NoData" alt="NoData" src="/resources/image/NoData.png" width="500px" height="500px">
-		<p >
-			<button type="button" id="againBtn" class="btn btn-danger btn-lg" onclick="history.go(-1);" style="float: right;">다시 찾기</button>
-		</p>
-	</c:if>	
+	<c:if test="${!empty(estimate_resinfo)}">
+	<div class="container1">
+	<h1><span style="color:white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">평가한 맛집</span></h1>
+	</div>
+	<div class="container2">
+	<div class="row justify-content-evenly">
+	<c:forEach items="${estimate_resinfo }" var="estimate_resinfo">
+		 <div class="col-5">
+		<div class="card">
+		  <div class="image">
+		  <img alt="식당 메인 사진 " src="${estimate_resinfo.resinfo_mainphoto}" width="160px" height="160px">
+		  </div>
+		  <div class="comment_content">
+		  <h3> ${estimate_resinfo.resinfo_name } </h3>  
+		  <h5>${estimate_resinfo.location_name} |
+		  <i class="bi bi-star-fill" style="color: #fb3a2f"></i><fmt:formatNumber  pattern=".0" value="${estimate_resinfo.comment_star}"/>점
+		  </h5>
+		  </div>
+		  <a href="/resinfo?resinfo_idx=${estimate_resinfo.resinfo_idx }"><button type="button" id="button" class="btn btn-outline-dark btn-sm">식당 구경하기</button></a>
+		</div>
+		<br/>
+		</div>
+	</c:forEach>
+        
+        </div>
+        </div>
+	</c:if>
+	</div>
 </body>
 </html>

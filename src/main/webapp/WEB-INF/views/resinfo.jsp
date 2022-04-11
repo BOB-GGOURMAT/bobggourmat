@@ -99,7 +99,7 @@
            
            <c:if test="${userinfo !=null }">
            <c:choose>
-            <c:when test="${commentselect.comment_content == null }">
+            <c:when test="${commentselect.comment_content != null }">
             <form class=myComment action="updateOk" method="POST">
                <div class="commentIcon1" >
                <img alt="profile image" src="/resources/image/밥 꾸르맛 노배경.png" style="background-color: ${userinfo.user_icon };">

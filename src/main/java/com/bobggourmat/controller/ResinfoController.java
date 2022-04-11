@@ -56,5 +56,11 @@ public class ResinfoController {
 	   log.info("Resinfo controller estimateRes 리턴:"  +estimate_resinfo);
 	   return"estimateRes";
    }
-  
+   
+   
+   //저장한 식당
+   @RequestMapping(value="/saveRes")
+	   public String saveRes( ) {
+	   return"saveRes";
+   }
 }

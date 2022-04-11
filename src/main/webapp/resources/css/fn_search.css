@@ -1,28 +1,30 @@
-
- .clearfix{
-	 width: 100%;
-	 height: 100%;
-	 padding: 5%;
-	 background-color: #FFFFFF;
- }
- 
- .searchList{
-  	width: 100%;
-	 height: 100%;
-	 background-color: #FFFFFF;
-	
- }
- .res{
-   
-   width: 100%;
-   height: 100%;
-   float: center;
-   position: stickey;
-   
+body {
+	background-color: #ffce49;
 }
-.NoData {
+ .clearfix{
+ 	position: absolute; 
+	margin-top: 110px;
+	margin-left: 240px;
+	 width: 1050px;
+	 height: auto;
+	 
+ }
+ .searchList{
+  margin-top:10px;
+  position: absolute;
+ }
+.search{
+	width: 1000px;
+}
+ .col{
+  margin-bottom: 30px;
+ }
+.container1{
+	margin-top: 30px;
+}
+.NoSearch{
 	position: fixed;
-	top: 70%;
+	top: 65%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
