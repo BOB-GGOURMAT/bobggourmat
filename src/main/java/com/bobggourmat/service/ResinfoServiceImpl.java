@@ -47,4 +47,16 @@ public class ResinfoServiceImpl implements ResinfoService {
 		return resinfoDAO.selectByIdx(resinfo_idx);
 	}
 
+	@Override
+	public List<ResinfoVO> category_Star(ResinfoVO resinfoVO) {
+		log.info("ResinfoService category_Star호출" + resinfoVO);
+		return resinfoDAO.category_star(resinfoVO);
+	}
+
+	@Override
+	public List<ResinfoVO> location_Star(ResinfoVO resinfoVO) {
+		log.info("ResinfoService location_Star호출" + resinfoVO);
+		return resinfoDAO.location_star(resinfoVO);
+	}
+
 }

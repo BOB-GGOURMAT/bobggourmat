@@ -1,36 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8" />
+<title>밥 꾸르맛</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<%-- 부트스트랩을 사용하기 위한 준비 시작 --%>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>밥 꾸르맛 비밀번호 찾기</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<%-- 부트스트랩을 사용하기 위한 준비 끝 --%>
+<!-- web icon -->
+<link rel="icon" type="image/x-icon" href="/resources/image/favicon.ico"/>
+<!-- Bootstrap icons-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+<!-- Google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="/resources/css/findPW.css" rel="stylesheet" />
 </head>
+<jsp:include page="navbar.jsp"></jsp:include>
 <body>
-	<div class="w3-content w3-container w3-margin-top">
-		<div class="w3-container w3-card-4">
-			<form action="findPWOk" method="POST">
-				<div class="w3-center w3-large w3-margin-top">
-					<h3>비밀번호 찾기</h3>
-				</div>
+	<div class="container1">
+		<h1><span style="color:white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">비밀번호 찾기</span></h1>
+		<div class="container2">
+			<form class="container3" action="findPWOk" method="POST">
 				<div>
 					<p>
 						<label>아이디</label>
-						<input class="w3-input" type="text" id="user_id" name="user_id" required>
+						<input type="text" class="form-control" name="user_id" required>
 						
 						<label>전화번호</label>
-						<input class="w3-input" type="text" id="user_phone" name="user_phone" required>
-						
-						<label>이메일주소</label>
-						<input class="w3-input" type="text" id="user_email" name="user_email" required>
+						<input type="text" class="form-control" name="user_phone" required>
+
+						<label>이메일</label>
+						<input type="email" class="form-control" name="user_email" required>
 					</p>
-					<p class="w3-center">
-						<button type="submit" id=findBtn class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">비밀번호 찾기</button>
-						<button type="button" onclick="history.go(-1);" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-margin-bottom w3-round">취소하기</button>
+					<p >
+						<button type="submit" id="findBtn" class="btn btn-warning">찾기</button>
+						<button type="button" id="cancelBtn"onclick="history.go(-1);" class="btn btn-warning">취소하기</button>
 					</p>
-				</div>
+	         	</div>
 			</form>
 		</div>
 	</div>

@@ -15,5 +15,8 @@ public interface ResinfoService {
 	List<ResinfoVO> category_reslist (int category_idx);
 	//5. 식당 정보 한개 가져오기
 	ResinfoVO selectByIdx (int resinfo_idx);
-	
+	//6. 카테고리 식당 별점 가져오기
+	List<ResinfoVO> category_Star (ResinfoVO resinfoVO);
+	//7. 지역 식당 별점 가져오기
+	List<ResinfoVO> location_Star (ResinfoVO resinfoVO);
 }

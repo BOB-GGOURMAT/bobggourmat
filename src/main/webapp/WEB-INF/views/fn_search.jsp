@@ -43,24 +43,19 @@
 
 	<!-- 큰박스 -->
 	<div class="clearfix">
-
+	<h1><span style="color:white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">'${keyword }' 검사 결과</span></h1>
 		<div class="searchList">
-			<div class="res">
-				<form class="search" action="fn_search" method="post" name="db_search">
-	    <div class="mx-auto mt-5 search-bar input-group mb-3">
-	      <input name="keyword" type="text" value="" class="form-control rounded-pill" placeholder="지역, 카테고리 또는 식당 검색" aria-label="Recipient's username" aria-describedby="button-addon2">
-	      <div class="input-group-append">
-	      </div>
+	<form class="search" action="fn_search" method="post" name="db_search">
+	    <div class="search-bar">
+	      <input name="keyword" type="text" value=""class="form-control rounded-pill" placeholder="지역, 카테고리 또는 식당 검색" aria-label="Recipient's username" aria-describedby="button-addon2">
 	    </div>
 	  </form>
-				<h3 class="p-3">
-					 ${keyword}맛집
-				</h3>
+				
 				<c:if test="${!empty fn_search }">
-				<div class="container overflow-hidden">
-					<div class="row gy-5">
+				<div class="container1">
+					<div class="row row-cols-3">
 						<c:forEach items="${fn_search}" var="vo">
-							<div class="col-lg-3">
+							<div class="col">
 								<div class="card" style="width: 18rem;">
 									<img src="${vo.resinfo_mainphoto}"
 										class="card-img-top" alt="식당사진" height="260px"/>
@@ -81,10 +76,9 @@
 				</div>
 					</c:if>
 					<c:if test="${empty fn_search }">
-					 <img class="NoData"alt="NoData" src="/resources/image/NoData.png">
+					 <img class="NoSearch"alt="NoData" src="/resources/image/NoSearch.png" width="500px" height="500px">
 					</c:if>
 			</div>
 		</div>
-	</div>
 </body>
 </html>
