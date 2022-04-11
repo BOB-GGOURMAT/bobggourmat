@@ -1,6 +1,9 @@
 package com.bobggourmat.controller;
 
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -56,8 +59,12 @@ public class UserController {
 	 
 	   //마이페이지 화면
 	   @RequestMapping(value = "/mypage")
-	   public String mypage() {
-		   return "mypage";
+	   public String mypage(HttpSession session) {
+		   UserVO user = (UserVO) session.getAttribute("userinfo");
+		   if(user != null) {
+			   return "mypage";
+		   }
+           return "error";
 	   }
 		
 	   //회원수정 화면

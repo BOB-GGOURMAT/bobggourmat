@@ -1,42 +1,73 @@
 body {
 	background-color: #ffce49;
 }
-
+li{
+	font-weight:bold;
+}
 .container1 {
 	margin-top: 110px;
-	margin-left: 240px;
+	margin-left: 465px;
 }
 
 .container2{
 	position:absolute;
 	width:600px;
-	height:500px;
+	height:270px;
 	margin-top: 10px;
-	margin-left:240px;
+	margin-left:465px;
 	background-color: white;
 	border: 1px solid gray;
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 .container3{
+	color: #fb3a2f;
 	position:absolute;
 	text-align:center;
-	margin-top: 10px;
-	margin-left: 890px;
-	width: 400px;
-	height: 225px;
+	margin-top: 300px;
+	margin-left: 465px;
+	width: 290px;
+	height: 180px;
 	background-color: white;
 	border: 1px solid gray;
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
 .container4{
+	color: #fb3a2f;
 	position:absolute;
 	text-align:center;
-	margin-top: 285px;
-	margin-left: 890px;
-	width: 400px;
-	height: 225px;
+	margin-top: 300px;
+	margin-left: 775px;
+	width: 290px;
+	height: 180px;
 	background-color: white;
 	border: 1px solid gray;
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }	
+.title{
+	position:absolute;
+	margin-left : 30px;
+	margin-top: 20px;
+}
+.myIcon{
+    float: left;
+	width: 110px;
+	height: 110px;
+	margin-left: 30px;
+	margin-top:  70px;
+	border: 2px solid gray;
+	border-radius: 50%;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+.profile{
+	list-style:none;
+	margin-left: 180px;
+	margin-top:  70px;
+	line-height: 40px;
+	font-size: 17px;
+}
+#myPageBtn1{
+	margin-left :212px;
+}

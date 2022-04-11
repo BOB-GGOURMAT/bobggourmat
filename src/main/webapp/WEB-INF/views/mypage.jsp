@@ -45,15 +45,26 @@
 	</div>
 	
 	<div class="container2">
-	
+	   <h2><span class="title">회원정보</span></h2>
+	   <div class="myIcon" >
+         <img alt="profile image" src="/resources/image/밥 꾸르맛 노배경.png" style="background-color: ${userinfo.user_icon };" width="110px" height="110px">
+       </div>
+       <ul class="profile">
+         <li>닉네임 : ${userinfo.user_nickname}</li>
+         <li>이메일 : ${userinfo.user_email}</li>
+         <li>전화번호 : ${userinfo.user_phone}</li>
+       </ul>
+        <button id="myPageBtn1"type="button" class="btn btn-outline-secondary" >회원정보 수정</button>
+        <button id="myPageBtn2"type="button" class="btn btn-outline-secondary" >비밀번호 수정</button>
+        <button id="myPageBtn3"type="button" class="btn btn-outline-secondary" >탈퇴하기</button>
 	</div>
 	
 	<div class="container3" onclick="location.href ='/saveRes'" style="cursor:pointer;">
-	저장한 맛집 보러가기
+	<h4 style=" line-height: 180px; font-weight:bold;">저장한 맛집 보러가기</h4>
 	</div>
 	
-	<div class="container4" onclick="location.href ='/estimateRes'" style="cursor:pointer;">
-	평가한 맛집 보러가기
+	<div class="container4" onclick="location.href ='/estimateRes'" style="cursor:pointer; line-height: 180px;">
+	<h4 style=" line-height: 180px; font-weight:bold; ">평가한 맛집 보러가기</h4>
 	</div>
 
 </body>
