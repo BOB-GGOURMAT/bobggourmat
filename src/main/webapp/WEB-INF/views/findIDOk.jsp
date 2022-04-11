@@ -32,7 +32,7 @@
 	<c:if test="${userID != null }">
 		회원님의 아이디는 ${userID.user_id}입니다
 	</c:if>
-	<!-- 데이터를 받아오지 못한 경우 -->
+<!-- 데이터를 받아오지 못한 경우 -->
 	<c:if test="${userID == null }">
 		존재하지 않는 회원입니다.
 	</c:if>	

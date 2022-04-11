@@ -25,9 +25,9 @@ public interface UserDAO {
 	// 6. select_해당아이디의 개수 (아이디 중복확인에 사용: 0이면 사용가능, 1이상이면 사용불가)
 	int selectCountByUserId(String userid);
 	// 7. select_이름과 전화번호로 가져오기(아이디찾기)
-	UserVO selectByUsername(HashMap<String, String> map);
+	UserVO selectByUserID(UserVO userVO);
 	// 8. select_ID와 전화번호로 가져오기(비번찾기 사용)
-	UserVO selectByUserId(HashMap<String, String> map);
+	UserVO selectByUserPW(UserVO userVO);
 	// 9. select_login하기
 	UserVO login(UserVO userVO);
 	
