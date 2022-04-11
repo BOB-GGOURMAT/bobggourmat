@@ -8,7 +8,7 @@
 	<select id="selectByIdx" resultType="ResinfoVO"
 		parameterType="int">
 		select
-		r.*,l.*,c1.*,avg(comment_star)
+		r.*,l.*,c1.*,avg(comment_star) resinfo_star
 		from
 		resinfo r,
 		category c1, location l,comment c2
@@ -76,7 +76,7 @@
 	<select id="save_resinfo" resultType="ResinfoVO"
 		parameterType="int">
 		select
-		r.resinfo_name , c.category_name , l.location_name
+		r.resinfo_name , c.category_name , l.location_name,r.resinfo_mainphoto
 		,r.resinfo_mainphoto,
 		r.resinfo_idx
 		from

@@ -1,0 +1,29 @@
+body {
+	background-color: #ffce49;
+}
+.NoEstimate{
+	position: absolute;
+	margin-left: 500px;
+	margin-top: 120px;
+}
+
+.container1 {
+	margin-top: 110px;
+	margin-left: 240px;
+}
+.container2{
+	margin-top: 10px;
+	margin-left: 240px;
+	height:auto;
+	width: 1050px;
+}
+.card{
+	background-color: white;
+	border: 1px solid gray;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.comment_content{
+	width: 466px;
+	height:150;
+    border: 1px solid gray;
+}

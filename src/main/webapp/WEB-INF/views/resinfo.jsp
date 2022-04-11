@@ -47,7 +47,7 @@
                      <i class="bi bi-star-fill" style="color: #fb3a2f"></i>0.0(평가 전)
                     </c:if>
                     <c:if test="${resinfo.resinfo_star != 0}">
-                    <fmt:formatNumber  pattern="##.#" ><i class="bi bi-star-fill" style="color: #fb3a2f"></i>${resinfo.resinfo_star}</fmt:formatNumber>
+                    <i class="bi bi-star-fill" style="color: #fb3a2f"></i><fmt:formatNumber  pattern=".0" value="${resinfo.resinfo_star}"/>점
                     </c:if> </span> </h3>
                     </li>
                     <li>
@@ -98,55 +98,54 @@
            </c:if>
            <c:if test="${userinfo !=null }">
             <form class=myComment action="commentOk" method="POST">
-               <div class="commentIcon" >
+               <div class="commentIcon1" >
                <img alt="profile image" src="/resources/image/밥 꾸르맛 노배경.png" style="background-color: ${userinfo.user_icon };">
                </div>
-               <div class="commentNickname">
+               <div class="commentNickname1">
                ${userinfo.user_nickname}
                </div>
             <button id="commentBtn"type="submit" class="btn btn-outline-secondary" style="float: right;">저장</button>
             <div class="star">
             <fieldset>
-		        <input type="radio" name="rating" value="1" id="rate1"><label for="rate1">⭐</label>
-		        <input type="radio" name="rating" value="2" id="rate2"><label for="rate2">⭐</label>
-		        <input type="radio" name="rating" value="3" id="rate3"><label for="rate3">⭐</label>
-		        <input type="radio" name="rating" value="4" id="rate4"><label for="rate4">⭐</label>
-		        <input type="radio" name="rating" value="5" id="rate5"><label for="rate5">⭐</label>
+		        <input type="radio" name="comment_star" value="5" id="rate1"><label for="rate1">⭐</label>
+		        <input type="radio" name="comment_star" value="4" id="rate2"><label for="rate2">⭐</label>
+		        <input type="radio" name="comment_star" value="3" id="rate3"><label for="rate3">⭐</label>
+		        <input type="radio" name="comment_star" value="2" id="rate4"><label for="rate4">⭐</label>
+		        <input type="radio" name="comment_star" value="1" id="rate5"><label for="rate5">⭐</label>
 		    </fieldset>
             </div>
             <div class="mb-3">
 			  <label for="exampleFormControlTextarea1" class="form-label"></label>
-			  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+			  <textarea name="comment_content" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 			</div>  
+			<input type="hidden" name="resinfo_idx" value="${resinfo.resinfo_idx }" />
+			<input type="hidden" name="user_idx" value="${userinfo.user_idx }" />
 			</form>
-			<hr/>
            </c:if>
-            <hr/>
+			<hr/>
             </div>
 			<div class="commentList">
-			 <div class="serviceInfo2">
 			<c:if test="${empty(commentlist)}">
-			  <h5>댓글이 존재하지 않습니다.</h5>
+			 <div class="serviceInfo2"> 댓글이 존재하지 않습니다.</div>
+			</c:if>
+			<c:if test="${!empty(commentlist)}">
+			<c:forEach items="${commentlist}" var="commentlist">
+			<div class="commentView">
+		      <span class="commentDate"> <fmt:formatDate value="${commentlist.comment_time}" pattern="yyyy년 MM월 dd일" /></span>
+		        <div class="commentLike">
+		        <i class="bi-heart"></i>
+		        </div>  
+		    	<span class="commentStar"><i class="bi bi-star-fill" style="color: #fb3a2f"></i>${commentlist.comment_star}</span>
+		       <div class="commentNickname2">${commentlist.user_nickname}</div>
+		    	<div class="commentContent">${commentlist.comment_content}</div>
+		       <div class="commentIcon2" >
+               <img alt="profile image" src="/resources/image/밥 꾸르맛 노배경.png" style="background-color: ${commentlist.user_icon };">
+               </div>
+         	</div>
+			<hr/>
+			</c:forEach>	
 			</c:if>
 			</div>
-			<c:if test="${fn.legth(commentlist)>0 }">
-			<ul class="list">
-			<c:forEach items="${!empty(commentlist)}" var="menuinfo">
-				<div class="commentView" >
-				  <div class="commentBody">
-		    	     <p class="commentDate"> 시간${comment_time}</p>
-		    		<span class="commentIcon">아이콘 자리${user_icon}</span>
-		    		<span class="commentNickname">아이콘 닉네임${user_nickname}</span>
-		    		<span class="commentStar" style="color: orange">별점 표시될 곳</span>
-		    		<div class="commentContent">별점 표시될 곳</div>
-		    		    <i class="bi-heart" style="font-size:3rem; color: #ffce49 ; cursor: pointer;"></i>
-		   		</div>
-				</div>
-				<hr/>
-			</c:forEach>	
-			</ul>
-			</c:if>
-         </div>
 		
 		
 		<div class="container5">

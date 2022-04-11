@@ -114,28 +114,12 @@ a:hover {
 	position: absolute;
 	margin: 20px;
 }
-.serviceInfo1{
-	text-align:center;
-	border: 1px solid gray;
-	background-color: white;
-	width: 650px;
-	height: 150px;
-}
 
-.serviceInfo2{
-	text-align:center;
-	margin-top:50px;
-	margin-left:20px;
-	background-color: white;
-	width: 650px;
-	height: 150px;
-}
-
-.commentIcon img {
+.commentIcon1 img, .commentIcon2 img {
 	max-width: 100%;
 	width: auto;
 }
-.commentIcon {
+.commentIcon1 {
 	float: left;
 	width: 110px;
 	height: 110px;
@@ -146,20 +130,95 @@ a:hover {
 	overflow: hidden;
 	box-sizing: border-box;
 }
-.commentNickname{
+.commentIcon2 {
+	position:absolute;
+	float: left;
+	width: 110px;
+	height: 110px;
+	margin-left:10px;
+	border: 2px solid gray;
+	border-radius: 50%;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+.commentNickname1{
 	font-weight:bold;
 	text-align:center;
-	position:absolute;
 	width: 110px;
-	left: 10px;
-	top: 210px;
+	position:absolute;
+	margin-left: 10px;
+	margin-top: 150px;
 	float: left;
 }
-
+.commentNickname2{
+	position:absolute;
+	font-weight:bold;
+	text-align:center;
+	width: 110px;
+	margin-left: 10px;
+	margin-top: 120px;
+	float: left;
+}
+.commentDate{
+	font-weight:bold;
+	font-size: 17px;
+	position:absolute;
+	width:170px;
+	margin-left: 160px;
+}
+.commentContent{
+	position:absolute;
+	border:1px solid gray;
+	width: 490px;
+	height:120px;
+	margin-left: 160px;
+	margin-top: 50px;
+}
+.commentStar{
+	font-weight:bold;
+	font-size: 17px;
+	color:#fb3a2f;
+	position:absolute;
+	width:100px;
+	margin-left: 330px;
+}
+.commentList{
+    margin:20px;
+	width: 650px;
+	height: auto;
+}
+.commentView{
+	width: 650px;
+	height: 180px;
+	
+}
+.commentLike{
+	font-size:1.5rem; 
+	margin-left:150px;
+	color: #ffce49;
+	cursor: pointer; 
+	float:right;
+}
 .comment{
 	width: 650px;
 	margin: 20px;
 }
+
+.serviceInfo1{
+	text-align:center;
+	border: 1px solid gray;
+	background-color: white;
+	width: 650px;
+	height: 150px;
+}
+
+.serviceInfo2{
+	text-align:center;
+	background-color: white;
+	width: 620px;
+	height: 150px;
+}
+
 
 .myComment {
 	border: 1px solid gray;
@@ -184,9 +243,6 @@ fieldset{
     direction: rtl; 
     border: 0;
     }
-fieldset legend{
-    text-align: left;
-}
 input[type=radio]{
     display: none; 
 }

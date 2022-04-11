@@ -3,8 +3,10 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
 
 import com.bobggourmat.vo.CommentVO;
+import com.bobggourmat.vo.ResCommentVO;
 
 @Repository
 @Mapper
@@ -19,9 +21,9 @@ public interface CommentDAO {
 	// 3. 댓글 삭제 
 	void comment_delete(int comment_idx);
 	//4. 댓글 리스트
-	List<CommentVO> comment_list(int resinfo_idx);
+	List<ResCommentVO> comment_list(int resinfo_idx);
 	//5. 개수얻기 
     int selectCount(int resinfo_idx);
 	//<!-- 6. 평가한 맛집 가져오기 -->
-	List<CommentVO> comment_save(int resinfo_idx);
+	List<ResCommentVO> estimate_resinfo(int user_idx);
 }

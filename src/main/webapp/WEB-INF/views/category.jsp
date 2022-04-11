@@ -101,10 +101,10 @@
 		    		<p class="card-text">지역 : ${category_reslist.location_name}</p>
 		    		<h5 class="star" style="color: #fb3a2f">
 		    		 <c:if test="${category_reslist.resinfo_star == 0}">
-                     <i class="bi bi-star-fill" style="color: #fb3a2f"></i>0.0(평가 전)
+                     <i class="bi bi-star-fill" style="color: #fb3a2f"></i>0.0점(평가 전)
                     </c:if>
                     <c:if test="${category_reslist.resinfo_star != 0}">
-                    <fmt:formatNumber pattern="##.#" ><i class="bi bi-star-fill" style="color: #fb3a2f"></i>${category_reslist.resinfo_star}</fmt:formatNumber>
+                   <i class="bi bi-star-fill" style="color: #fb3a2f"></i><fmt:formatNumber  pattern=".0" value="${category_reslist.resinfo_star}"/>점
                     </c:if> 
                     </h5><br/>
 		    		<a href="/resinfo?resinfo_idx=${category_reslist.resinfo_idx }"><button type="button" class="btn btn-outline-dark btn-sm">식당 구경하기</button></a>

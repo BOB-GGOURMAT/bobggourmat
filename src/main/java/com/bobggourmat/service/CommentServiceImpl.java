@@ -3,9 +3,11 @@ package com.bobggourmat.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.bobggourmat.dao.CommentDAO;
 import com.bobggourmat.vo.CommentVO;
+import com.bobggourmat.vo.ResCommentVO;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +19,7 @@ public class CommentServiceImpl implements CommentService {
 	private final CommentDAO commentDAO;
 
 	@Override
-	public List<CommentVO> comment_list(int resinfo_idx) {
+	public List<ResCommentVO> comment_list(int resinfo_idx) {
 		log.info("CommentService comment_list리턴 :" + resinfo_idx );
 		return commentDAO.comment_list(resinfo_idx);
 	}
@@ -47,6 +49,12 @@ public class CommentServiceImpl implements CommentService {
 	public int commentCount(int resinfo_idx) {
 		log.info("CommentService commentCount 호출:" + resinfo_idx);
 		return commentDAO.selectCount(resinfo_idx);
+	}
+
+	@Override
+	public List<ResCommentVO> estimate_resinfo(int user_idx) {
+		log.info("CommentService estimate_resinfo 호출:" + user_idx);
+		return commentDAO.estimate_resinfo(user_idx);
 	}
   
 
