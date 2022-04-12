@@ -20,10 +20,12 @@
    position: stickey;
    
 }
-.NoData {
+.NoSearch {
 	position: fixed;
 	top: 70%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	width: 600px;
+	height: 600px;
 }
 

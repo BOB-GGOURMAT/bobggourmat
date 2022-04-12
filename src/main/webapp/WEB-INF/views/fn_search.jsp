@@ -81,7 +81,7 @@
 				</div>
 					</c:if>
 					<c:if test="${empty fn_search }">
-					 <img class="NoData"alt="NoData" src="/resources/image/NoData.png">
+					 <img class="NoSearch"alt="NoSearch" src="/resources/image/NoSearch.png">
 					</c:if>
 			</div>
 		</div>
