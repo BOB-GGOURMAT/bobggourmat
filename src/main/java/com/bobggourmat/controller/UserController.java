@@ -73,7 +73,7 @@ public class UserController {
 		   return "updateForm";
 	   }
 
-	// findID폼으로 이동
+	   	// findID폼으로 이동
 			@RequestMapping(value = "/findID")
 			public String findID() {
 				log.info("controller findID호출 : " );

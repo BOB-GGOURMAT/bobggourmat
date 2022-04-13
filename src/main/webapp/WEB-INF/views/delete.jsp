@@ -36,38 +36,28 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/mypage.css" rel="stylesheet" />
 </head>
-	<jsp:include page="navbar.jsp"></jsp:include>
+<jsp:include page="navbar.jsp"></jsp:include>
 <body>
-
-    <!-- 전체 -->
-    <div class="container1">
-	<h1><span style="color:white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">My Page</span></h1>
+	<!-- 로그인 정보 다시 입력 -->
+	<div class="login info">
+		<form action="loginOk" method="POST">
+			<div class="join">
+				<div class="mb-3">
+					<h5>
+						<label for="exampleInputPassword1" class="form-label">PASSWORD
+						</label>
+					</h5>
+					<input type="password" class="form-control" name="user_password"
+						placeholder="비밀번호를 입력하세요" autofocus required>
+				</div>
+				<div class="buttonwrapper" align=right>
+					<button type="submit" class="btn btn-warning">로그인</button>
+				</div>
+			</div>
+		</form>
 	</div>
-	
-	<div class="container2">
-	   <h2><span class="title">회원정보</span></h2>
-	   <div class="myIcon" >
-         <img alt="profile image" src="/resources/image/밥 꾸르맛 노배경.png" style="background-color: ${userinfo.user_icon };" width="110px" height="110px">
-       </div>
-       <ul class="profile">
-         <li>닉네임 : ${userinfo.user_nickname}</li>
-         <li>이메일 : ${userinfo.user_email}</li>
-         <li>전화번호 : ${userinfo.user_phone}</li>
-       </ul>
-        <a href="/updateForm"><button id="myPageBtn1"type="button" class="btn btn-outline-secondary" >회원정보 수정</button></a>
-        <a href="/updatePW"><button id="myPageBtn2"type="button" class="btn btn-outline-secondary" >비밀번호 수정</button></a>
-        <a href="/delete"><button id="myPageBtn3"type="button" class="btn btn-outline-secondary" >탈퇴하기</button></a>
-
-	</div>
-	
-	<div class="container3" onclick="location.href ='/saveRes'" style="cursor:pointer;">
-	<h4 style=" line-height: 180px; font-weight:bold;">저장한 맛집 보러가기</h4>
-	</div>
-	
-	<div class="container4" onclick="location.href ='/estimateRes'" style="cursor:pointer; line-height: 180px;">
-	<h4 style=" line-height: 180px; font-weight:bold; ">평가한 맛집 보러가기</h4>
-	</div>
-	
-
+	<!-- 세션과 입력된 회원정보 일치 여부 확인 -->
+		
+	<!-- 일치하면 ? 삭제하기 -->
 </body>
 </html>
