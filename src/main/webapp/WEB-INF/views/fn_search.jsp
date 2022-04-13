@@ -76,7 +76,11 @@
 				</div>
 					</c:if>
 					<c:if test="${empty fn_search }">
+<<<<<<< HEAD
 					 <img class="NoSearch"alt="NoData" src="/resources/image/NoSearch.png" width="500px" height="500px">
+=======
+					 <img class="NoSearch"alt="NoSearch" src="/resources/image/NoSearch.png">
+>>>>>>> branch '구수현' of https://github.com/BOB-GGOURMAT/bobggourmat.git
 					</c:if>
 			</div>
 		</div>
