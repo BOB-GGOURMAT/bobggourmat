@@ -27,8 +27,7 @@
 <script type="text/javascript">      
 function checkId() {
    var value = $("#user_id").val();
-	if(value!=null && value.length>=4){
-   alert("value :" + value);
+   //alert("value :" + value);
    $.ajax({
        url: 'idCheck',
        method: 'GET',
@@ -46,9 +45,6 @@ function checkId() {
             alert('에러입니다.')             
        }
      });
-	} else{
-           alert("아이다가 너무 짧습니다.");
-        }
 }
  
 </script>

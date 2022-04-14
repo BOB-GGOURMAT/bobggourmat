@@ -39,7 +39,8 @@ public class PageController {
 			List<ResinfoVO> category_reslist = resinfoService.category_reslist(Integer.parseInt(category_idx));
 			if(category_reslist.isEmpty()) {
 				model.addAttribute("location_name", "NoData");
-			    }else {
+			}else {
+			
 			model.addAttribute("category_name", category_name);
 			model.addAttribute("category_reslist",category_reslist);
 			log.info("controller category 리턴 2 :" +model);

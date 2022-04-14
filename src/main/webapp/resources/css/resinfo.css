@@ -115,22 +115,12 @@ a:hover {
 	margin: 20px;
 }
 
-.commentIcon1 img, .commentIcon2 img {
+.commentIcon img {
 	max-width: 100%;
 	width: auto;
 }
-.commentIcon1 {
-	float: left;
-	width: 110px;
-	height: 110px;
-	margin-left: 10px;
-	margin-top: 30px;
-	border: 2px solid gray;
-	border-radius: 50%;
-	overflow: hidden;
-	box-sizing: border-box;
-}
-.commentIcon2 {
+
+.commentIcon{
 	position:absolute;
 	float: left;
 	width: 110px;
@@ -142,16 +132,8 @@ a:hover {
 	overflow: hidden;
 	box-sizing: border-box;
 }
-.commentNickname1{
-	font-weight:bold;
-	text-align:center;
-	width: 110px;
-	position:absolute;
-	margin-left: 10px;
-	margin-top: 150px;
-	float: left;
-}
-.commentNickname2{
+
+.commentNickname{
 	position:absolute;
 	font-weight:bold;
 	text-align:center;
@@ -184,13 +166,12 @@ a:hover {
 	margin-left: 330px;
 }
 .commentList{
-    margin:20px;
-	width: 650px;
+	width: 630px;
 	height: auto;
 }
 .commentView{
 	margin-top: 20px;
-	width: 650px;
+	width: 630px;
 	height: 200px;
 	border-bottom: 1px solid gray;
 }
@@ -212,66 +193,20 @@ a:hover {
 	margin: 20px;
 }
 
-.serviceInfo1{
-	text-align:center;
-	border: 1px solid gray;
-	background-color: white;
-	width: 650px;
-	height: 150px;
-}
-
-.serviceInfo2{
+.serviceInfo{
 	text-align:center;
 	background-color: white;
-	width: 620px;
+	width: 600px;
 	height: 150px;
 }
 
 
-.myComment {
-	border: 1px solid gray;
-	width: 650px;
-}
 #commentBtn{
 	margin-right: 20px;
 	margin-top: 20px;
 }
-.form-control{
-	width: 490px;
-	margin-left: 130px;
-	margin-bottom: 20px;
-	height:150px;
-	overflow: hidden;
-	border: 1px solid gray;
-}
-.star{
-    margin-left: 130px;
-    margin-top:0;
-	width: 360px;
-	height: 72px;
-}
-fieldset{
-    display: inline-block;
-    direction: rtl; 
-    border: 0;
-    }
-input[type=radio]{
-    display: none; 
-}
-label{
-    font-size: 3em; 
-    color: transparent; 
-    text-shadow: 0 0 0 #f0f0f0; 
-}
-label:hover{
-    text-shadow: 0 0 0 #a00; 
-}
-label:hover ~ label{
-    text-shadow: 0 0 0 #a00; 
-}
-input[type=radio]:checked ~ label{
-    text-shadow: 0 0 0 #a00; 
-}
+
+
 
 .list{
 	margin-top:80px;

@@ -1,8 +1,9 @@
 package com.bobggourmat.controller;
 
-import java.util.List;
+
 
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,10 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bobggourmat.service.CommentService;
-import com.bobggourmat.service.MenuService;
-import com.bobggourmat.service.ResinfoService;
 import com.bobggourmat.vo.CommentVO;
-import com.bobggourmat.vo.ResCommentVO;
+import com.bobggourmat.vo.ResinfoVO;
 import com.bobggourmat.vo.UserVO;
 
 import lombok.RequiredArgsConstructor;
@@ -28,6 +27,19 @@ public class CommentController {
 
 	private final CommentService commentService;
 	
+	 //댓글 입력 
+	 @RequestMapping(value="/comment")
+     public String comment(@RequestParam int resinfo_idx , HttpSession session,Model model) {	
+		 log.info("Comment controller comment 호출:" +resinfo_idx);
+		 UserVO user = (UserVO)session.getAttribute("userinfo");
+		 if(user == null) {
+			 model.addAttribute("msg","로그인 후 이용 가능합니다.");
+			 return"redirect:/resinfo?resinfo_idx="+resinfo_idx;
+		 }
+		 model.addAttribute("resinfo",resinfo_idx);
+		 model.addAttribute("userinfo",user);
+		 return "comment";
+	 }
 	
 	 //댓글 생성(get)
 	   @GetMapping(value="/commentOk")
@@ -53,12 +65,13 @@ public class CommentController {
 
 
 	   @RequestMapping(value = "/commentUpdate")
-	   public String commentUpdate(@RequestParam int resinfo_idx,@RequestParam int comment_idx,Model model) {
-		   log.info("Resinfo controller commentUpdate 호출 :"+ resinfo_idx +"," +comment_idx);
+	   public String commentUpdate(@ModelAttribute ResinfoVO resinfoVO,@RequestParam int comment_idx,Model model) {
+		   log.info("Resinfo controller commentUpdate 호출 :"+ resinfoVO +"," +comment_idx);
 		   CommentVO commentselect = commentService.selectByIdx(comment_idx);
+		   model.addAttribute("resinfo",resinfoVO);
 		   model.addAttribute("commentselect",commentselect);
 		   log.info("Resinfo controller commentUpdate 리턴 :" +model);
-		   return "resinfo";
+		   return "redirect:/comment";
 	   }
 	   
 	   //댓글 수정(get)
