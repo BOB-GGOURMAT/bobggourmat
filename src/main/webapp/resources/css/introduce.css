@@ -1,0 +1,46 @@
+body {
+	background-color: #ffce49;
+	position: fixed;
+}
+
+.title{
+	position: fixed;
+	/*position:absolute;*/
+	margin-left : 50px;
+	top: 100px;
+	box-shadow : 0 3px 0 0 ;
+}
+
+.iLeft{
+	position: fixed;
+	top: 60%;
+	left : 21%;
+	transform: translate(-50%, -50%);
+}
+
+.iRight{
+	/*border: solid gray 2px;*/
+	position: absolute;
+	width: 780px;
+	top: 130px; 
+	height: 500px;
+	/*margin-left: 600px;*/
+	background-color:#ffffff;
+	overflow: scroll;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+.iRight::-webkit-scrollbar {
+	display: none;
+}
+.f{
+	font-family: 'Song Myung', serif;
+}
+.container{
+	background-color:#ffffff;
+	width: 800px; 
+	height: 700px;
+	margin-left: 625px;
+}
+
+	

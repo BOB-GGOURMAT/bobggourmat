@@ -9,6 +9,7 @@
 			    </a>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
+                    	<li class="nav-item mx-0 mx-lg-1"><a class="btn btn-light btn-sm" href="/introduce" role="button">About Us</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="btn btn-light btn-sm" href="/map" role="button">지역</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="btn btn-light btn-sm" href="/category" role="button">카테고리</a></li>
                         <c:if test="${ userinfo ==null }">
