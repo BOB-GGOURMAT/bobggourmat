@@ -76,6 +76,16 @@
 			return false;
 		}
 	}
+
+/*	function checkMobile(phoneNum) {
+		var regExp =/(01[016789])([1-9]{1}[0-9]{2,3})([0-9]{4})$/;
+		if(regExp.test(phoneNum)){
+			return true;
+		} else {
+			alert("핸드폰번호")
+			return false;
+		}
+	}*/
 </script>
 </head>
 
@@ -89,7 +99,8 @@
 		</h1>
 		<div class="container2">
 			<div class="joinForm">
-				<form action="insertOk" method="post" onsubmit="return formCheckFn();">
+				<form action="insertOk" method="post"
+					onsubmit="return formCheckFn();">
 					<div class="flex">
 						<div class="container">
 							<label for="user_name" class="item center">이름</label>
@@ -152,8 +163,8 @@
 						<div class="container">
 							<label for="user_phone" class="item center">전화번호</label>
 							<div class="item">
-								<input type="tel" class="form-control" id="user_phone"
-									name="user_phone" placeholder="-없이 입력하세요" required>
+								<input type="text"  maxlength='11' class="form-control" id="user_phone1" name="user_phone"
+									placeholder="-없이 입력하세요" required>
 							</div>
 							<div class="item"></div>
 						</div>
