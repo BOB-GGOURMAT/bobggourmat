@@ -33,8 +33,8 @@ public interface ResinfoDAO {
 	List<ResinfoVO> search(String keyword);
     
 	//<!-- 8. select_카테고리 식당 별점 가져오기-->
-	List<ResinfoVO> category_star (ResinfoVO resinfoVO);
+	double category_star ( HashMap<String, Integer> map );
 	
 	//<!-- 9. select_지역 식당 별점 가져오기-->
-	List<ResinfoVO> location_star (ResinfoVO resinfoVO);
+	double location_star (HashMap<String, Integer> map);
 }

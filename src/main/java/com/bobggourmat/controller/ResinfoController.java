@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bobggourmat.service.CommentService;
+import com.bobggourmat.service.LikeService;
 import com.bobggourmat.service.MenuService;
 import com.bobggourmat.service.ResinfoService;
 import com.bobggourmat.vo.CommentVO;
+import com.bobggourmat.vo.LikeVO;
 import com.bobggourmat.vo.MenuVO;
 import com.bobggourmat.vo.ResCommentVO;
 import com.bobggourmat.vo.ResinfoVO;
@@ -28,6 +30,7 @@ public class ResinfoController {
     private final ResinfoService resinfoService;
 	private final CommentService commentService;
 	private final MenuService menuService;
+	private final LikeService likeService;
 	
    //식당 상세페이지
    @RequestMapping(value = "/resinfo")
@@ -37,6 +40,12 @@ public class ResinfoController {
 	   List<MenuVO> menuinfo = menuService.menuList(resinfo_idx);
 	   List<ResCommentVO> commentlist = commentService.comment_list(resinfo_idx);
 	   int commentCount = commentService.commentCount(resinfo_idx);
+	   int likeCount = 0;
+	   for(int i=0; i<commentlist.size(); i++) {
+		   int comment_idx = commentlist.get(i).getComment_idx();
+		   likeCount=likeService.countLike(comment_idx);
+		   commentlist.get(i).setLikeCount(likeCount);
+	   }
 	   model.addAttribute("resinfo", resinfo);
 	   model.addAttribute("menuinfo",menuinfo);
 	   model.addAttribute("commentlist",commentlist);

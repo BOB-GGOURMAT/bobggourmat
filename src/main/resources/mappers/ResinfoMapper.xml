@@ -77,9 +77,9 @@
 	</select>
     
     <!-- 8. select_카테고리 식당 별점 가져오기-->
-    <select id="category_star" resultType="ResinfoVO" parameterType="ResinfoVO" >
+    <select id="category_star" resultType="double" parameterType="map" >
       select
-         r.resinfo_idx ,avg(c2.comment_star) resinfo_star
+        ifnull(avg(c2.comment_star),0 )resinfo_star
       from 
          comment c2, resinfo r, category c1
       where 
@@ -93,9 +93,9 @@
     </select>
 
     <!-- 9. select_지역 식당 별점 가져오기-->
-    <select id="location_star" resultType="ResinfoVO" parameterType="ResinfoVO" >
+    <select id="location_star" resultType="double" parameterType="map" >
       select
-         r.resinfo_idx ,avg(c.comment_star) resinfo_star
+         ifnull(avg(c.comment_star),0) resinfo_star
       from 
          comment c, resinfo r, location l
       where 

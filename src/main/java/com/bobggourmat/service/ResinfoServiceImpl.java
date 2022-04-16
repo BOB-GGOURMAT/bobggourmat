@@ -1,5 +1,6 @@
 package com.bobggourmat.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -48,15 +49,15 @@ public class ResinfoServiceImpl implements ResinfoService {
 	}
 
 	@Override
-	public List<ResinfoVO> category_Star(ResinfoVO resinfoVO) {
-		log.info("ResinfoService category_Star호출" + resinfoVO);
-		return resinfoDAO.category_star(resinfoVO);
+	public double category_Star (HashMap<String, Integer> map) {
+		log.info("ResinfoService category_Star호출" + map);
+		return resinfoDAO.category_star(map);
 	}
 
 	@Override
-	public List<ResinfoVO> location_Star(ResinfoVO resinfoVO) {
-		log.info("ResinfoService location_Star호출" + resinfoVO);
-		return resinfoDAO.location_star(resinfoVO);
+	public double location_Star(HashMap<String, Integer> map) {
+		log.info("ResinfoService location_Star호출" + map);
+		return resinfoDAO.location_star(map);
 	}
 
 }

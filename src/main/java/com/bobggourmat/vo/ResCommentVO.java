@@ -18,4 +18,5 @@ public class ResCommentVO {
   private double comment_star;
   private String user_icon;
   private String resinfo_mainphoto;
+  private int likeCount;
 }

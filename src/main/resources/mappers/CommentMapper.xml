@@ -6,7 +6,7 @@
 	
 	<!--0.댓글 한개 가져오기-->
 	<select id="selectByIdx" resultType="commentVO" parameterType="int">
-		select * from comment where comment_idx=#{comment_idx}
+		select * from comment  where comment_idx= #{comment_idx}
 	</select>
 	
 	<!-- 1. 댓글 저장 -->

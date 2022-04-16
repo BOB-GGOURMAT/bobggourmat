@@ -1,5 +1,6 @@
 package com.bobggourmat.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -19,7 +20,7 @@ public class PageController {
 	private final ResinfoService resinfoService;
 	
 	
-	//홈 화면
+	    //홈 화면
 		@RequestMapping(value = "/")
 		public String Home()  {
 			return "home";
@@ -40,6 +41,17 @@ public class PageController {
 			if(category_reslist.isEmpty()) {
 				model.addAttribute("location_name", "NoData");
 			    }else {
+			    	
+	    	double category_star = 0;
+	    	HashMap<String, Integer> map = new HashMap<>();
+	 	   for(int i=0; i<category_reslist.size(); i++) {
+	 		   int resinfo_idx = category_reslist.get(i).getResinfo_idx();
+	 		   map.put("category_idx", Integer.parseInt(category_idx));
+	 		   map.put("resinfo_idx", resinfo_idx);
+	 		  category_star= (double) resinfoService.category_Star(map);
+	 		  category_reslist.get(i).setResinfo_star(category_star);
+	 	   }
+			    	
 			model.addAttribute("category_name", category_name);
 			model.addAttribute("category_reslist",category_reslist);
 			log.info("controller category 리턴 2 :" +model);
@@ -65,6 +77,17 @@ public class PageController {
 				model.addAttribute("location_name", "NoData");
 				model.addAttribute("img", img);
 			    }else {
+			    	
+			    	double location_star = 0;
+			    	HashMap<String, Integer> map = new HashMap<>();
+			 	   for(int i=0; i<location_reslist.size(); i++) {
+			 		   int resinfo_idx = location_reslist.get(i).getResinfo_idx();
+			 		   map.put("location_idx", Integer.parseInt(location_idx));
+			 		   map.put("resinfo_idx", resinfo_idx);
+			 		  location_star= (double) resinfoService.location_Star(map);
+			 		 location_reslist.get(i).setResinfo_star(location_star);
+			 	   }
+			    	
 				model.addAttribute("location_name", location_name);
 				model.addAttribute("img", img);
 				model.addAttribute("location_reslist",location_reslist);
