@@ -1,6 +1,6 @@
 package com.bobggourmat.controller;
 
-import java.util.List;
+
 
 import javax.servlet.http.HttpSession;
 
@@ -13,11 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bobggourmat.service.CommentService;
-import com.bobggourmat.service.MenuService;
-import com.bobggourmat.service.ResinfoService;
+import com.bobggourmat.service.LikeService;
 import com.bobggourmat.vo.CommentVO;
-import com.bobggourmat.vo.ResCommentVO;
-import com.bobggourmat.vo.UserVO;
+import com.bobggourmat.vo.LikeVO;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -27,6 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 public class CommentController {
 
 	private final CommentService commentService;
+	private final LikeService likeService;
 	
 	
 	 //댓글 생성(get)
@@ -75,6 +74,31 @@ public class CommentController {
 		   return "redirect:/resinfo?resinfo_idx="+commentVO.getResinfo_idx();
 	   }
 	   
+	   //댓글 좋아요 (GET)
+	   @GetMapping(value="/likeOk")
+	   public String like() {
+		   return "redirect:/";
+	   }
+	   
+	   //댓글 좋아요 (POST)
+	   @PostMapping(value="/likeOk")
+	   public String like (@ModelAttribute LikeVO likeVO, @RequestParam String resinfo_idx,  Model model) {
+		  int check =likeService.checkLike(likeVO);
+		   if(likeVO.getUser_idx() !=0) {
+			  if(check == 0) {
+				  likeService.plusLike(likeVO);
+				  model.addAttribute("likeCheck",check);
+				  return "redirect:/resinfo?resinfo_idx="+resinfo_idx;
+			  }else {
+                  likeService.deleteLike(likeVO);
+                  model.addAttribute("likeCheck",check);
+                  return "redirect:/resinfo?resinfo_idx="+resinfo_idx;
+			  }
+		  }else {
+			  model.addAttribute("msg","로그인 후 이용 가능합니다.");
+		  }
+		   return "redirect:/resinfo?resinfo_idx="+resinfo_idx;
+	   }
 	   
 	   
 }

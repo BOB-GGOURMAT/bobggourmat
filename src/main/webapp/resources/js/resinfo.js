@@ -18,7 +18,7 @@ function more(){
 //댓글 더보기
 $(function(){
 	$('#commentList>#commentView').hide();
-	$('#commentList>#commentView').slice(0,2).show();
+	$('#commentList>#commentView').slice(0,3).show();
 });
 
 function commentMore(){
@@ -27,7 +27,7 @@ function commentMore(){
        $('#more').text('접기');
      }else{
        $('#commentList>#commentView').hide();
-       $('#commentList>#commentView').slice(0,2).show();
+       $('#commentList>#commentView').slice(0,3).show();
        $('#more').text('더보기');
     }
 }
@@ -45,5 +45,4 @@ function clip(){
 	document.body.removeChild(textarea);
 	alert("URL이 복사되었습니다.")
 }
-
 

@@ -160,10 +160,23 @@
 			<div class="commentView" id="commentView">
 		      <span class="commentDate"> <fmt:formatDate value="${commentlist.comment_time}" pattern="yyyy년 MM월 dd일" /></span>
 		        <c:if test="${commentlist.user_idx != userinfo.user_idx }">
-		        <div class="commentLike">
-		        꿀맛( )<i class="bi-heart"></i>
+		        <div class="commentLike" >
+		       <form action="/likeOk" method="post"> 꿀맛(${commentlist.likeCount} )
+		       <input type="hidden" name="resinfo_idx" value="${resinfo.resinfo_idx }" />
+		       <input type="hidden" name="comment_idx" value="${commentlist.comment_idx }" />
+		       <input type="hidden" name="user_idx" value="${userinfo.user_idx }" />
+		         <a type="submit">
+		        <c:if test="${likeCheck==0 }">
+		         <i class="bi bi-hand-thumbs-up" ></i>
+		        </c:if>
+		        <c:if test="${likeCheck!=0 }">
+		           <i class="bi bi-hand-thumbs-up-fill"></i>
+		        </c:if>
+		        </a>
+		        </form>
 		        </div>  
 		        </c:if>
+		    	
 		    	<span class="commentStar"><i class="bi bi-star-fill" style="color: #fb3a2f"></i>${commentlist.comment_star}점</span>
 		        <c:if test="${commentlist.user_idx == userinfo.user_idx }">
                  <form action="/deleteOk" method="POST">

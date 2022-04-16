@@ -1,5 +1,6 @@
 package com.bobggourmat.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.bobggourmat.vo.ResinfoVO;
@@ -16,7 +17,7 @@ public interface ResinfoService {
 	//5. 식당 정보 한개 가져오기
 	ResinfoVO selectByIdx (int resinfo_idx);
 	//6. 카테고리 식당 별점 가져오기
-	List<ResinfoVO> category_Star (ResinfoVO resinfoVO);
+	double category_Star (HashMap<String, Integer> map );
 	//7. 지역 식당 별점 가져오기
-	List<ResinfoVO> location_Star (ResinfoVO resinfoVO);
+	double location_Star (HashMap<String, Integer> map);
 }
