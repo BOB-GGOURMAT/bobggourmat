@@ -5,17 +5,17 @@
 <mapper namespace="com.bobggourmat.dao.LikeDAO">
 
 	<!-- 1. insert_댓글 좋아요하기 -->
-	<insert id="like_insert" parameterType="LikeVO">
+	<insert id="like_insert" parameterType="map">
 		insert into likes values(#{comment_idx}, #{user_idx})
 	</insert>
 
 	<!--2. delete_좋아요 취소 -->
-	<delete id="like_delete" parameterType="LikeVO">
+	<delete id="like_delete" parameterType="map">
 		delete from likes where comment_idx = #{comment_idx} and user_idx = #{user_idx}
 	</delete>
 
 	<!--3. select_ 좋아요 여부 확인 -->
-	<select id="like_check" parameterType="LikeVO" resultType="int">
+	<select id="like_check" parameterType="map" resultType="int">
 		select count(*) from likes where comment_idx = #{comment_idx} and user_idx = #{user_idx}
 	</select>
 	

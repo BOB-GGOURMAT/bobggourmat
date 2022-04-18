@@ -78,8 +78,8 @@ select * from likes;
 create table likes(
     user_idx int,
     comment_idx int,
-    foreign key (user_idx) references user(user_idx),
-    foreign key (comment_idx) references comment(comment_idx)
+    foreign key (user_idx) references user(user_idx) on delete cascade,
+    foreign key (comment_idx) references comment(comment_idx)  on delete cascade
 );
 
 drop table save;
@@ -87,7 +87,7 @@ select * from save;
 create table save(
     user_idx int,
     resinfo_idx int,
-    foreign key (user_idx) references user(user_idx),
+    foreign key (user_idx) references user(user_idx)  on delete cascade,
     foreign key (resinfo_idx) references resinfo (resinfo_idx)
 );
 

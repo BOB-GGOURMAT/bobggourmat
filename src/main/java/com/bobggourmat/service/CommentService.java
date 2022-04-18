@@ -3,7 +3,6 @@ package com.bobggourmat.service;
 
 import java.util.List;
 
-import org.springframework.ui.Model;
 
 import com.bobggourmat.vo.CommentVO;
 import com.bobggourmat.vo.ResCommentVO;

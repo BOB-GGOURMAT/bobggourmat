@@ -1,6 +1,7 @@
 package com.bobggourmat.controller;
 
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -14,8 +15,6 @@ import com.bobggourmat.service.CommentService;
 import com.bobggourmat.service.LikeService;
 import com.bobggourmat.service.MenuService;
 import com.bobggourmat.service.ResinfoService;
-import com.bobggourmat.vo.CommentVO;
-import com.bobggourmat.vo.LikeVO;
 import com.bobggourmat.vo.MenuVO;
 import com.bobggourmat.vo.ResCommentVO;
 import com.bobggourmat.vo.ResinfoVO;
@@ -40,12 +39,25 @@ public class ResinfoController {
 	   List<MenuVO> menuinfo = menuService.menuList(resinfo_idx);
 	   List<ResCommentVO> commentlist = commentService.comment_list(resinfo_idx);
 	   int commentCount = commentService.commentCount(resinfo_idx);
+	   
+	   UserVO userVO = (UserVO) session.getAttribute("userinfo");
+	   int user_idx = 0;
+	   if(userVO !=null) {
+		  user_idx=userVO.getUser_idx();
+	   }
+	   HashMap<String, Integer> map = new HashMap<>();
 	   int likeCount = 0;
+	   int likeCheck = 0;
 	   for(int i=0; i<commentlist.size(); i++) {
 		   int comment_idx = commentlist.get(i).getComment_idx();
 		   likeCount=likeService.countLike(comment_idx);
 		   commentlist.get(i).setLikeCount(likeCount);
+		   map.put("user_idx",user_idx);
+		   map.put("comment_idx", comment_idx);	   
+		   likeCheck =likeService.checkLike(map);
+		   commentlist.get(i).setLikeCheck(likeCheck);
 	   }
+	   
 	   model.addAttribute("resinfo", resinfo);
 	   model.addAttribute("menuinfo",menuinfo);
 	   model.addAttribute("commentlist",commentlist);

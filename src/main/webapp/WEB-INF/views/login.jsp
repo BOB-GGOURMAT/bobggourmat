@@ -41,7 +41,6 @@ $(document).ready(function() {
     let message = "${msg}";
     if (message != "") {
         alert(message);
-    }else {
     }
 })
 </script>
