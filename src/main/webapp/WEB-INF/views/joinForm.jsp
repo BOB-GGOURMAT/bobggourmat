@@ -76,16 +76,39 @@
 			return false;
 		}
 	}
+	
+	function checkPw(){
+		  var pw = document.getElementById('userPW').value;
+          var SC = ["!","@","#","$","%"];
+          var check_SC = 0;
 
-/*	function checkMobile(phoneNum) {
-		var regExp =/(01[016789])([1-9]{1}[0-9]{2,3})([0-9]{4})$/;
-		if(regExp.test(phoneNum)){
-			return true;
-		} else {
-			alert("핸드폰번호")
-			return false;
-		}
-	}*/
+          if(pw.length < 6 || pw.length > 16){
+              window.alert('비밀번호는 6글자 이상, 16글자 이하만 이용 가능합니다.');
+              document.getElementById("userPW").select();
+          }
+          for(var i=0;i<SC.length;i++){
+              if(pw.indexOf(SC[i]) != -1){
+                  check_SC = 1;
+              }
+          }
+          if(check_SC == 0){
+              window.alert('!,@,#,$,% 의 특수문자가 들어가 있지 않습니다.')
+              document.getElementById("userPW").select();
+          }
+          
+          if(document.getElementById('userPW').value !='' && document.getElementById('userPWCheck').value != ''){
+              if(document.getElementById('userPW').value == document.getElementById('userPWCheck').value){
+            		document.getElementById('PwCkText').innerHTML='일치'
+            		document.getElementById('PwCkText').style.color='blue';
+              }
+              else{
+                  	document.getElementById('PwCkText').innerHTML='불일치'
+              		document.getElementById('PwCkText').style.color='red';
+                  	document.getElementById('userPWCheck').value='';
+              }
+          }
+	}
+
 </script>
 </head>
 
@@ -136,8 +159,9 @@
 						<div class="container">
 							<label for="user_password" class="item center">비밀번호</label>
 							<div class="item">
-								<input type="password" name="user_password" id="user_password"
-									class="form-control" placeholder="비밀번호를 입력하세요" required>
+								<input type="password" name="user_password" id="userPW"
+									class="form-control" placeholder="비밀번호를 입력하세요"
+									onchange="checkPw()" required>
 							</div>
 							<div class="item"></div>
 						</div>
@@ -145,9 +169,11 @@
 						<div class="container">
 							<label for="user_password" class="item center">비밀번호 확인</label>
 							<div class="item">
-								<input type="password" class="form-control"
-									placeholder="비밀번호를 입력하세요" required>
+								<input type="password" class="form-control" name="userPWCheck"
+									id="userPWCheck" placeholder="비밀번호를 입력하세요" onchange="checkPw()"
+									required> 
 							</div>
+							<span id="PwCkText"></span>
 							<div class="item"></div>
 						</div>
 
@@ -163,7 +189,9 @@
 						<div class="container">
 							<label for="user_phone" class="item center">전화번호</label>
 							<div class="item">
-								<input type="text"  maxlength='11' class="form-control" id="user_phone1" name="user_phone"
+								<input type="text" maxlength='11' class="form-control"
+									id="user_phone1" name="user_phone"
+									oninput="this.value = this.value.replace(/[^0-9.]/g, '')"
 									placeholder="-없이 입력하세요" required>
 							</div>
 							<div class="item"></div>
