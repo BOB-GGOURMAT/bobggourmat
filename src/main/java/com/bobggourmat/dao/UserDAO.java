@@ -20,7 +20,7 @@ public interface UserDAO {
 	// 4. update_비밀번호 변경하기 (아이디랑 바꿀 비밀번호를 입력) 
 	void updatePassword(HashMap<String, String> map);
 	// 5. delete_계정 삭제하기
-	void deleteUser (int idx);
+	void deleteUser (UserVO userVO);
 	//==================================================================
 	// 6. select_해당아이디의 개수 (아이디 중복확인에 사용: 0이면 사용가능, 1이상이면 사용불가)
 	int selectCountByUserId(String userid);

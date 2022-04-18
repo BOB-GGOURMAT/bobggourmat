@@ -32,18 +32,19 @@
 <div class="container1">
 <h1><span style="color:white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">비밀번호 찾기 결과</span></h1>
 <!--  데이터를 받아오는 경우 -->
-	<c:if test="${userID != null }">
+	<c:if test="${userPW != null }">
     <div class="container2">
-		<div class="container3">회원님의 비밀번호는 ${userID.user_password}입니다</div>
+		<div class="container3">회원님의 비밀번호는 ${userPW.user_password}입니다</div>
     </div>
 	</c:if>
-</div>
+
 <!-- 데이터를 받아오지 못한 경우 -->
-	<c:if test="${userID == null }">
+	<c:if test="${userPW == null }">
 		<img class="NoData" alt="NoData" src="/resources/image/NoData.png" width="500px" height="500px">
 		<p >
 			<button type="button" id="againBtn" class="btn btn-danger btn-lg" onclick="history.go(-1);" style="float: right;">다시 찾기</button>
 		</p>
 	</c:if>	
+	</div>
 </body>
 </html>

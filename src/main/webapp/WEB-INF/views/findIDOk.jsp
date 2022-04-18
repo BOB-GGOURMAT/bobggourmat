@@ -37,7 +37,6 @@
 		<div class="container3">회원님의 아이디는 ${userID.user_id}입니다</div>
     </div>
 	</c:if>
-</div>
 <!-- 데이터를 받아오지 못한 경우 -->
 	<c:if test="${userID == null }">
 		<img class="NoData" alt="NoData" src="/resources/image/NoData.png" width="500px" height="500px">
@@ -45,5 +44,6 @@
 			<button type="button" id="againBtn" class="btn btn-danger btn-lg" onclick="history.go(-1);" style="float: right;">다시 찾기</button>
 		</p>
 	</c:if>	
+	</div>
 </body>
 </html>
