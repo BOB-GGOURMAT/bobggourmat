@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원정보수정</title>
+<title>밥 꾸르맛</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
@@ -34,52 +34,42 @@
 	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
 	rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<link href="/resources/css/updateForm.css" rel="stylesheet" />
+<link href="/resources/css/mypage.css" rel="stylesheet" />
+<!-- web icon -->
+<link rel="icon" type="image/x-icon" href="/resources/image/favicon.ico" />
+<!-- Bootstrap icons-->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+	rel="stylesheet" type="text/css" />
+<!-- Google fonts-->
+<link
+	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
+	rel="stylesheet" type="text/css" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="/resources/css/login.css" rel="stylesheet" />
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
-	<div class="clearfix">
-		<div class="updateinfo">
-			<h3>회원정보수정</h3>
-			<div class="nick">
-				<h5>기본정보</h5>
-				<div class="mb-3">
-					<label for="formGroupExampleInput" class="form-label">닉네임</label> <input
-						type="text" class="form-control" id="formGroupExampleInput"
-						placeholder="">
-				</div>
-				<div class="updateicon">
-					<img alt="profile image" src="/resources/image/밥 꾸르맛 노배경.png">
-				</div>
-				<div class="updatebutton">
-					<label for="exampleColorInput" class="form-label">아이콘 변경</label> <input
-						type="color" class="form-control form-control-color"
-						id="exampleColorInput" value="#ffce49" title="Choose your color">
-				</div>
-				<div class="hp">
-					<h5>연락처 정보</h5>
-					<div class="mb-3">
-						<label for="formGroupExampleInput" class="form-label">연락처</label>
-						<input type="text" class="form-control" id="formGroupExampleInput"
-							placeholder="">
-						<div class="col-md-6">
-							<label for="inputEmail4" class="form-label">Email</label> <input
-								type="email" class="form-control" id="inputEmail4">
-						</div>
-					</div>
-					<div class="updateButton">
-					<a href="/mypage">
-					<input class="btn btn-primary" type="button" value="돌아가기">
-					</a>
-					<input class="btn btn-primary" type="submit" value="저장하기">
-					</div>
-				</div>
-			</div>
-
-
-
-		</div>
-	</div>
-
+<form class="row g-3">
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">닉네임 수정</label>
+    <input type="email" class="form-control" id="inputEmail4">
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">비밀번호 수정</label>
+    <input type="password" class="form-control" id="inputPassword4">
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">이메일 수정</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+  </div>
+  <div class="col-12">
+    <label for="inputAddress2" class="form-label">전화번호 수정</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">수정완료</button>
+  </div>
+</form>
 </body>
 </html>

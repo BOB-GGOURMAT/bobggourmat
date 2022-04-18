@@ -66,6 +66,7 @@
 	<div class="container4" onclick="location.href ='/estimateRes'" style="cursor:pointer; line-height: 180px;">
 	<h4 style=" line-height: 180px; font-weight:bold; ">평가한 맛집 보러가기</h4>
 	</div>
+	
 
 </body>
 </html>

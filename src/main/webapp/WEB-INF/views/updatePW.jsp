@@ -23,6 +23,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <%-- 부트스트랩을 사용하기 위한 준비 끝 --%>
+<<<<<<< HEAD
 
 <%-- 비밀번호 입력칸, 확인칸 id 정해주는 폼
 <form name="join">
@@ -72,6 +73,35 @@
 	<jsp:include page="navbar.jsp"></jsp:include>
 	
 	
+=======
+<!-- web icon -->
+<link rel="icon" type="image/x-icon" href="/resources/image/favicon.ico" />
+<!-- Bootstrap icons-->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+	rel="stylesheet" type="text/css" />
+<!-- Google fonts-->
+<link
+	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
+	rel="stylesheet" type="text/css" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="/resources/css/mypage.css" rel="stylesheet" />
+<!-- web icon -->
+<link rel="icon" type="image/x-icon" href="/resources/image/favicon.ico" />
+<!-- Bootstrap icons-->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+	rel="stylesheet" type="text/css" />
+<!-- Google fonts-->
+<link
+	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
+	rel="stylesheet" type="text/css" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="/resources/css/login.css" rel="stylesheet" />
+</head>
+<body>
+	<jsp:include page="navbar.jsp"></jsp:include>
+>>>>>>> branch '이소림' of https://github.com/BOB-GGOURMAT/bobggourmat.git
 	
 </body>
 </html>
