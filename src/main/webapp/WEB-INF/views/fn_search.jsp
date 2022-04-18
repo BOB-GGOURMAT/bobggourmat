@@ -43,7 +43,7 @@
 
 	<!-- 큰박스 -->
 	<div class="clearfix">
-	<h1><span style="color:white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">'${keyword }' 검사 결과</span></h1>
+	<h1><span style="color:white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">'${keyword }' 검색 결과</span></h1>
 		<div class="searchList">
 	<form class="search" action="fn_search" method="post" name="db_search">
 	    <div class="search-bar">

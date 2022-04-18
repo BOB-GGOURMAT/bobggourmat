@@ -40,10 +40,12 @@
       update user set user_password=#{user_password} where user_id=#{user_id}
    </update>
     <!-- 5. delete_계정 삭제하기 -->
-    <delete id="deleteUser" parameterType="int">
+    <delete id="deleteUser" parameterType="UserVO">
       delete from user
       where
-      user_idx=#{user_idx}
+      user_idx = #{user_idx}
+      and 
+      user_password = #{user_password}
    </delete>
     <!-- ================================================== -->
     <!-- 6. select_해당아이디의 개수 (아이디 중복확인에 사용: 0이면 사용가능, 1이상이면 사용불가) -->
@@ -52,7 +54,7 @@
     </select>    
     <!-- 7. select_이름과 전화번호로 가져오기(아이디찾기) -->
     <select id="selectByUserID" resultType="UserVO" parameterType="UserVO">
-       select * from user where user_name=#{user_name} and user_phone=#{user_phone} and user_email=#{user_email}
+       select * from user where user_name=#{user_name} and user_phone=#{user_phone}
     </select>
     <!-- 8. select_ID와과 전화번호로 가져오기(비번찾기 사용) -->
     <select id="selectByUserPW" resultType="UserVO" parameterType="UserVO">

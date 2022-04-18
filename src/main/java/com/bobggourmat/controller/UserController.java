@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bobggourmat.service.UserService;
 import com.bobggourmat.vo.UserVO;
@@ -71,7 +72,44 @@ public class UserController {
 	   public String updateForm() {
 		   return "updateForm";
 	   }
+       // 회원탈퇴페이지로 갈때
+	   @RequestMapping(value = "/delete")
+	   public String delete() {
+		   return "delete";
+	   }
+	   
+	   
+	   // 회원탈퇴 버튼 눌렀을때
+	   @RequestMapping(value="/deleteOk", method = RequestMethod.GET)
+	   public void deleteGET() throws Exception {
+	   	log.info("deleteGET");
+	   }
 
+	   @RequestMapping(value="/deleteOk", method = RequestMethod.POST)
+	   public String removePOST(@ModelAttribute UserVO userVO, HttpSession session, Model model) throws Exception {
+	   	log.info("deletePOST 호출");
+	   	
+	   	UserVO user = (UserVO)session.getAttribute("userinfo");
+	   	
+	   	//현재 로그인중인 회원 비밀번호
+	   	String user_password_check = user.getUser_password();
+	   	//입력받은 비밀번호
+	   	String user_password = userVO.getUser_password();
+	   	
+	   	if(user_password.equals(user_password_check)) {
+	   		log.info("deletePOST if 호출");
+	   		userService.deleteUser(userVO);
+	   		session.invalidate();
+	   		model.addAttribute("result","deleteSuccess");
+	   		return "redirect:/";
+	   	} else {
+	   		log.info("deletePOST else 호출");
+	   		model.addAttribute("result","deleteFail");
+	   		return "delete";
+	   	}
+	   }
+	   
+	   
 	// findID폼으로 이동
 			@RequestMapping(value = "/findID")
 			public String findID() {
@@ -132,8 +170,6 @@ public class UserController {
 			public String findIDPW() {
 				return "findIDPW";
 			}
-			
-			
 			
 	}
 	   

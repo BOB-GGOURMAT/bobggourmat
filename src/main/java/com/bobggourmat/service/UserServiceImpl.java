@@ -67,15 +67,12 @@ public class UserServiceImpl implements UserService {
 		if (userVO != null) {
 			UserVO vo = userDAO.selectByIdx(userVO.getUser_idx()); // 해당 아이디의 정보 가져오기
 			if (vo != null) { // 있다면
-				String dbPassword = vo.getUser_password(); // 암호화된 내용을 DB에서 가져옴
-				if (userVO.getUser_password() == dbPassword) { // 암호화된 비번 일치여부 확인
 					// 회원 탈퇴
-					userDAO.deleteUser(vo.getUser_idx());
+					userDAO.deleteUser(vo);
 				}
 			}
 		}
 
-	}
 
 	@Override // 비번 변경
 	public void updatePassword(UserVO userVO) {
