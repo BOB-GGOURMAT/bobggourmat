@@ -1,6 +1,5 @@
 package com.bobggourmat.controller;
 
-import java.io.Console;
 
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +23,7 @@ public class SearchController {
 	//home.jsp에 있는 form action 값 mapping으로 가져옴 => 둘 다 post임
 	@RequestMapping(value = "/fn_search", method = RequestMethod.POST)
 	public String search(Model model, @RequestParam(value = "keyword") String keyword) {
+		log.info("SearchController search 호출 :" + keyword);
 		//input type으로 받아온 keyword를 String keyword로 받아옴
 		SearchService.search(model, keyword);
 		return "fn_search";

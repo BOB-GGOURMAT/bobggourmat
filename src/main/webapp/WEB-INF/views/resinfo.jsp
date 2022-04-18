@@ -28,6 +28,16 @@
 <link href="/resources/css/resinfo.css" rel="stylesheet" />
 <!-- js 파일 include -->
 <script type="text/javascript" src="/resources/js/resinfo.js" ></script> 
+<script type="text/javascript">
+function like(){
+	var user =sessionStorage.getItem("userinfo");
+	if(user==null){
+	alert("로그인 후 이용 가능합니다.");
+	location.href="login";	
+	}
+}
+</script> 
+
 </head>
 <jsp:include page="navbar.jsp"></jsp:include>
 <body>
@@ -159,21 +169,17 @@
 			<c:forEach items="${commentlist}" var="commentlist">
 			<div class="commentView" id="commentView">
 		      <span class="commentDate"> <fmt:formatDate value="${commentlist.comment_time}" pattern="yyyy년 MM월 dd일" /></span>
+		        
 		        <c:if test="${commentlist.user_idx != userinfo.user_idx }">
 		        <div class="commentLike" >
-		       <form action="/likeOk" method="post"> 꿀맛(${commentlist.likeCount} )
-		       <input type="hidden" name="resinfo_idx" value="${resinfo.resinfo_idx }" />
-		       <input type="hidden" name="comment_idx" value="${commentlist.comment_idx }" />
-		       <input type="hidden" name="user_idx" value="${userinfo.user_idx }" />
-		         <a type="submit">
-		        <c:if test="${likeCheck==0 }">
-		         <i class="bi bi-hand-thumbs-up" ></i>
+		        꿀맛(${commentlist.likeCount} )
+		        <c:if test="${commentlist.likeCheck==0 }">
+		        
+		        <a id="likeBtn" onclick="like()"><i class="bi bi-hand-thumbs-up" onclick="like()"></i></a>
 		        </c:if>
-		        <c:if test="${likeCheck!=0 }">
-		           <i class="bi bi-hand-thumbs-up-fill"></i>
+		        <c:if test="${commentlist.likeCheck!=0 }">
+		        <a id="likeBtn" href="/likeOk"> <i class="bi bi-hand-thumbs-up-fill"></i></a>
 		        </c:if>
-		        </a>
-		        </form>
 		        </div>  
 		        </c:if>
 		    	
