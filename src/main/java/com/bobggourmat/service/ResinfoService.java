@@ -20,4 +20,12 @@ public interface ResinfoService {
 	double category_Star (HashMap<String, Integer> map );
 	//7. 지역 식당 별점 가져오기
 	double location_Star (HashMap<String, Integer> map);
+	//8. 식당 저장 추가.
+	void insert_save(HashMap<String, Integer> map);
+	//9. 식당 저장 삭제.
+	void delete_save(HashMap<String, Integer> map);
+	//9. 식당 저장 목록보기.
+	List<ResinfoVO> save_reslist(int user_idx);
+	//10. 식당 저장 여부 확인
+    int checkSave (HashMap<String,Integer> map);
 }

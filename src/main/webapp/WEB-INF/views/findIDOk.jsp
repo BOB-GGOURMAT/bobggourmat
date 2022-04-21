@@ -35,13 +35,14 @@
 	<c:if test="${userID != null }">
     <div class="container2">
 		<div class="container3">회원님의 아이디는 ${userID.user_id}입니다</div>
+		<button type="button" onclick="location.href='/findPW'" class="btn btn-warning">비밀번호 찾기</button>
     </div>
 	</c:if>
 <!-- 데이터를 받아오지 못한 경우 -->
 	<c:if test="${userID == null }">
 		<img class="NoData" alt="NoData" src="/resources/image/NoData.png" width="500px" height="500px">
 		<p >
-			<button type="button" id="againBtn" class="btn btn-danger btn-lg" onclick="history.go(-1);" style="float: right;">다시 찾기</button>
+			<button type="button" id="againBtn" class="btn btn-danger btn-lg" onclick="location.href='/findID';" style="float: right;">다시 찾기</button>
 		</p>
 	</c:if>	
 	</div>
