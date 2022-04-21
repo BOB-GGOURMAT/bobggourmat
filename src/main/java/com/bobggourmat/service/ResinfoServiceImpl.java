@@ -60,4 +60,30 @@ public class ResinfoServiceImpl implements ResinfoService {
 		return resinfoDAO.location_star(map);
 	}
 
+	@Override
+	public void insert_save(HashMap<String, Integer> map) {
+		log.info("ResinfoService insert_save호출" + map);
+		resinfoDAO.insert_save(map);
+	}
+
+	@Override
+	public void delete_save(HashMap<String, Integer> map) {
+		log.info("ResinfoService delete_save호출" + map);
+		resinfoDAO.delete_save(map);
+	}
+
+	@Override
+	public List<ResinfoVO> save_reslist(int user_idx) {
+		log.info("ResinfoService location_Star호출" + user_idx);
+		return resinfoDAO.save_resinfo(user_idx);
+	}
+
+	@Override
+	public int checkSave(HashMap<String, Integer> map) {
+		log.info("ResinfoService location_Star호출" + map);
+		return resinfoDAO.saveCheck(map);
+	}
+
+	
+
 }

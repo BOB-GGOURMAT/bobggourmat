@@ -43,7 +43,7 @@
 					</p>
 					<p >
 						<button type="submit" id="findBtn" class="btn btn-warning">찾기</button>
-						<button type="button" id="cancelBtn"onclick="history.go(-1);" class="btn btn-warning">취소하기</button>
+						<button type="button" id="cancelBtn"onclick="location.href='/findIDPW';" class="btn btn-warning">취소하기</button>
 					</p>
 	         	</div>
 			</form>

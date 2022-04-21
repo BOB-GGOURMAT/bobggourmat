@@ -1,3 +1,4 @@
+<%@page import="com.bobggourmat.vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -29,12 +30,30 @@
 <!-- js 파일 include -->
 <script type="text/javascript" src="/resources/js/resinfo.js" ></script> 
 <script type="text/javascript">
-function like(){
-	var user =sessionStorage.getItem("userinfo");
-	if(user==null){
+function save(){
+	var user = '<%=(UserVO) session.getAttribute("userinfo")%>';
+    var resinfo_idx = '${resinfo.resinfo_idx}';
+    alert("user:"+user);
+    alert("resinfo_idx:"+resinfo_idx);
+	if(user == "null"){
 	alert("로그인 후 이용 가능합니다.");
 	location.href="login";	
+	}else {
+		 $.ajax({
+		    url: 'saveOk',
+		    type : 'post',
+		    data: {
+		    "resinfo_idx" : resinfo_idx
+		    },
+		    success: function (data){
+		        alert("데이터전송 성공");
+		    },
+		    error: function (error){
+		        alert("에러");
+		    }
+     	}); 
 	}
+		
 }
 </script> 
 
@@ -152,7 +171,7 @@ function like(){
 		        <input type="radio" name="comment_star" value="1" id="rate5"><label for="rate5">⭐</label>
 		    </fieldset>
             </div>
-			  <input type="text" name="comment_content" class="form-control" autofocus required>
+			  <input type="text" name="comment_content" class="form-control" required>
 			<input type="hidden" name="resinfo_idx" value="${resinfo.resinfo_idx }" />
 			<input type="hidden" name="user_idx" value="${userinfo.user_idx }" />
 			</form>
@@ -236,7 +255,12 @@ function like(){
 		
 		<div class="container6">
 		<div class="saveShare">
-          <span class="saveShareBtn" ><a href="#" onclick="">저장하기 <i class="bi bi-bookmark-heart" style="color: #fb3a2f; cursor: pointer;"></i></a></span>
+		  <c:if test="${saveCheck ==0}">
+          <span class="saveShareBtn" ><a href="#" onclick="save()">저장하기<i class="bi bi-bookmark-heart" style="color: #fb3a2f; cursor: pointer;"></i></a></span>
+		  </c:if>
+		  <c:if test="${saveCheck !=0}">
+          <span class="saveShareBtn" ><a href="#" onclick="save()">저장취소 <i class="bi bi-bookmark-heart-fill" style="color: #fb3a2f; cursor: pointer;"></i></a></span>
+		  </c:if>
           <span class="saveShareBtn" ><a href="#" onclick="clip(); return false;">공유하기<i class="bi bi-share-fill" style="color: #fb3a2f; cursor: pointer;"></i></a></span>
 		</div>
      </div>

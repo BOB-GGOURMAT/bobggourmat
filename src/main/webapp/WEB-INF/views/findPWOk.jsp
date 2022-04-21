@@ -35,6 +35,7 @@
 	<c:if test="${userPW != null }">
     <div class="container2">
 		<div class="container3">회원님의 비밀번호는 ${userPW.user_password}입니다</div>
+		<button type="button" onclick="location.href='/findID'" class="btn btn-warning">아이디 찾기</button>
     </div>
 	</c:if>
 
@@ -42,7 +43,7 @@
 	<c:if test="${userPW == null }">
 		<img class="NoData" alt="NoData" src="/resources/image/NoData.png" width="500px" height="500px">
 		<p >
-			<button type="button" id="againBtn" class="btn btn-danger btn-lg" onclick="history.go(-1);" style="float: right;">다시 찾기</button>
+			<button type="button" id="againBtn" class="btn btn-danger btn-lg" onclick="location.href='/findPW';" style="float: right;">다시 찾기</button>
 		</p>
 	</c:if>	
 	</div>

@@ -122,4 +122,16 @@
 		GROUP BY r.resinfo_idx;
 	</select>
 
+   <!--10. insert 식당 저장하기 -->
+	<insert id="insert_save" parameterType="map">
+	 insert into save(resinfo_idx,user_idx) values(#{resinfo_idx}, #{user_idx})
+	</insert>
+   <!--11. delete 저장식당 삭제하기 -->
+	<delete id="delete_save" parameterType="map">
+	delete from save where resinfo_idx = #{resinfo_idx} and user_idx = #{user_idx}
+	</delete>
+   <!--12. select 식당 저장 여부 확인하기 -->
+   <select id="saveCheck" resultType="int" parameterType="map">
+   select count(*) from save where resinfo_idx = #{resinfo_idx} and user_idx = #{user_idx}
+   </select>
 </mapper>

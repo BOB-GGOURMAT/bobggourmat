@@ -37,4 +37,13 @@ public interface ResinfoDAO {
 	
 	//<!-- 9. select_지역 식당 별점 가져오기-->
 	double location_star (HashMap<String, Integer> map);
+	
+	//<!--10. insert 식당 저장하기 -->
+	void insert_save(HashMap<String, Integer> map);
+	
+	//<!--11. delete 저장식당 삭제하기 -->
+	void delete_save(HashMap<String, Integer> map);
+	
+	//<!--12. select 식당 저장 여부 확인하기 -->
+	int saveCheck (HashMap<String, Integer> map);
 }
