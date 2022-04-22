@@ -1,6 +1,8 @@
 package com.bobggourmat.controller;
 
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -67,6 +69,32 @@ public class UserController {
 		   }
            return "error";
 	   }
+	   
+	   // 비밀번호 수정 화면
+	   @RequestMapping(value = "/updatePW")
+	   public String updatePW() {
+		   return "updatePW";
+	   }
+	   
+	   
+	   @GetMapping (value ="/updatePWOk")
+	   public String updatePWOk () {
+		   return "redirect:/";
+	   }
+	   
+	   @PostMapping (value="/updatePWOk")
+       public String updatePWOk(@RequestParam String user_password ,HttpSession session, Model model) {
+		   UserVO user = (UserVO) session.getAttribute("userinfo");
+		   String user_id = user.getUser_id();
+		   
+		   HashMap<String, String> map = new HashMap<>();
+		   map.put("user_id", user_id);
+		   map.put("user_password", user_password);
+		  userService.updatePassword(map);
+		   model.addAttribute("msg", "비밀번호 변경에 성공했습니다.");
+		   return"updatePW";
+	   }
+	   
 		
 	   //회원수정 화면
 	   @RequestMapping(value = "/updateForm")

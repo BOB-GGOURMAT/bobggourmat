@@ -75,15 +75,9 @@ public class UserServiceImpl implements UserService {
 
 
 	@Override // 비번 변경
-	public void updatePassword(UserVO userVO) {
-		log.info("UserService updatePassword 호출 : " + userVO);
-		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("userid", userVO.getUser_id());
-		// password는 암호화해서 저장되어야 한다.
-		String encryptPassword = userVO.getUser_password();
-		map.put("password", encryptPassword);
+	public void updatePassword(HashMap<String, String> map) {
+		log.info("UserService updatePassword 호출 : " + map);
 		userDAO.updatePassword(map);
-
 	}
 
 	@Override // 아이디 중복확인

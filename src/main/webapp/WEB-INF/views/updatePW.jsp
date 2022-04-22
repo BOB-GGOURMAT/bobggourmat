@@ -48,25 +48,33 @@
 <link href="/resources/css/login.css" rel="stylesheet" />
 <script type="text/javascript">
 
+// 비밀번호 변경 후 변경 사실 알리는 alert창
+$(document).ready(function() {
+    let message = "${msg}";
+    if (message != "") {
+        alert(message);
+        location.href="login";
+    }
+})
 function checkPw(){
-
 	// 로그인되어있는 세션의 비밀번호 & 로그인되어있는 세션의 비밀번호 입력해서 일치 여부 확인할 때
     if(document.getElementById('userPW').value !='' && document.getElementById('userPWCheck').value != ''){
         if(document.getElementById('userPW').value == document.getElementById('userPWCheck').value){
       		document.getElementById('PwCkText').innerHTML='일치'
       		document.getElementById('PwCkText').style.color='blue';
+      		$("#formCheck1").val(1);
         }
         else{
             	document.getElementById('PwCkText').innerHTML='불일치'
         		document.getElementById('PwCkText').style.color='red';
             	document.getElementById('userPWCheck').value='';
+            	$("#formCheck1").val(0);
         }
     }
 }
 
-
 function check_newPw(){
-	
+
 	  // 새로 설정할 비밀번호가 비밀번호 생성 기준에 맞는지 확인
 	  var pw = document.getElementById('newUserPW').value;
  	  var SC = ["!","@","#","$","%"];
@@ -85,20 +93,20 @@ function check_newPw(){
       window.alert('!,@,#,$,% 의 특수문자가 들어가 있지 않습니다.')
       document.getElementById("newUserPW").select();
   }
-
+  //새로 설정할 비밀번호 & 새로 설정할 비밀번호 입력해서 일치 여부 확인할 때
+  if(document.getElementById('newUserPW').value !='' && document.getElementById('newUserPWCheck').value != ''){
+      if(document.getElementById('newUserPW').value == document.getElementById('newUserPWCheck').value){
+    		document.getElementById('newPwCkText').innerHTML='일치'
+    		document.getElementById('newPwCkText').style.color='blue';
+      }
+      else{
+          	document.getElementById('newPwCkText').innerHTML='불일치'
+      		document.getElementById('newPwCkText').style.color='red';
+          	document.getElementById('newUserPWCheck').value='';
+      }
   }
-function checkPw(){
-	  // 새로 설정할 비밀번호 & 새로 설정할 비밀번호 입력해서 일치 여부 확인할 때
-	  if(document.getElementById('newUserPW').value !='' && document.getElementById('newUserPWCheck').value != ''){
-	      if(document.getElementById('newUserPW').value == document.getElementById('newUserPWCheck').value){
-	    		document.getElementById('PwCkText').innerHTML='일치'
-	    		document.getElementById('PwCkText').style.color='blue';
-	      }
-	      else{
-	          	document.getElementById('PwCkText').innerHTML='불일치'
-	      		document.getElementById('PwCkText').style.color='red';
-	          	document.getElementById('newUserPWCheck').value='';
-	      }
+}
+	 
 
 </script>
 </head>
@@ -107,52 +115,49 @@ function checkPw(){
 
 	<form action="updatePWOk" method="post">
 		<div class="PWcheck">
-		
-		<!--로그인한 유저의 비밀번호 -->
-				<div class="item">
-					<input type="hidden" id="userPW" value="${userinfo.user_password }"
-						onchange="checkPw()" required>
-				</div>
-				<div class="item"></div>
-			</div>
-        <!--기존 비밀번호와 일치하는지 확인 -->
-			<div class="container">
-				<label for="user_password" class="item center">기존 비밀번호</label>
-				<div class="item">
-					<input type="password" class="form-control" 
-						id="userPWCheck" placeholder="기존 비밀번호를 입력하세요" onchange="checkPw()"
-						required>
-				</div>
-				<span id="PwCkText"></span>
-				<div class="item"></div>
-			</div>
 
-		
-
-        
-		<div class="container">
-			<label for="user_password" class="item center">새 비밀번호</label>
+			<!--로그인한 유저의 비밀번호 -->
 			<div class="item">
-				<input type="password" name="user_password" id="newUserPW"
-					class="form-control" placeholder="새 비밀번호를 입력하세요" onchange="check_newPw()"
-					required>
+				<input type="hidden" id="userPW" value="${userinfo.user_password }"
+					onchange="checkPw()" required>
 			</div>
 			<div class="item"></div>
 		</div>
-
+		<!--기존 비밀번호와 일치하는지 확인 -->
 		<div class="container">
-			<label for="user_password" class="item center">새 비밀번호 확인</label>
+			<label for="user_password" class="item center">기존 비밀번호</label>
 			<div class="item">
-				<input type="password" class="form-control" 
-					id="newUserPWCheck" placeholder="새 비밀번호 확인" onchange="check_newPw()"
-					required>
+				<input type="password" class="form-control" id="userPWCheck"
+					placeholder="기존 비밀번호를 입력하세요" onchange="checkPw()" required>
 			</div>
 			<span id="PwCkText"></span>
 			<div class="item"></div>
 		</div>
-		    
-		    <!-- 변경하기버튼 -->
-			<button type="submit" class="btn btn-warning"  >변경하기</button>
+
+		<div class="container">
+			<label for="user_password" class="item center">새 비밀번호</label>
+			<div class="item">
+				<input type="password" name="user_password" id="newUserPW"
+					class="form-control" placeholder="새 비밀번호를 입력하세요"
+					onchange="check_newPw()" required>
+			</div>
+			<div class="item"></div>
+		</div>
+
+
+		<div class="container">
+			<label for="user_password" class="item center">새 비밀번호 확인</label>
+			<div class="item">
+				<input type="password" class="form-control" id="newUserPWCheck"
+					placeholder="새 비밀번호 확인" onchange="check_newPw()" required>
+			</div>
+			<span id="newPwCkText"></span>
+			<div class="item"></div>
+		</div>
+
+
+		<!-- 변경하기버튼 -->
+		<button type="submit" class="btn btn-warning">변경하기</button>
 	</form>
 
 </body>

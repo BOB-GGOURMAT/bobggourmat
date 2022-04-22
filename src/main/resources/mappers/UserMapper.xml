@@ -37,7 +37,7 @@
     </update>
     <!-- 4. update_비밀번호 변경하기 (아이디랑 바꿀 비밀번호를 입력) -->
    <update id="updatePassword" parameterType="hashmap">
-      update user set user_password=#{user_password} where user_idx=#{user_idx}
+      update user set user_password=#{user_password} where user_id=#{user_id}
    </update>
     <!-- 5. delete_계정 삭제하기 -->
     <delete id="deleteUser" parameterType="UserVO">

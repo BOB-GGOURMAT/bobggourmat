@@ -47,7 +47,6 @@ $(document).ready(function() {
 </head>
 
 <body>
-  <!-- 블로그에서 가져온거 -->
 <form action="deleteOk" method="post" autocomplete="off">
 
   <div>
