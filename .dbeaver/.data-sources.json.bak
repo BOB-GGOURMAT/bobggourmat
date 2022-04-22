@@ -1,7 +1,7 @@
 {
 	"folders": {},
 	"connections": {
-		"mariaDB-17fc5633171-7c6591147175d4d4": {
+		"mariaDB-1800883e456-4c78dcbc4ef8d031": {
 			"provider": "mysql",
 			"driver": "mariaDB",
 			"name": "mydb",
@@ -9,11 +9,14 @@
 			"read-only": false,
 			"configuration": {
 				"host": "localhost",
-				"port": "3305",
+				"port": "3306",
 				"database": "mydb",
-				"url": "jdbc:mysql://localhost:3305/mydb",
-				"home": "C:\\Program Files\\MySQL\\MySQL Server 8.0",
+				"url": "jdbc:mysql://localhost:3306/mydb",
+				"home": "/usr/local/mysql-8.0.28-macos11-arm64",
 				"type": "dev",
+				"properties": {
+					"allowPublicKeyRetrieval": "true"
+				},
 				"auth-model": "native",
 				"handlers": {}
 			}

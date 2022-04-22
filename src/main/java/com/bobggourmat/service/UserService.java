@@ -24,3 +24,6 @@ public interface UserService {
 	UserVO passwordSearch (UserVO userVO);
 
 }
+
+
+
