@@ -1,6 +1,8 @@
 package com.bobggourmat.service;
 
 
+import java.util.HashMap;
+
 import com.bobggourmat.vo.UserVO;
 
 
@@ -15,7 +17,7 @@ public interface UserService {
 	//  4. 회원 탈퇴
 	void deleteUser (UserVO userVO);
 	//  5. 비번 변경
-	void updatePassword (UserVO userVO);
+	void updatePassword (HashMap<String, String> map);
 	//  6. 아이디 중복확인
 	int idCheck(String userid);
 	//  7. 아이디 찾기
@@ -24,3 +26,6 @@ public interface UserService {
 	UserVO passwordSearch (UserVO userVO);
 
 }
+
+
+
