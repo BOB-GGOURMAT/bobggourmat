@@ -30,11 +30,15 @@
 <!-- js 파일 include -->
 <script type="text/javascript" src="/resources/js/resinfo.js" ></script> 
 <script type="text/javascript">
+//식당 저장하기
+$(function(){
+	var commentselect = <%= request.getAttribute("commentselect") %>;
+	alert("commentselect : "+commentselect);
+});
+
 function save(){
 	var user = '<%=(UserVO) session.getAttribute("userinfo")%>';
     var resinfo_idx = '${resinfo.resinfo_idx}';
-    alert("user:"+user);
-    alert("resinfo_idx:"+resinfo_idx);
 	if(user == "null"){
 	alert("로그인 후 이용 가능합니다.");
 	location.href="login";	
@@ -45,8 +49,9 @@ function save(){
 		    data: {
 		    "resinfo_idx" : resinfo_idx
 		    },
-		    success: function (data){
-		        alert("데이터전송 성공");
+		    success: function (result){
+		    	 alert(result);
+		    	 document.location.reload();
 		    },
 		    error: function (error){
 		        alert("에러");
@@ -55,6 +60,69 @@ function save(){
 	}
 		
 }
+
+//댓글 좋아요
+function like(comment_idx){
+    var user = '<%=(UserVO) session.getAttribute("userinfo")%>';
+	alert("comment_idx : "+comment_idx);
+    if(user=="null"){
+	alert("로그인 후 이용 가능합니다.");
+	location.href="login";	
+	}else{
+		 $.ajax({
+			    url: 'likeOk',
+			    type : 'post',
+			    data: {
+			    "comment_idx" : comment_idx
+			    },
+			    success: function (result){
+			    	 alert(result);
+			    	 document.location.reload();
+			    },
+			    error: function (error){
+			        alert("에러");
+			    }
+	     	}); 
+	}
+}
+
+//댓글 삭제
+function commentDelete(comment_idx){
+	 $.ajax({
+		    url: 'commentDeleteOk',
+		    type : 'post',
+		    data: {
+		    "comment_idx" : comment_idx
+		    },
+		    success: function (result){
+		    	 alert(result);
+		    	 document.location.reload();
+		    },
+		    error: function (error){
+		        alert("에러");
+		    }
+  	}); 
+	
+}
+
+//댓글 수정
+function commentUpdate(comment_idx){
+	 $.ajax({
+		    url: 'commentUpdate',
+		    type : 'post',
+		    data: {
+		    "comment_idx" : comment_idx
+		    },
+		    success: function (data){
+		    	alert("데이터 전송");
+		    },
+		    error: function (error){
+		        alert("에러");
+		    }
+	}); 
+}
+
+
 </script> 
 
 </head>
@@ -76,7 +144,7 @@ function save(){
                      <i class="bi bi-star-fill" style="color: #fb3a2f"></i>0.0(평가 전)
                     </c:if>
                     <c:if test="${resinfo.resinfo_star != 0}">
-                    <i class="bi bi-star-fill" style="color: #fb3a2f"></i><fmt:formatNumber  pattern=".0" value="${resinfo.resinfo_star}"/>점
+                    <i class="bi bi-star-fill" style="color: #fb3a2f"></i><fmt:formatNumber  pattern="0.0" value="${resinfo.resinfo_star}"/>점
                     </c:if> </span> </h3>
                     </li>
                     <li>
@@ -128,8 +196,8 @@ function save(){
            
            <c:if test="${userinfo !=null }">
            <c:choose>
-            <c:when test="${commentselect.comment_content != null }">
-            <form class=myComment action="updateOk" method="POST">
+            <c:when test="${commentselect != null }">
+            <form class=myComment action="commentUpdateOk" method="POST">
                <div class="commentIcon1" >
                <img alt="profile image" src="/resources/image/밥 꾸르맛 노배경.png" style="background-color: ${userinfo.user_icon };">
                </div>
@@ -193,27 +261,18 @@ function save(){
 		        <div class="commentLike" >
 		        꿀맛(${commentlist.likeCount} )
 		        <c:if test="${commentlist.likeCheck==0 }">
-		        
-		        <a id="likeBtn" onclick="like()"><i class="bi bi-hand-thumbs-up" onclick="like()"></i></a>
+		        <a id="likeBtn" onclick="like('${commentlist.comment_idx }')" style="color:#ffce49;"><i class="bi bi-hand-thumbs-up" ></i></a>
 		        </c:if>
 		        <c:if test="${commentlist.likeCheck!=0 }">
-		        <a id="likeBtn" href="/likeOk"> <i class="bi bi-hand-thumbs-up-fill"></i></a>
+		        <a id="likeBtn" onclick="like('${commentlist.comment_idx }')" style="color:#ffce49;"> <i class="bi bi-hand-thumbs-up-fill"></i></a>
 		        </c:if>
 		        </div>  
 		        </c:if>
 		    	
 		    	<span class="commentStar"><i class="bi bi-star-fill" style="color: #fb3a2f"></i>${commentlist.comment_star}점</span>
 		        <c:if test="${commentlist.user_idx == userinfo.user_idx }">
-                 <form action="/deleteOk" method="POST">
-                 <input type="hidden" name="comment_idx" value="${commentlist.comment_idx }" />
-                 <input type="hidden" name="resinfo_idx" value="${resinfo.resinfo_idx }" />
-                 <button id="commentlistBtn2"type="submit" class="btn btn-outline-secondary btn-sm" >삭제</button>
-                 </form>
-		          <form action="/commentUpdate" method="POST">
-		         <input type="hidden" name="comment_idx" value="${commentlist.comment_idx }" />
-		          <input type="hidden" name="resinfo_idx" value="${resinfo.resinfo_idx }" />
-		         <button id="commentlistBtn1"type="submit" class="btn btn-outline-secondary btn-sm" >수정</button>
-		         </form>
+                 <button id="commentlistBtn2" class="btn btn-outline-secondary btn-sm" onclick="commentDelete('${commentlist.comment_idx }')">삭제</button>
+		         <button id="commentlistBtn1" class="btn btn-outline-secondary btn-sm" onclick='location.href="commentUpdate?comment_idx=${commentlist.comment_idx }";' >수정</button>
 		         </c:if>
 		       <div class="commentNickname2">${commentlist.user_nickname}</div>
 		    	<div class="commentContent">${commentlist.comment_content}</div>
@@ -256,10 +315,10 @@ function save(){
 		<div class="container6">
 		<div class="saveShare">
 		  <c:if test="${saveCheck ==0}">
-          <span class="saveShareBtn" ><a href="#" onclick="save()">저장하기<i class="bi bi-bookmark-heart" style="color: #fb3a2f; cursor: pointer;"></i></a></span>
+          <span class="saveShareBtn" onclick="save()" style="cursor: pointer;">저장하기<i class="bi bi-bookmark-heart" style="color: #fb3a2f; cursor: pointer;"></i></span>
 		  </c:if>
 		  <c:if test="${saveCheck !=0}">
-          <span class="saveShareBtn" ><a href="#" onclick="save()">저장취소 <i class="bi bi-bookmark-heart-fill" style="color: #fb3a2f; cursor: pointer;"></i></a></span>
+          <span class="saveShareBtn" onclick="save()" style="cursor: pointer;">저장취소 <i class="bi bi-bookmark-heart-fill" style="color: #fb3a2f; cursor: pointer;"></i></span>
 		  </c:if>
           <span class="saveShareBtn" ><a href="#" onclick="clip(); return false;">공유하기<i class="bi bi-share-fill" style="color: #fb3a2f; cursor: pointer;"></i></a></span>
 		</div>

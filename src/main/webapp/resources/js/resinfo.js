@@ -46,11 +46,3 @@ function clip(){
 	alert("URL이 복사되었습니다.");
 }
 
-//댓글 좋아요 (미완성)
-function like(){
-	  var user = '<%=(UserVO) session.getAttribute("userinfo")%>';
-	if(user=="null"){
-	alert("로그인 후 이용 가능합니다.");
-	location.href="login";	
-	}
-}

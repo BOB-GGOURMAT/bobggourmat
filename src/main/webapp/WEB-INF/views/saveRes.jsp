@@ -1,3 +1,4 @@
+<%@page import="com.bobggourmat.vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -27,36 +28,54 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/saveRes.css" rel="stylesheet" />
 <script type="text/javascript">
-	function categoryClick(category_idx){
-		location.href='category?category_idx='+category_idx;
-	}
+function save(resinfo_idx){
+    //alert("resinfo_idx:"+resinfo_idx);
+	
+	 $.ajax({
+	    url: 'saveOk',
+	    type : 'post',
+	    data: {
+	    "resinfo_idx" : resinfo_idx
+	    },
+	    success: function (data){
+	        alert("저장이 취소되었습니다.");
+	        document.location.reload();
+	    },
+	    error: function (error){
+	        alert("에러");
+	    }
+	   	}); 
+	
+		
+}
 </script>
 </head>
 <jsp:include page="navbar.jsp"></jsp:include>
 <body>
-     <div class="estimateRes">
-	<c:if test="${empty(estimate_resinfo)}">
+     <div class="saveRes">
+	<c:if test="${empty(save_resinfo)}">
 	 <img class="NoEstimate" alt="NoEstimate" src="/resources/image/NoSave.png" width="500px" height="500px">
 	</c:if>
-	<c:if test="${!empty(estimate_resinfo)}">
+	<c:if test="${!empty(save_resinfo)}">
 	<div class="container1">
-	<h1><span style="color:white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">평가한 맛집</span></h1>
+	<h1><span style="color:white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">저장한 맛집</span></h1>
 	</div>
 	<div class="container2">
 	<div class="row justify-content-evenly">
-	<c:forEach items="${estimate_resinfo }" var="estimate_resinfo">
+	<c:forEach items="${save_resinfo }" var="save_resinfo">
 		 <div class="col-5">
 		<div class="card">
 		  <div class="image">
-		  <img alt="식당 메인 사진 " src="${estimate_resinfo.resinfo_mainphoto}" width="160px" height="160px">
+		  <img alt="식당 메인 사진 " src="${save_resinfo.resinfo_mainphoto}" width="160px" height="160px">
 		  </div>
 		  <div class="comment_content">
-		  <h3> ${estimate_resinfo.resinfo_name } </h3>  
-		  <h5>${estimate_resinfo.location_name} |
-		  <i class="bi bi-star-fill" style="color: #fb3a2f"></i><fmt:formatNumber  pattern=".0" value="${estimate_resinfo.comment_star}"/>점
+		  <h3> ${save_resinfo.resinfo_name } </h3>  
+		  <h5>${save_resinfo.location_name} |
+		  <i class="bi bi-star-fill" style="color: #fb3a2f"></i><fmt:formatNumber  pattern="0.0" value="${save_resinfo.resinfo_star}"/>점
 		  </h5>
 		  </div>
-		  <a href="/resinfo?resinfo_idx=${estimate_resinfo.resinfo_idx }"><button type="button" id="button" class="btn btn-outline-dark btn-sm">식당 구경하기</button></a>
+		  <button onclick="location.href='/resinfo?resinfo_idx=${save_resinfo.resinfo_idx }'"  id="button1" class="btn btn-outline-dark">식당 구경하기</button>
+		  <button onclick="save('${save_resinfo.resinfo_idx}')" id="button2" class="btn btn-outline-dark">저장취소 <i class="bi bi-bookmark-heart-fill" style="color: #fb3a2f; cursor: pointer;"></i></button>
 		</div>
 		<br/>
 		</div>
