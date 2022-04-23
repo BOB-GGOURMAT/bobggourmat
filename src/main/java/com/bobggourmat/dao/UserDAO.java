@@ -30,5 +30,6 @@ public interface UserDAO {
 	UserVO selectByUserPW(UserVO userVO);
 	// 9. select_login하기
 	UserVO login(UserVO userVO);
-	
+	// 10. Icon변경하기
+	void updateIcon(UserVO userVO);
 }

@@ -26,7 +26,7 @@
 <!-- web icon -->
 <link rel="icon" type="image/x-icon" href="/resources/image/favicon.ico" />
 <!-- Bootstrap icons-->
-<link>
+<link
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
 	rel="stylesheet" type="text/css" />
 <!-- Google fonts-->
@@ -37,17 +37,56 @@
 <link href="/resources/css/iconColor.css" rel="stylesheet" />
 </head>
 <body>
-
-	<form action="">
+<jsp:include page="navbar.jsp"></jsp:include>
+	<form id="iconForm"action="updateIconOk" method="post">
 	
+	<div class="commentIcon" >
+	 <img alt="profile image" src="/resources/image/밥 꾸르맛 노배경.png" style="background-color: #ffce49;">
+    </div>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="user_icon" id="flexRadioDefault1" value="#ffce49" checked>
+    </div>
+    
+    <div class="commentIcon" >
+    <img alt="profile image" src="/resources/image/밥 꾸르맛 노배경.png" style="background-color: #489CFF;">
+    </div>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="user_icon" id="flexRadioDefault1" value=" #489CFF">
+    </div>
+    
+    <div class="commentIcon" >
+    <img alt="profile image" src="/resources/image/밥 꾸르맛 노배경.png" style="background-color: #BFA0ED;">
+    </div>
+    <div class="form-check">
+	 <input class="form-check-input" type="radio" name="user_icon" id="flexRadioDefault1" value="#BFA0ED">
+	</div>
+    
+    <div class="commentIcon" >
+    <img alt="profile image" src="/resources/image/밥 꾸르맛 노배경.png" style="background-color: #FFD9EC;">
+    </div>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="user_icon" id="flexRadioDefault1" value="#FFD9EC">
+	</div>
+    
+    <div class="commentIcon" >
+    <img alt="profile image" src="/resources/image/밥 꾸르맛 노배경.png" style="background-color: #9FC93C;">
+    </div>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="user_icon" id="flexRadioDefault1" value="#9FC93C">
+	</div>
+   
+    <div class="commentIcon" >
+    <img alt="profile image" src="/resources/image/밥 꾸르맛 노배경.png" style="background-color: #FF5A5A;">
+    </div>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="user_icon" id="flexRadioDefault1" value="#FF5A5A">
+	</div>
 	
-	
-	</form>	
-
-
-
-
-
+    <input type="hidden" name="user_idx" value="${userinfo.user_idx }">
+    <div class="buttonwrapper" align=right>
+	 <button type="submit" class="btn btn-warning" > 변경하기 </button>
+	 </div>           
+	</form>
 
 </body>
 </html>

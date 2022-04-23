@@ -9,7 +9,6 @@ import com.bobggourmat.vo.UserVO;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.bytebuddy.asm.Advice.Return;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -100,4 +99,11 @@ public class UserServiceImpl implements UserService {
 	}
 		return null;
 }
+	@Override // 아이콘변경
+	public UserVO updateIcon(UserVO userVO)  {
+		log.info("UserService updateUser 호출 : " + userVO);
+		 userDAO.updateIcon(userVO);
+		 return userDAO.selectByIdx(userVO.getUser_idx());
+	}
+	
 }
