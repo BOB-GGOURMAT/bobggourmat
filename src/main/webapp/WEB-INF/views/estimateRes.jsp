@@ -26,11 +26,6 @@
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/estimateRes.css" rel="stylesheet" />
-<script type="text/javascript">
-	function categoryClick(category_idx){
-		location.href='category?category_idx='+category_idx;
-	}
-</script>
 </head>
 <jsp:include page="navbar.jsp"></jsp:include>
 <body>
@@ -53,14 +48,14 @@
 		  <div class="comment_content">
 		  <h3> ${estimate_resinfo.resinfo_name } </h3>  
 		  <h5>${estimate_resinfo.location_name} |
-		  <i class="bi bi-star-fill" style="color: #fb3a2f"></i><fmt:formatNumber  pattern=".0" value="${estimate_resinfo.comment_star}"/>점
+		  <i class="bi bi-star-fill" style="color: #fb3a2f"></i><fmt:formatNumber  pattern="0.0" value="${estimate_resinfo.comment_star}"/>점
 		  </h5>
 		  <span class="time">평가한 날짜: ${estimate_resinfo.comment_time } </span>
 		  <div class="content">
 		   ${estimate_resinfo.comment_content }
 		  </div>
 		  </div>
-		  <a href="/resinfo?resinfo_idx=${estimate_resinfo.resinfo_idx }"><button type="button" id="button" class="btn btn-outline-dark btn-sm">식당 구경하기</button></a>
+		 <button onclick="location.href='/resinfo?resinfo_idx=${estimate_resinfo.resinfo_idx }'"  id="button" class="btn btn-outline-dark btn-sm">식당 구경하기</button>
 		</div>
 		<br/>
 		</div>

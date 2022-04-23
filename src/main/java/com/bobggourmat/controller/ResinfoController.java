@@ -18,6 +18,7 @@ import com.bobggourmat.service.CommentService;
 import com.bobggourmat.service.LikeService;
 import com.bobggourmat.service.MenuService;
 import com.bobggourmat.service.ResinfoService;
+import com.bobggourmat.vo.CommentVO;
 import com.bobggourmat.vo.MenuVO;
 import com.bobggourmat.vo.ResCommentVO;
 import com.bobggourmat.vo.ResinfoVO;
@@ -36,7 +37,7 @@ public class ResinfoController {
 	
    //식당 상세페이지
    @RequestMapping(value = "/resinfo")
-   public String resinfo(@RequestParam(required = false) int resinfo_idx, HttpSession session,Model model) {
+   public String resinfo(@RequestParam(required = false) int resinfo_idx, HttpSession session,Model model ) {
 	   log.info("Resinfo controller resinfo 호출 :" + resinfo_idx);
 	   ResinfoVO resinfo = resinfoService.selectByIdx(resinfo_idx);
 	   List<MenuVO> menuinfo = menuService.menuList(resinfo_idx);
@@ -96,7 +97,13 @@ public class ResinfoController {
    
    //저장한 식당
    @RequestMapping(value="/saveRes")
-	   public String saveRes( ) {
+	   public String saveRes(HttpSession session, Model model ) {
+	   log.info("Resinfo controller saveRes 호출 :"  +session);
+	   UserVO user = (UserVO) session.getAttribute("userinfo");
+	   int user_idx = user.getUser_idx();
+	   List<ResinfoVO> save_resinfo =resinfoService.save_reslist(user_idx);
+	   model.addAttribute("save_resinfo",save_resinfo);
+	   log.info("Resinfo controller saveRes 리턴 :"  +save_resinfo);
 	   return"saveRes";
    }
    //식당 저장하기 (GET)
@@ -108,12 +115,11 @@ public class ResinfoController {
    //식당 저장하기 (POST)
    @ResponseBody
    @PostMapping(value="/saveOk")
-   public String saveOk(@RequestParam(required = false) String resinfo_idx,HttpSession session,  Model model) {
+   public String saveOk(@RequestParam(required = false) String resinfo_idx,HttpSession session) {
 	   log.info("Resinfo controller saveOk 호출 :"  + resinfo_idx);
 	   UserVO user = (UserVO) session.getAttribute("userinfo");
 	   int user_idx = 0;
 	   if(user != null) { 
-	   log.info("Resinfo controller user if 호출 :"  + user);
 	   user_idx = user.getUser_idx();
 	   }
 	   HashMap<String, Integer> map =new HashMap<>();
@@ -124,10 +130,11 @@ public class ResinfoController {
 	   if(saveCheck == 0) {
 	   log.info("Resinfo controller saveCheck==0 호출 :"  + map);
 		   resinfoService.insert_save(map);
+		   return "저장되었습니다." ;
 	   }else {
 		   log.info("Resinfo controller saveCheck else 호출 :"  + map);
 		   resinfoService.delete_save(map);
+		   return "저장이 취소되었습니다.";
 	   }
-	   return "redirect:/resinfo?resinfo_idx="+resinfo_idx;
    }
 }

@@ -6,7 +6,7 @@
 
 	<!-- 1. insert_댓글 좋아요하기 -->
 	<insert id="like_insert" parameterType="map">
-		insert into likes values(#{comment_idx}, #{user_idx})
+		insert into likes(comment_idx, user_idx) values(#{comment_idx}, #{user_idx})
 	</insert>
 
 	<!--2. delete_좋아요 취소 -->
