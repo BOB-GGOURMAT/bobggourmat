@@ -53,4 +53,11 @@ public class LoginController {
 			return "redirect:/";
 		}
 
+		  // (마이페이지 충돌날까봐 잠시 여기에 적어둠) 아이콘 변경 controller
+		   @RequestMapping(value = "/iconColor")
+		   public String iconColor() {
+			   return "iconColor";
+		   }
+		   
+		
 }
