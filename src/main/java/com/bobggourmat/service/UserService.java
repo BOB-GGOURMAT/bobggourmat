@@ -24,6 +24,8 @@ public interface UserService {
 	UserVO idSearch (UserVO userVO);
 	//  8. 비번 찾기
 	UserVO passwordSearch (UserVO userVO);
+	//  9. 아이콘 변경
+	UserVO updateIcon (UserVO userVO);
 
 }
 
