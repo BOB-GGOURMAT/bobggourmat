@@ -9,6 +9,7 @@ import com.bobggourmat.vo.UserVO;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.bytebuddy.asm.Advice.Return;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -44,22 +45,11 @@ public class UserServiceImpl implements UserService {
 	@Override // 회원정보수정
 	public UserVO updateUser(UserVO userVO) {
 		log.info("UserService updateUser 호출 : " + userVO);
-		if (userVO != null) {
-			// DB에서 정보를 받아와 비번이 일치할때만 수정을 실행한다.
-			UserVO dbVO = userDAO.selectByIdx(userVO.getUser_idx());
-			if (dbVO != null) { // db에 해당 idx의 멤버가 존재하면
-				String dbPassword = dbVO.getUser_password(); // 암호화된 내용을 DB에서 가져옴
-				if (userVO.getUser_password() == dbPassword) { // 암호화된 비번 일치여부 확인
-					// 회원 정보 수정
-					userDAO.insertUser(userVO);
-					// 수정된 정보를 다시 얻는다.
-					dbVO = userDAO.selectByIdx(userVO.getUser_idx());
-					return dbVO;
-				}
-			}
-		}
-		return null;
+		 userDAO.updateUser(userVO);
+		 return userDAO.selectByIdx(userVO.getUser_idx());
+		 
 	}
+	
 
 	@Override // 회원 탈퇴
 	public void deleteUser(UserVO userVO) {
