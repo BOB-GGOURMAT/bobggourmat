@@ -54,6 +54,7 @@
          <li>이메일 : ${userinfo.user_email}</li>
          <li>전화번호 : ${userinfo.user_phone}</li>
        </ul>
+		<a href="/iconColor"><button id="myPageBtn4"type="button" class="btn btn-outline-secondary" >아이콘 변경</button></a>
         <a href="/updateForm"><button id="myPageBtn1"type="button" class="btn btn-outline-secondary" >회원정보 수정</button></a>
         <a href="/updatePW"><button id="myPageBtn2"type="button" class="btn btn-outline-secondary" >비밀번호 수정</button></a>
         <a href="/delete"><button id="myPageBtn3"type="button" class="btn btn-outline-secondary" >탈퇴하기</button></a>
@@ -67,6 +68,6 @@
 	<h4 style=" line-height: 180px; font-weight:bold; ">평가한 맛집 보러가기</h4>
 	</div>
 	
-
+  
 </body>
 </html>
