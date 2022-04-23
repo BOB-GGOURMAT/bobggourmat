@@ -97,10 +97,28 @@ public class UserController {
 	   
 		
 	   //회원수정 화면
-	   @RequestMapping(value = "/updateForm")
+	   @RequestMapping(value = "/updateForm") 
 	   public String updateForm() {
 		   return "updateForm";
 	   }
+	   //수정하기버튼 눌렀을때
+
+	   @GetMapping (value ="/updateUserOK")
+	   public String updateUserOK () {
+		   return "redirect:/";
+	   }
+	   
+	   
+	   @RequestMapping(value = "/updateUserOK", method=RequestMethod.POST)
+		public String updateUserOK(@ModelAttribute UserVO userVO,HttpSession session) {
+			log.info("UserController updateUserOk 호출:" + userVO);
+		  UserVO userinfo = userService.updateUser(userVO); // DB에 수정
+			session.setAttribute("userinfo",userinfo);
+		  
+		  return "redirect:/mypage";
+		}	
+	   
+	   
        // 회원탈퇴페이지로 갈때
 	   @RequestMapping(value = "/delete")
 	   public String delete() {
