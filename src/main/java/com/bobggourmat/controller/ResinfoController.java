@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,7 +38,7 @@ public class ResinfoController {
 	
    //식당 상세페이지
    @RequestMapping(value = "/resinfo")
-   public String resinfo(@RequestParam(required = false) int resinfo_idx, HttpSession session,Model model ) {
+   public String resinfo(@RequestParam(required = false) int resinfo_idx, @RequestParam(required=false, defaultValue="0") int comment_idx,HttpSession session,Model model ) {
 	   log.info("Resinfo controller resinfo 호출 :" + resinfo_idx);
 	   ResinfoVO resinfo = resinfoService.selectByIdx(resinfo_idx);
 	   List<MenuVO> menuinfo = menuService.menuList(resinfo_idx);
@@ -64,13 +65,20 @@ public class ResinfoController {
 	   int likeCount = 0;
 	   int likeCheck = 0;
 	   for(int i=0; i<commentlist.size(); i++) {
-		   int comment_idx = commentlist.get(i).getComment_idx();
-		   likeCount=likeService.countLike(comment_idx);
+		   int comment_Num = commentlist.get(i).getComment_idx();
+		   likeCount=likeService.countLike(comment_Num);
 		   commentlist.get(i).setLikeCount(likeCount);
 		   likemap.put("user_idx",user_idx);
-		   likemap.put("comment_idx", comment_idx);	   
+		   likemap.put("comment_idx", comment_Num);	   
 		   likeCheck =likeService.checkLike(likemap);
 		   commentlist.get(i).setLikeCheck(likeCheck);
+	   }
+       
+	   if(comment_idx != 0) {
+	   CommentVO commentselect = commentService.selectByIdx(comment_idx);
+	   model.addAttribute("commentselect",commentselect);
+	   }else {
+		model.addAttribute("commentselect",null);
 	   }
 	   
 	   model.addAttribute("saveCheck",saveCheck);

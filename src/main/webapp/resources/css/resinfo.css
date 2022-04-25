@@ -232,9 +232,10 @@ a:hover {
 	width: 650px;
 }
 #commentBtn{
-	margin-right: 20px;
 	margin-top: 20px;
+	margin-right:20px;
 }
+
 .form-control{
 	width: 490px;
 	margin-left: 130px;
@@ -244,6 +245,12 @@ a:hover {
 	border: 1px solid gray;
 }
 .star{
+    margin-left: 130px;
+    margin-top:0;
+	width: 360px;
+	height: 72px;
+}
+.star1{
     margin-left: 130px;
     margin-top:0;
 	width: 360px;
