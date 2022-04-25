@@ -61,17 +61,6 @@ public class CommentController {
 		   commentService.delete(comment_idx);
 		   return "삭제 성공";
 	   }
-       
-	   //해당 댓글 불러오기
-	   @GetMapping(value = "/commentUpdate")
-	   public String commentUpdate(@RequestParam int comment_idx,Model model,HttpServletRequest request) {
-		   log.info("Resinfo controller commentUpdate 호출 :" +comment_idx);
-		   String referer = request.getHeader("Referer");
-		   CommentVO commentselect = commentService.selectByIdx(comment_idx);
-		   model.addAttribute("commentselect",commentselect);
-		   log.info("Resinfo controller commentUpdate 리턴 :" +model +"referer"+referer);
-		   return "redirect:"+ referer;
-	   } 
 	   
 	   //댓글 수정(get)
 	   @RequestMapping(value="/commentUpdateOk")

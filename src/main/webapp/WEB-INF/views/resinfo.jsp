@@ -30,12 +30,8 @@
 <!-- js 파일 include -->
 <script type="text/javascript" src="/resources/js/resinfo.js" ></script> 
 <script type="text/javascript">
-//식당 저장하기
-$(function(){
-	var commentselect = <%= request.getAttribute("commentselect") %>;
-	alert("commentselect : "+commentselect);
-});
 
+//식당 저장하기
 function save(){
 	var user = '<%=(UserVO) session.getAttribute("userinfo")%>';
     var resinfo_idx = '${resinfo.resinfo_idx}';
@@ -105,23 +101,10 @@ function commentDelete(comment_idx){
 	
 }
 
-//댓글 수정
-function commentUpdate(comment_idx){
-	 $.ajax({
-		    url: 'commentUpdate',
-		    type : 'post',
-		    data: {
-		    "comment_idx" : comment_idx
-		    },
-		    success: function (data){
-		    	alert("데이터 전송");
-		    },
-		    error: function (error){
-		        alert("에러");
-		    }
-	}); 
+function commentImport(comment_idx){
+	var resinfo_idx = '${resinfo.resinfo_idx}';
+	location.href='resinfo?resinfo_idx='+resinfo_idx+'&comment_idx='+comment_idx;
 }
-
 
 </script> 
 
@@ -195,8 +178,7 @@ function commentUpdate(comment_idx){
            </c:if>
            
            <c:if test="${userinfo !=null }">
-           <c:choose>
-            <c:when test="${commentselect != null }">
+            <c:if test="${commentselect != null }">
             <form class=myComment action="commentUpdateOk" method="POST">
                <div class="commentIcon1" >
                <img alt="profile image" src="/resources/image/밥 꾸르맛 노배경.png" style="background-color: ${userinfo.user_icon };">
@@ -204,10 +186,10 @@ function commentUpdate(comment_idx){
                <div class="commentNickname1">
                ${userinfo.user_nickname}
                </div>
-            <button id="commentBtn"type="submit" class="btn btn-outline-secondary" style="float: right;">수정완료</button>
-            <button id="commentBtn"type="button" class="btn btn-outline-secondary" onclick="history.go(0);" style="float: right;">취소</button>
-            <div class="star">
-            <fieldset>
+            <button id="commentBtn"type="submit" class="btn btn-outline-secondary" style="float: right;">완료</button>
+            <button id="commentBtn"type="button" class="btn btn-outline-secondary" onclick="history.go(-1);" style="float: right;">취소</button>
+            <div class="star1">
+            <fieldset id='star-rating' class='comment_star'>
 		        <input type="radio" name="comment_star" value="5" id="rate1"><label for="rate1">⭐</label>
 		        <input type="radio" name="comment_star" value="4" id="rate2"><label for="rate2">⭐</label>
 		        <input type="radio" name="comment_star" value="3" id="rate3"><label for="rate3">⭐</label>
@@ -215,13 +197,14 @@ function commentUpdate(comment_idx){
 		        <input type="radio" name="comment_star" value="1" id="rate5"><label for="rate5">⭐</label>
 		    </fieldset>
             </div>
-            <input type="text" name="comment_content" class="form-control" placeholder="${commentselect.comment_content } "autofocus required>
+            <input type="text" name="comment_content" class="form-control" value="${commentselect.comment_content } "autofocus required>
+			<input type="hidden" name="comment_idx" value="${commentselect.comment_idx }" />
 			<input type="hidden" name="resinfo_idx" value="${resinfo.resinfo_idx }" />
 			<input type="hidden" name="user_idx" value="${userinfo.user_idx }" />
 			</form>
-			</c:when>
+			</c:if>
            
-             <c:otherwise>
+             <c:if test="${commentselect == null }">
             <form class=myComment action="commentOk" method="POST">
                <div class="commentIcon1" >
                <img alt="profile image" src="/resources/image/밥 꾸르맛 노배경.png" style="background-color: ${userinfo.user_icon };">
@@ -243,8 +226,7 @@ function commentUpdate(comment_idx){
 			<input type="hidden" name="resinfo_idx" value="${resinfo.resinfo_idx }" />
 			<input type="hidden" name="user_idx" value="${userinfo.user_idx }" />
 			</form>
-			</c:otherwise>
-			</c:choose>
+           </c:if>
            </c:if>
 			<hr/>
             </div>
@@ -272,7 +254,7 @@ function commentUpdate(comment_idx){
 		    	<span class="commentStar"><i class="bi bi-star-fill" style="color: #fb3a2f"></i>${commentlist.comment_star}점</span>
 		        <c:if test="${commentlist.user_idx == userinfo.user_idx }">
                  <button id="commentlistBtn2" class="btn btn-outline-secondary btn-sm" onclick="commentDelete('${commentlist.comment_idx }')">삭제</button>
-		         <button id="commentlistBtn1" class="btn btn-outline-secondary btn-sm" onclick='location.href="commentUpdate?comment_idx=${commentlist.comment_idx }";' >수정</button>
+		         <button id="commentlistBtn1" class="btn btn-outline-secondary btn-sm" onclick="commentImport('${commentlist.comment_idx }')">수정</button>
 		         </c:if>
 		       <div class="commentNickname2">${commentlist.user_nickname}</div>
 		    	<div class="commentContent">${commentlist.comment_content}</div>
