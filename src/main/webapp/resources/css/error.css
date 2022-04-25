@@ -1,0 +1,19 @@
+body {
+	background-color: #ffce49;
+}
+
+.errorLeft{
+	position: fixed;
+	top: 50%;
+	left: 40%;
+	transform: translate(-50%, -50%);
+	
+}
+
+.errorRight{
+	position: fixed;
+	top: 50%;
+	left: 60%;
+	transform: translate(-50%, -50%);
+	
+}
