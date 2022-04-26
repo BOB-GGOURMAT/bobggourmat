@@ -84,6 +84,12 @@ public class ResinfoServiceImpl implements ResinfoService {
 		return resinfoDAO.saveCheck(map);
 	}
 
+	@Override
+	public double saveRes_star(int resinfo_idx) {
+		log.info("ResinfoService saveRes_star호출" + resinfo_idx);
+		return resinfoDAO.saveRes_star(resinfo_idx);
+	}
+
 	
 
 }

@@ -1,51 +1,39 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>밥 꾸르맛 비밀번호 수정</title>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title>회원정보수정</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
 <%-- 부트스트랩을 사용하기 위한 준비 시작 --%>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<%-- 부트스트랩을 사용하기 위한 준비 끝 --%>
 <!-- web icon -->
 <link rel="icon" type="image/x-icon" href="/resources/image/favicon.ico" />
 <!-- Bootstrap icons-->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-	rel="stylesheet" type="text/css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
 <!-- Google fonts-->
-<link
-	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
-	rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<link href="/resources/css/mypage.css" rel="stylesheet" />
+<link href="/resources/css/updateForm.css" rel="stylesheet" />
 <!-- web icon -->
 <link rel="icon" type="image/x-icon" href="/resources/image/favicon.ico" />
 <!-- Bootstrap icons-->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-	rel="stylesheet" type="text/css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
 <!-- Google fonts-->
-<link
-	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
-	rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<link href="/resources/css/login.css" rel="stylesheet" />
+<link href="/resources/css/updatePW.css" rel="stylesheet" />
 <script type="text/javascript">
 
 // 비밀번호 변경 후 변경 사실 알리는 alert창
@@ -107,49 +95,45 @@ function check_newPw(){
   }
 }
 	 
-
 </script>
 </head>
-
 <body>
-
+<jsp:include page="navbar.jsp"></jsp:include>
+	<div class="container1">
+			<h1><span style="color:white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">비밀번호 수정</span></h1>
+	<div class="container2">
 	<form action="updatePWOk" method="post">
 		<div class="PWcheck">
 
 			<!--로그인한 유저의 비밀번호 -->
 			<div class="item">
-				<input type="hidden" id="userPW" value="${userinfo.user_password }"
-					onchange="checkPw()" required>
+				<input type="hidden" id="userPW" value="${userinfo.user_password }" onchange="checkPw()" required>
 			</div>
 			<div class="item"></div>
 		</div>
 		<!--기존 비밀번호와 일치하는지 확인 -->
-		<div class="container">
-			<label for="user_password" class="item center">기존 비밀번호</label>
+		<div class="container3">
+			<h5><label for="user_password" class="item center">기존 비밀번호</label></h5>
 			<div class="item">
-				<input type="password" class="form-control" id="userPWCheck"
-					placeholder="기존 비밀번호를 입력하세요" onchange="checkPw()" required>
+				<input type="password" class="form-control" id="userPWCheck" onchange="checkPw()" required>
 			</div>
 			<span id="PwCkText"></span>
 			<div class="item"></div>
 		</div>
 
-		<div class="container">
-			<label for="user_password" class="item center">새 비밀번호</label>
+		<div class="container3">
+			<h5><label for="user_password" class="item center">새 비밀번호</label></h5>
 			<div class="item">
-				<input type="password" name="user_password" id="newUserPW"
-					class="form-control" placeholder="새 비밀번호를 입력하세요"
-					onchange="check_newPw()" required>
+				<input type="password" name="user_password" id="newUserPW" class="form-control" onchange="check_newPw()" required>
 			</div>
 			<div class="item"></div>
 		</div>
 
 
-		<div class="container">
-			<label for="user_password" class="item center">새 비밀번호 확인</label>
+		<div class="container3">
+			<h5><label for="user_password" class="item center">새 비밀번호 확인</label></h5>
 			<div class="item">
-				<input type="password" class="form-control" id="newUserPWCheck"
-					placeholder="새 비밀번호 확인" onchange="check_newPw()" required>
+				<input type="password" class="form-control" id="newUserPWCheck" onchange="check_newPw()" required>
 			</div>
 			<span id="newPwCkText"></span>
 			<div class="item"></div>
@@ -157,8 +141,9 @@ function check_newPw(){
 
 
 		<!-- 변경하기버튼 -->
-		<button type="submit" class="btn btn-warning">변경하기</button>
+		<button id="submitBtn" type="submit" class="btn btn-warning">변경하기</button>
 	</form>
-
+</div>
+</div>
 </body>
 </html>

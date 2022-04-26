@@ -34,8 +34,8 @@
 <!--  데이터를 받아오는 경우 -->
 	<c:if test="${userID != null }">
     <div class="container2">
-		<div class="container3">회원님의 아이디는 ${userID.user_id}입니다</div>
-		<button type="button" onclick="location.href='/findPW'" class="btn btn-warning">비밀번호 찾기</button>
+		<div class="container4"><h5>회원님의 아이디는 ${userID.user_id}입니다</h5></div>
+		<button id="findPWBtn" type="button" onclick="location.href='/findPW'" class="btn btn-warning">비밀번호 찾기</button>
     </div>
 	</c:if>
 <!-- 데이터를 받아오지 못한 경우 -->

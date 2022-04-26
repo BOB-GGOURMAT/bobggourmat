@@ -1,12 +1,12 @@
 body {
 	background-color: #ffce49;
 }
-#iconForm{
+.iconForm{
 	position: absolute;
-	margin-left: 250px;
-	margin-top: 200px;
+	margin-left: 350px;
+	margin-top: 190px;
 	height: 450px;
-	width: 1000px;
+	width: 800px;
 	background-color: white;
 	border: 1px solid gray;
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
@@ -20,10 +20,34 @@ body {
 	float: left;
 	width: 110px;
 	height: 110px;
-	margin-left: 170px;
-	margin-top: 60px;
 	border: 2px solid gray;
 	border-radius: 50%;
 	overflow: hidden;
 	box-sizing: border-box;
+}
+.container{
+	position: absolute;
+	margin-top: 110px;
+	margin-left: 350px;
+}
+
+.container1{
+	float: left;
+	width: 120px;
+	height: 160px;
+	margin-left: 110px;
+	margin-top: 50px;
+}
+
+.form-check{
+	position: absolute;
+	margin-top: 120px;
+	margin-left: 50px;
+}
+
+#submitBtn{
+	position: absolute;
+	width: 120px;
+	margin-top: 120px;
+	margin-left: 1030px;
 }

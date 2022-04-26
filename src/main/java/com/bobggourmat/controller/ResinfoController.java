@@ -110,6 +110,15 @@ public class ResinfoController {
 	   UserVO user = (UserVO) session.getAttribute("userinfo");
 	   int user_idx = user.getUser_idx();
 	   List<ResinfoVO> save_resinfo =resinfoService.save_reslist(user_idx);
+	   
+	   //저장한 식당 별점표시
+	   double res_star = 0;
+	   for(int i=0; i<save_resinfo.size(); i++) {
+		   int resinfo_idx = save_resinfo.get(i).getResinfo_idx();
+		   res_star=resinfoService.saveRes_star(resinfo_idx);
+		   save_resinfo.get(i).setResinfo_star(res_star);
+	   }
+	   
 	   model.addAttribute("save_resinfo",save_resinfo);
 	   log.info("Resinfo controller saveRes 리턴 :"  +save_resinfo);
 	   return"saveRes";

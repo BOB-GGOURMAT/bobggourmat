@@ -9,7 +9,7 @@ body {
 }
 
 .container2{
-	height: 450px;
+	height: 350px;
 	width: 500px;
 	background-color: white;
 	border: 1px solid gray;
@@ -17,9 +17,18 @@ body {
 }	
 
 .container3{
-	margin-top:100px;
-	margin-left: 20px;
-	margin-right: 20px;
+	margin-top:40px;
+	margin-left: 30px;
+	margin-right: 30px;
+	
+}
+
+.container4{
+	position:absolute;
+	width: 475px;
+    margin-left: 20px;
+	top: 55%;
+	transform: translate(0%, -50%);
 }
 
 .form-control{
@@ -27,16 +36,27 @@ body {
 }
 #cancelBtn{
 	position:absolute;
-	margin-left: 300px;
+	margin-left: 280px;
 }
 #findBtn{
 	position:absolute;
-	margin-left: 400px;
+	margin-left: 380px;
 }
 #againBtn{
 	position: absolute;
-	margin-top: 110px;
-	margin-left: 850px;
+	width: 150px;
+	margin-left: 100px;
+	margin-top: 400px;
+}
+#findPWBtn{
+   position: absolute;
+	margin-top: 270px;
+	margin-left: 340px;
+}
+#findIDBtn{
+   position: absolute;
+	margin-top: 270px;
+	margin-left: 360px;
 }
 .NoData{
 	position: fixed;
