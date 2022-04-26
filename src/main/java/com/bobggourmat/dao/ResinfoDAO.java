@@ -46,4 +46,7 @@ public interface ResinfoDAO {
 	
 	//<!--12. select 식당 저장 여부 확인하기 -->
 	int saveCheck (HashMap<String, Integer> map);
+	
+	//<!--13. select_저장한 식당 별점 가져오기 -->
+	double saveRes_star(int resinfo_idx);
 }

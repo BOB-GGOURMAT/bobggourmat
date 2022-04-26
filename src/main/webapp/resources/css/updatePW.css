@@ -1,0 +1,29 @@
+body {
+	background-color: #ffce49;
+}
+
+.container1{
+	margin-left: 515px;
+	margin-top: 110px;
+	position: absolute;
+}
+
+.container2{
+	height: 430px;
+	width: 500px;
+	background-color: white;
+	border: 1px solid gray;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}	
+
+.container3{
+	margin: 30px;
+}
+
+.form-control{
+	margin-bottom: 40px;
+}
+
+#submitBtn{
+	margin-left: 380px;
+}

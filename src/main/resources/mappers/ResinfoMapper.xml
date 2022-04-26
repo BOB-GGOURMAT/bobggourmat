@@ -7,7 +7,7 @@
 	<!-- 1. select_ 식당 한개 정보 가져오기 -->
 	<select id="selectByIdx" resultType="ResinfoVO" parameterType="int">
 		select
-		   r.*,l.*,c1.*,avg(comment_star) resinfo_star
+		   r.*,l.*,c1.*,ifnull(avg(comment_star),0 ) resinfo_star
 		from
 	    	resinfo r, category c1, location l,comment c2
 		where
@@ -134,4 +134,15 @@
    <select id="saveCheck" resultType="int" parameterType="map">
    select count(*) from save where resinfo_idx = #{resinfo_idx} and user_idx = #{user_idx}
    </select>
+   <!-- 13. select_저장한 식당 별점 가져오기-->
+    <select id="saveRes_star" resultType="double" parameterType="int" >
+      select
+         ifnull(avg(c.comment_star),0) resinfo_star
+      from 
+         comment c, resinfo r
+      where 
+         c.resinfo_idx = r.resinfo_idx
+		 and
+		 r.resinfo_idx = #{resinfo_idx}
+    </select>
 </mapper>

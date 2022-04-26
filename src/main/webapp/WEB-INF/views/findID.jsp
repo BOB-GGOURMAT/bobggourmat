@@ -34,17 +34,13 @@
 		<div class="container2">
 			<form class="container3" action="findIDOk" method="POST">
 				<div>
-					<p>
-						<label>회원이름</label>
+						<h5><label>회원이름</label></h5>
 						<input type="text" class="form-control" name="user_name" required>
 						
-						<label>전화번호</label>
+						<h5><label>전화번호</label></h5>
 						<input type="text" class="form-control" name="user_phone" required>
-					</p>
-					<p >
 						<button type="submit" id="findBtn" class="btn btn-warning">찾기</button>
 						<button type="button" id="cancelBtn"onclick="location.href='/findIDPW';" class="btn btn-warning">취소하기</button>
-					</p>
 	         	</div>
 			</form>
 		</div>

@@ -25,7 +25,7 @@
 <!-- Google fonts-->
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<link href="/resources/css/findPW.css" rel="stylesheet" />
+<link href="/resources/css/findID.css" rel="stylesheet" />
 </head>
 <body>
 <jsp:include page="navbar.jsp"></jsp:include>
@@ -34,8 +34,8 @@
 <!--  데이터를 받아오는 경우 -->
 	<c:if test="${userPW != null }">
     <div class="container2">
-		<div class="container3">회원님의 비밀번호는 ${userPW.user_password}입니다</div>
-		<button type="button" onclick="location.href='/findID'" class="btn btn-warning">아이디 찾기</button>
+		<div class="container4"><h5>회원님의 비밀번호는 ${userPW.user_password}입니다</h5></div>
+		<button id="findIDBtn" type="button" onclick="location.href='/findID'" class="btn btn-warning">아이디 찾기</button>
     </div>
 	</c:if>
 

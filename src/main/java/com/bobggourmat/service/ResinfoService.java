@@ -28,4 +28,6 @@ public interface ResinfoService {
 	List<ResinfoVO> save_reslist(int user_idx);
 	//10. 식당 저장 여부 확인
     int checkSave (HashMap<String,Integer> map);
+    //11. 저장한 식당 별점 가져오기
+    double saveRes_star(int resinfo_idx);
 }

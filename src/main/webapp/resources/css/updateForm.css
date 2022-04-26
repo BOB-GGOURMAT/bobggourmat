@@ -1,84 +1,27 @@
-.clearfix {
-	width: 100%;
-	height: 100%;
+body {
+	background-color: #ffce49;
 }
 
-.updateinfo {
-	width: 50%;
-	height: 70%;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin: auto;
-	border: 2px solid gray;
+.container1 {
+	margin-top: 110px;
+	margin-left: 465px;
+}
+	
+#updateUserForm{
+	position:absolute;
+	width:600px;
+	height:420px;
+	margin-top: 10px;
+	margin-left:465px;
+	background-color: white;
+	border: 1px solid gray;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
-.nick {
-	width: 100%;
-	height: 90%;
-	position: absolute;
-	top: 20;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	border: 2px solid gray;
+.col-mb-3{
+	margin:30px
 }
 
-.hp {
-	width: 100%;
-	height: 55%;
-	position: absolute;
-	top: 50;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	border-top: 2px solid gray;
-}
-
-.mb-3 {
-	width: 60%;
-	margin: 0%;
-}
-
-.updateicon {
-	float: right;
-	width: 110px;
-	height: 110px;
-	right: 30px;
-	top: 30px;
-	position: absolute;
-	border: 2px solid gray;
-	border-radius: 50%;
-	overflow: hidden;
-	box-sizing: border-box;
-
-	/*width:30%;
-	top: 0;
-	bottom: 50;
-	left: 50;
-	right: 0;
-	margin: 0 0 0 20;
-	height:30%;*/
-}
-
-.updateicon img {
-	max-width: 100%;
-	width: auto;
-}
-
-.updatebutton {
-	float: right;
-	width: 150px;
-	height: 70px;
-	right: 90px;
-	top: 50px;
-	position: absolute;
-}
-.updateButton{
-	float:right;
-	right: 30px;
-	position: absolute;
-	padding-right: -10%;
+#submitBtn{
+	margin-left:475px;
 }
