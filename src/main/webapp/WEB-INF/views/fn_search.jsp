@@ -1,40 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" isELIgnored="false"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>검색화면</title>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
 <%-- 부트스트랩을 사용하기 위한 준비 시작 --%>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <%-- 부트스트랩을 사용하기 위한 준비 끝 --%>
 <!-- web icon -->
 <link rel="icon" type="image/x-icon" href="/resources/image/favicon.ico" />
 <!-- Bootstrap icons-->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-	rel="stylesheet" type="text/css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
 <!-- Google fonts-->
-<link
-	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
-	rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/fn_search.css" rel="stylesheet" />
 </head>
@@ -60,11 +49,9 @@
 									<img src="${vo.resinfo_mainphoto}"
 										class="card-img-top" alt="식당사진" height="260px"/>
 									<div class="card-body">
-										<h5 class="card-title">${vo.resinfo_name}</h5>
-										<p class="card-text">${vo.category_name}/ 
-											${vo.location_name}</p>
-										<h5 class="star" style="color: orange">별점 표시될 곳</h5>
-										<br /> 
+										<h3 class="card-title">${vo.resinfo_name}</h3>
+										<h5 class="card-text">${vo.category_name} | ${vo.location_name}<br/></h5>
+										<h4><i class="bi bi-star-fill" style="color: #fb3a2f"></i><fmt:formatNumber  pattern="0.0" value="${vo.resinfo_star}"/>점</h4>
 										<a href="/resinfo?resinfo_idx=${vo.resinfo_idx }">
 										<button type="button" class="btn btn-outline-dark btn-sm">식당 구경하기</button>
 										</a>
@@ -76,11 +63,7 @@
 				</div>
 					</c:if>
 					<c:if test="${empty fn_search }">
-<<<<<<< HEAD
-					 <img class="NoSearch"alt="NoData" src="/resources/image/NoSearch.png" width="500px" height="500px">
-=======
-					 <img class="NoSearch"alt="NoSearch" src="/resources/image/NoSearch.png">
->>>>>>> branch '구수현' of https://github.com/BOB-GGOURMAT/bobggourmat.git
+					 <img class="NoSearch" alt="NoData" src="/resources/image/NoSearch.png" width="500px" height="500px">
 					</c:if>
 			</div>
 		</div>
