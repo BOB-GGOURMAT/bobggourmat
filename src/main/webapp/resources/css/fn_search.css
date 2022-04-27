@@ -1,7 +1,6 @@
 body {
 	background-color: #ffce49;
 }
-<<<<<<< HEAD
  .clearfix{
  	position: absolute; 
 	margin-top: 110px;
@@ -24,9 +23,6 @@ body {
 	margin-top: 30px;
 }
 .NoSearch{
-=======
-.NoSearch {
->>>>>>> branch '구수현' of https://github.com/BOB-GGOURMAT/bobggourmat.git
 	position: fixed;
 	top: 65%;
 	left: 50%;

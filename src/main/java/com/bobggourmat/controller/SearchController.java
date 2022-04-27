@@ -18,8 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class SearchController {
 	private final SearchService SearchService;
-//	@Autowired
-//	SearchService searchService;
+
 	//home.jsp에 있는 form action 값 mapping으로 가져옴 => 둘 다 post임
 	@RequestMapping(value = "/fn_search", method = RequestMethod.POST)
 	public String search(Model model, @RequestParam(value = "keyword") String keyword) {
