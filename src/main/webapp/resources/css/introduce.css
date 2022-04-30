@@ -1,46 +1,81 @@
 body {
 	background-color: #ffce49;
-	position: fixed;
 }
 
-.title{
-	position: fixed;
-	/*position:absolute;*/
-	margin-left : 50px;
-	top: 100px;
-	box-shadow : 0 3px 0 0 ;
+.container1{
+	margin-left: 230px;
 }
 
-.iLeft{
-	position: fixed;
-	top: 60%;
-	left : 21%;
-	transform: translate(-50%, -50%);
+h1 {
+	color: white;
+	width: 250px;
+	margin-top: 200px;
+	text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
 
-.iRight{
-	/*border: solid gray 2px;*/
-	position: absolute;
-	width: 780px;
-	top: 130px; 
-	height: 500px;
-	/*margin-left: 600px;*/
-	background-color:#ffffff;
-	overflow: scroll;
-	-ms-overflow-style: none;
-	scrollbar-width: none;
+
+.container2 {
+	input:focus ;
+	color:#fb3a2f ;
+	line-height: 60px;
+	margin-top: 120px;
+	-webkit-animation: slide-in-left 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-left 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
-.iRight::-webkit-scrollbar {
-	display: none;
+.container3 {
+	color: white;
+	width: 250px;
+	margin-top: 180px;
+	text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
-.f{
-	font-family: 'Song Myung', serif;
-}
-.container{
-	background-color:#ffffff;
-	width: 800px; 
-	height: 700px;
-	margin-left: 625px;
+.container4 {
+	color:#fb3a2f ;
+	margin-top: 40px;
+}	
+.container5{
+	background-color: white;
+	border: 1px solid gray;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+	line-height: 60px;
+	margin-top: 30px;
+	width: 1000px;
+	padding: 30px;
 }
 
-	
+
+.bi-pin-fill{
+	font-weight:bold;
+	margin-top: 130px;
+}
+
+h5{
+	text-decoration: underline;
+	text-underline-position: under;
+	text-decoration-color:#fb3a2f;
+}
+
+
+@-webkit-keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
