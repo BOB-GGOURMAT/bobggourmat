@@ -39,44 +39,47 @@
 
 <jsp:include page="navbar.jsp"></jsp:include>
 <body>
-	<div class="title">
-		<h4>ABOUT BOBGGROURMAT</h4>
-	</div>
-
-	<div class="iLeft">
-		<img alt="left" src="/resources/image/밥 꾸르맛 노배경.png">
-	</div>
-	<div class="container">
-		<div class="iRight">
-			<h3 class="f">
+	<div class="container1">
+		     <h1 >밥 꾸르맛은?</h1>
+			<h2 class="container2">
 				밥 꾸르맛은 <br>빕 구르망을 바탕으로 <br> 미슐랭에 대한 접근성을 열어주는 서울 맛집 사이트
 				입니다
+			</h2>
+			
+	        <h3 class="container3">
+				미슐랭이란?
 			</h3>
+			<h4 class="container4">	
+				미식가들의 성서와 같은 위치로 100년에 가까운 세월 동안 심사기준의 엄격성과 
+				<br>신뢰도의 평판을 쌓게되었습니다. 
+				<br> 미슐랭스타는 음식맛,분위기,서비스,가격을 바탕으로 이루어집니다. 
+			 </h4>
+			 
+			 <h3 class="container3">빕구르망이란?</h3>
+			<h4 class="container4"> 
+			  미슐랭 선정 맛집 중 35000원 이하의 음식을 기준으로 서울에 있는 식당들을 의미합니다.
+            </h4>
+            		
+			<h2 class="bi bi-pin-fill" style="color:white">밥 꾸르맛의 특별함</h2>
+			<div class="container5">
+			<h5><i class="bi bi-check" style="color:#fb3a2f"></i>키워드 검색</h5>
+			카테고리, 지역, 음식의 키워드로 검색해보세요. 데이터 분석을 통해 맛집을 추천해드립니다.
 			<br>
-			<h4 class="bi bi-pin-fill">밥 꾸르맛의 특별함</h4>
-			<h5 class="bi bi-check">키워드 검색</h5>
-			<h6>카테고리, 지역, 음식의 키워드로 검색해보세요. 데이터 분석을 통해 맛집을 추천해드립니다.</h6>
+			<h5><i class="bi bi-check" style="color:#fb3a2f"></i>지역별,카테고리별 검색</h5>
+			지도를 이용하여 지역을 선정할 수 있고 카테고리를 이용하여 음식 종류에 따라 맛집을 추천해드립니다.
 			<br>
-			<h5 class="bi bi-check">지역별,카테고리별 검색</h5>
-			<h6>지도를 이용하여 지역을 선정할 수 있고 카테고리를 이용하여 음식 종류에 따라 맛집을 추천해드립니다.</h6>
+			<h5><i class="bi bi-check" style="color:#fb3a2f"></i>믿을 수 있는 평가</h5>
+			사용자들이 직접 작성한 평가를 통해 맛집 후기들과 별점을 확인할 수 있습니다.
 			<br>
-			<h5 class="bi bi-check">믿을 수 있는 평가</h5>
-			<h6>사용자들이 직접 작성한 평가를 통해 맛집 후기들과 별점을 확인할 수 있습니다.</h6>
+			<h5><i class="bi bi-check" style="color:#fb3a2f"></i>양방향 소통</h5>
+			댓글을 통하여 사용자들이 직접 소통할 수 있습니다.
 			<br>
-			<h5 class="bi bi-check">양방향 소통</h5>
-			<h6>댓글을 통하여 사용자들이 직접 소통할 수 있습니다.</h6>
+			<h5><i class="bi bi-check" style="color:#fb3a2f"></i>나만의 꾸르맛집</h5>
+			내가 가고싶은 맛집을 저장하여 위시리스트를 한 번에 확인할 수 있습니다.
 			<br>
-			<h5 class="bi bi-check">나만의 꾸르맛집</h5>
-			<h6>내가 가고싶은 맛집을 저장하여 위시리스트를 한 번에 확인할 수 있습니다.</h6>
+			</div>
+            
 			<br>
-
-			<h6 style="color: blue;">
-				"미슐랭"이란 미식가들의 성서와 같은 위치로 100년에 가까운 세월 동안 심사기준의 엄격성과 신뢰도의 평판을 쌓게
-				되었습니다. <br> 미슐랭스타는 음식맛,분위기,서비스,가격을 바탕으로 이루어집니다. <br> "빕
-				구르망"이란 미슐랭 선정 맛집 중 35000원 이하의 음식을 기준으로 서울에 있는 식당들을 의미합니다.
-			</h6>
-			<br>
-		</div>
 	</div>
 </body>
 </html>
