@@ -64,9 +64,9 @@ function checkPw(){
 function check_newPw(){
 
 	  // 새로 설정할 비밀번호가 비밀번호 생성 기준에 맞는지 확인
-	  var pw = document.getElementById('newUserPW').value;
- 	  var SC = ["!","@","#","$","%"];
- 	  var check_SC = 0;
+	  let pw = document.getElementById('newUserPW').value;
+ 	  let SC = ["!","@","#","$","%"];
+ 	  let check_SC = 0;
 
   if(pw.length < 6 || pw.length > 16){
       window.alert('비밀번호는 6글자 이상, 16글자 이하만 이용 가능합니다.');

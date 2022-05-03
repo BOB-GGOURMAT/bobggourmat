@@ -67,9 +67,9 @@ $(document).ready(function() {
 				 </div>
 		    </form>
 				 <div class="request">
+				    <hr/>
 			   		<p>아직 밥꾸르맛 회원이 아니신가요?   <a class="requestHref" href="/joinForm">회원가입</a></p>
 			   		<p>아이디와 비밀번호를 잊으셨나요?  <a class="requestHref" href="/findIDPW">아이디/비밀번호 찾기</a></p>
-				    <hr/>
 				</div>
 	    </div>
 		</div>

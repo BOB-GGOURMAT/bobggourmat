@@ -37,7 +37,7 @@
 <link href="/resources/css/joinForm.css" rel="stylesheet" />
 <script type="text/javascript">
 	function checkId() {
-		var value = $("#user_id").val();
+		let value = $("#user_id").val();
 		if (value != null && value.length >= 4) {
 			//alert("value :" + value);
 			$.ajax({
@@ -68,7 +68,7 @@
 	}
 
 	function formCheckFn() {
-		var value = $("#formCheck1").val();
+		let value = $("#formCheck1").val();
 		//alert(value);
 		if (value != 1) {
 			console.log("중복버튼확인");
@@ -78,9 +78,9 @@
 	}
 	
 	function checkPw(){
-		  var pw = document.getElementById('userPW').value;
-          var SC = ["!","@","#","$","%"];
-          var check_SC = 0;
+		  let pw = document.getElementById('userPW').value;
+          let SC = ["!","@","#","$","%"];
+          let check_SC = 0;
 
           if(pw.length < 6 || pw.length > 16){
               window.alert('비밀번호는 6글자 이상, 16글자 이하만 이용 가능합니다.');
