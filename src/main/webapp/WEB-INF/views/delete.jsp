@@ -25,7 +25,7 @@
 <!-- 패스워드 일치 여부 확인 -->
 <script type="text/javascript">
 $(document).ready(function() {
-    var result = "${result}";
+    let result = "${result}";
     if (result == "deleteFail") {
         alert("비밀번호가 틀렸습니다. 다시 확인해주세요");
     }

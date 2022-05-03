@@ -19,15 +19,19 @@ body {
 }
 
 .join {
-	text-align: left; color : black;
-	margin: 30px;
+	text-align: left; 
+	margin-top: 80px;
+	margin-left: 30px;
+	margin-right: 30px;
 	color: black;
 }
 
 .request {
-	color: gray; margin : 30px;
+	color: gray; 
 	font-size: 14px;
-	margin: 30px;
+    margin-top: 50px;
+	margin-left: 30px;
+	margin-right: 30px;
 }
 
 .requestHref {

@@ -33,8 +33,8 @@
 
 //식당 저장하기
 function save(){
-	var user = '<%=(UserVO) session.getAttribute("userinfo")%>';
-    var resinfo_idx = '${resinfo.resinfo_idx}';
+	let user = '<%=(UserVO) session.getAttribute("userinfo")%>';
+    let resinfo_idx = '${resinfo.resinfo_idx}';
 	if(user == "null"){
 	alert("로그인 후 이용 가능합니다.");
 	location.href="login";	
@@ -59,7 +59,7 @@ function save(){
 
 //댓글 좋아요
 function like(comment_idx){
-    var user = '<%=(UserVO) session.getAttribute("userinfo")%>';
+    let user = '<%=(UserVO) session.getAttribute("userinfo")%>';
 	//alert("comment_idx : "+comment_idx);
     if(user=="null"){
 	alert("로그인 후 이용 가능합니다.");
@@ -102,7 +102,7 @@ function commentDelete(comment_idx){
 }
 
 function commentImport(comment_idx){
-	var resinfo_idx = '${resinfo.resinfo_idx}';
+	let resinfo_idx = '${resinfo.resinfo_idx}';
 	location.href='resinfo?resinfo_idx='+resinfo_idx+'&comment_idx='+comment_idx;
 }
 
