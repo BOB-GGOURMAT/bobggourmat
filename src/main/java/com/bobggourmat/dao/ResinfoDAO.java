@@ -29,7 +29,7 @@ public interface ResinfoDAO {
 	// <!-- 6. select_ 저장한 식당 리스트 가져오기 -->
 	List<ResinfoVO> save_resinfo(int user_idx);
 
-	// 7. 검색 기능 -구수현
+	// <!-- 7. 검색 기능 --> 
 	List<ResinfoVO> search(String keyword);
     
 	//<!-- 8. select_카테고리 식당 별점 가져오기-->

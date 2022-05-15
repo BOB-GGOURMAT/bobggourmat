@@ -5,7 +5,6 @@ import java.util.HashMap;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-
 @Repository
 @Mapper
 public interface LikeDAO {
@@ -17,5 +16,4 @@ public interface LikeDAO {
 	int like_check (HashMap<String,Integer> map);
   //<!-- 4. select_ 댓글 좋아요 개수 -->	
 	int like_count (int comment_idx);
-	
 }

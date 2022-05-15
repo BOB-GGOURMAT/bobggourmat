@@ -24,6 +24,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <%-- 부트스트랩을 사용하기 위한 준비 끝 --%>
 
+<%-- 네이버 로그인 --%>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 <!-- web icon -->
 <link rel="icon" type="image/x-icon" href="/resources/image/favicon.ico" />
 <!-- Bootstrap icons-->
@@ -69,7 +71,7 @@ $(document).ready(function() {
 				 <div class="request">
 			   		<p>아직 밥꾸르맛 회원이 아니신가요?   <a class="requestHref" href="/joinForm">회원가입</a></p>
 			   		<p>아이디와 비밀번호를 잊으셨나요?  <a class="requestHref" href="/findIDPW">아이디/비밀번호 찾기</a></p>
-				    <hr/>
+				    <hr/>				    
 				</div>
 	    </div>
 		</div>

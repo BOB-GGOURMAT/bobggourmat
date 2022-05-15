@@ -13,7 +13,7 @@ public interface UserDAO {
   
 	// 1. insert_계정 저장하기(회원가입)
 	void insertUser (UserVO userVO);
-    // 2. select_개정 1개 불러오기
+    // 2. select_계정 1개 불러오기
 	UserVO selectByIdx (int idx);
 	// 3. update_계정 수정하기 
 	void updateUser (UserVO userVO);
